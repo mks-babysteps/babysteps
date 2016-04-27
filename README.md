@@ -43,6 +43,6 @@ $ node server/server.js
 
 ## Team Members ##
 
-- Product Owner, Frontend: Jeong Min Lee
-- Scrum Master, Frontend: Tiffany Wu
-- Backend, Frontend: Jane Fong, Jonathan Lee
+- Product Owner, Full Stack: Daniel Chen
+- Scrum Master, Full Stack: Tiffany Wu
+- Dev Team: Danny Thai, Eric Shin, Preksa Mam
