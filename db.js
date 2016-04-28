@@ -30,16 +30,9 @@ var usersSchema = new mongoose.Schema ({
   state: String
 });
 
-var conditionSchema = new mongoose.Schema ({
-  _id: mongoose.Schema.Types.ObjectId,
-  name: String,
-  content: String
-});
 
 var User = mongoose.model('users', usersSchema);
-var Condition = mongoose.model('Conditions', conditionSchema);
 
 models.user = User;
-models.condition = Condition;
 
 module.exports = models;
