@@ -30,7 +30,6 @@ var usersSchema = new mongoose.Schema ({
   state: String
 });
 
-
 var User = mongoose.model('users', usersSchema);
 
 models.user = User;
