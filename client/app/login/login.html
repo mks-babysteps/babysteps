@@ -1,0 +1,29 @@
+<h1>Log In</h1>
+
+      <div>
+        <label>
+          <input ng-model="login.username" type="text" placeholder="username">
+        </label>
+        <label>
+          <input ng-model="login.password" type="password" placeholder="password">
+        </label>
+<!--         <label>
+          <span>Email</span>
+          <input type="text" placeholder="email">
+        </label> -->
+      </div>
+<!-- 
+      <div ng-if="login.error" class="row assertive">
+        <div class="col text-center">
+          <p></p>
+          <p>{{login.message}}</p>
+        </div>
+      </div> -->
+
+      <button ng-click="login.login(login.username, login.password)">
+        Login
+      </button>
+
+      <button ng-click="login.redirectToSignup()" class="button button-block button-balanced">
+        Sign Up
+      </button>

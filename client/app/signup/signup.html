@@ -1,0 +1,28 @@
+<h1>Sign Up</h1>
+
+    <div>
+      <label>
+        <input ng-model="signUp.username" type="text" placeholder="username">
+      </label>
+      <label>
+        <input ng-model="signUp.email" type="email" placeholder="email">
+      </label>
+      <label>
+        <input ng-model="signUp.firstname" type="text" placeholder="first name">
+      </label>
+      <label>
+        <input ng-model="signUp.lastname" type="text" placeholder="last name">
+      </label>
+      <label>
+        <input ng-model="signUp.password" type="password" placeholder="password">
+      </label>
+    </div>
+
+    <button ng-click="signUp.signUp(
+      signUp.username,
+      signUp.email,
+      signUp.firstname,
+      signUp.lastname,
+      signUp.password
+      )"> Create Account
+    </button>
