@@ -8,7 +8,8 @@ var options = {
   replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000}}
 };
 
-var mongodbUri = 'mongodb://' + dbconfig.username + ':' + dbconfig.password + '@ds021701.mlab.com:21701/babystepsdb';
+var mongodbUri = 'mongodb://'+ dbconfig.username + ':'+ dbconfig.password +
+'@ds021701.mlab.com:21701/babystepsdb';
 
 mongoose.connect(mongodbUri, options);
 
@@ -19,12 +20,12 @@ mongoose.connection.once('open', function() {
 });
 
 var usersSchema = new mongoose.Schema ({
-  first_name: String,
-  last_name: String,
+  firstName: String,
+  lastName: String,
   email: String,
   password: String,
   children: [],
-  street_address: String,
+  streetAddress: String,
   city: String,
   state: String
 });

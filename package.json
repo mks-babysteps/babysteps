@@ -1,0 +1,50 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "jshint . --exclude node_modules",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jshint": "^2.9.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.13"
+  },
+  "jshintConfig": {
+    "browser": true,
+
+    "jquery": true,
+
+    "node": true,
+
+    "esversion": 6,
+
+    "camelcase": true,
+
+    "eqeqeq": true,
+
+    "indent": 2,
+
+    "latedef": true,
+
+    "maxlen": 100,
+
+    "newcap": true,
+
+    "quotmark": "single",
+
+    "undef": true,
+
+    "unused": true,
+
+    "eqnull": true
+  }
+}
