@@ -5,9 +5,9 @@
     .module('baby.signup')
     .controller('SignupCtrl', SignupCtrl);
 
-  function SignupCtrl (Auth, $state) {
+  function SignupCtrl () {
     // initialization
-    var vm = this;
+    // var vm = this;
     // activate();
 
     // // variables
@@ -19,7 +19,7 @@
     // // implementation details
     // function signup () {
     // };
-  };
+  }
 })();
 
 
