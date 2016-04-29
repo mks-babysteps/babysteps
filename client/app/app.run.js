@@ -1,5 +1,5 @@
 (function () {
-  'use strict'
+  'use strict';
 
   angular
     .module('baby')
@@ -18,5 +18,5 @@
     else {
       $state.go('landing');
     }
-  };
+  }
 })();

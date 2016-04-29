@@ -1,5 +1,5 @@
 (function () {
-  'use strict'
+  'use strict';
 
   angular
     .module('baby.signup')
@@ -12,7 +12,7 @@
         views: {
           'signup': {
             templateUrl: 'app/signup/signup.html',
-            controller: 'SignupController as signup'
+            controller: 'SignupCtrl as signup'
           };
         };
       });

@@ -1,26 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <div id='container'>   
-      <nav class='navigation'>
-        <ul>
-          <li>
-              <a href='#'>About Us</a>
-          </li>
-          <li>
-             <title>Baby Steps</title>
-          </li>
-          <li>
-              <a href='#'>Technology</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
     <!-- stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- dependencies -->
-    <script src="/node_modules/angular/angular.js"></script>
-    <script src="/node_modules/angular-ui-router/angular-ui-router.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- app -->
     <script src="app/app.module.js"></script>
     <script src="app/app.constants.js"></script>
@@ -33,6 +18,21 @@
     <script src="app/signup/signup.routes.js"></script>
   </head>
   <body ng-app="baby">
+      <div id="container">   
+      <nav class="navigation" ng-controller="NavCtrl as nav">
+        <ul>
+          <li>
+              <a href="#">About Us</a>
+          </li>
+          <li>
+             <h1>Baby Steps</h1>
+          </li>
+          <li>
+              <a href="#">Technology</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
     <!-- template -->
     <div></div>
   </body>

@@ -1,0 +1,22 @@
+{
+  "name": "client",
+  "homepage": "https://github.com/tiffanymwu/babysteps",
+  "authors": [
+    "Tiffany Wu <tiffanymwu@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.2.18"
+  }
+}
