@@ -1,5 +1,5 @@
 (function () {
-  'use strict'
+  'use strict';
 
   angular
     .module('baby')
@@ -11,26 +11,26 @@
         return {
           username: $localStorage.username,
           token: $localStorage.token
-        }
+        };
       },
 
       signIn: function (username, password) {
-        $http.post(AWS_URL + '/landing/login', {
+        $http.post('/landing/login', {
           user: {
             username: username,
             password: password
           }
         }).success(function (data) {
-          $localStorage.username = username
-          $localStorage.token = data.token
-          $http.defaults.headers.common['username'] = username
-          $http.defaults.headers.common['token'] = data.token
-          $state.go('tab.classrooms')
-        })
+          $localStorage.username = username;
+          $localStorage.token = data.token;
+          $http.defaults.headers.common.username = username;
+          $http.defaults.headers.common.token = data.token;
+          $state.go('tab.classrooms');
+        });
       },
 
       signUp: function (username, password, email, name) {
-        $http.post(AWS_URL + '/landing/register', {
+        $http.post('/landing/register', {
           user: {
             username: username,
             password: password,
@@ -38,18 +38,19 @@
             name: name
           }
         }).success(function (data) {
-          $localStorage.username = username
-          $localStorage.token = data.token
-          $http.defaults.headers.common['username'] = username
-          $http.defaults.headers.common['token'] = data.token
-          $state.go('dashboard')
-        })
+          $localStorage.username = username;
+          $localStorage.token = data.token;
+          $http.defaults.headers.common.username = username;
+          $http.defaults.headers.common.token = data.token;
+          $state.go('dashboard');
+        });
       },
 
       signOut: function () {
-        $localStorage.$reset()
-        $state.go('landing')
-      };
+        $localStorage.$reset();
+        $state.go('landing');
+      }
     };
-  };
+  }
+
 })();
