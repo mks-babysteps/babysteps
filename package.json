@@ -33,7 +33,7 @@
 
     "indent": 2,
 
-    "latedef": true,
+    "latedef": false,
 
     "maxlen": 100,
 
@@ -46,7 +46,7 @@
     "unused": true,
 
     "eqnull": true,
-    
-    "globals": { "MY_GLOBAL": false }
+
+    "globals": { "angular": true }
   }
 }

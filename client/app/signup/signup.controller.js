@@ -1,25 +1,24 @@
 (function () {
-  'use strict'
+  'use strict';
 
   angular
     .module('baby.signup')
     .controller('SignupController', SignupController);
 
-  function SignupController (Auth, $state) {
+  function SignupController () {
     // initialization
     var vm = this;
-    activate();
 
     // variables
-    vm.username = username;
 
     // functions
     vm.create = signup;
 
     // implementation details
     function signup () {
-    };
-  };
+    }
+  }
+
 })();
 
 

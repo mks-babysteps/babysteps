@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 var dbconfig = require('./config.js');
 
-var models = {};
-
 var options = {
   server: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}},
   replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000}}
@@ -17,7 +15,7 @@ mongoose.connection.on('error', console.error.bind(console,'connection error: ')
 
 mongoose.connection.once('open', function() {
   console.log('MongoDB is Connected!');
-}); 
+});
 
 var usersSchema = new mongoose.Schema ({
   firstName: String,

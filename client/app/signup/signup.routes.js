@@ -1,5 +1,5 @@
 (function () {
-  'use strict'
+  'use strict';
 
   angular
     .module('baby.signup')
@@ -13,8 +13,8 @@
           'signup': {
             templateUrl: 'app/signup/signup.html',
             controller: 'SignupController as signup'
-          };
-        };
+          }
+        }
       });
-  };
+  }
 })();

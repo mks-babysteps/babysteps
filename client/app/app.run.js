@@ -1,11 +1,7 @@
 (function () {
-  'use strict'
+  'use strict';
 
-  angular
-    .module('baby')
-    .run(run);
-
-  function run ($http, $state, Auth) {
+  function run($state) {
     // // set headers & load dashboard if logged in
     // if (Auth.current().token) {
     //   // append authentication information to each HTTP request
@@ -14,9 +10,11 @@
 
       // // go to dashboard
       // $state.go('dashboard')
-    // } 
-    else {
-      $state.go('landing');
-    }
-  };
+    // }
+    $state.go('landing');
+  }
+
+  angular
+    .module('baby')
+    .run(run);
 })();
