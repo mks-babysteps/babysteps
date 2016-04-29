@@ -1,28 +1,12 @@
 // var express = require('express');
 // var router = express.Router();
-// var auth = require('../modules/auth');
+// // we'll want to load the database module (mongoose) to make queries
+// var mongoose = require('../db');
 
-// // we'll want to load the database module (knex) to make queries
-// var knex = require('../db');
-
-
-// /**
-//  *  router/signup.js
-//  *
-//  *  API endpint: /api/signup
-//  */
 // router.post('/', function(req, res) {
 //   var user = req.body;
 //   console.log(req.body);
-
-//   /**
-//    *  You'll notice that we use res.json({}) to send responses to our client
-//    *  regardless of whether the operation succeeded or not. This is because
-//    *  error codes are not as helpful, but a json object with a description
-//    *  of what occured 
-//    *
-//    */
-
+  
 //   // data validation
 //   if (!validate(user)) {
 //     res.json({

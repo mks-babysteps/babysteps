@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
+// var express = require('express');
+// var router = express.Router();
 var User = require('../db.js');
-var db = require('../db.js');
+// var db = require('../db.js');
 
 
 User.find( {firstName:'Daniel'} , function(err, user){
   if(err){
-    console.log('error')
+    console.log('error');
   }else{
     console.log("not an error, the user :", user);
     console.log("user id: ",  user[0]._id)

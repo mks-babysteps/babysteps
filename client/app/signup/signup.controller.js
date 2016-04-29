@@ -1,25 +1,25 @@
 (function () {
-  'use strict'
+  'use strict';
 
   angular
     .module('baby.signup')
-    .controller('SignupController', SignupController);
+    .controller('SignupCtrl', SignupCtrl);
 
-  function SignupController (Auth, $state) {
+  function SignupCtrl () {
     // initialization
-    var vm = this;
-    activate();
+    // var vm = this;
+    // activate();
 
-    // variables
-    vm.username = username;
+    // // variables
+    // vm.username = username;
 
-    // functions
-    vm.create = signup;
+    // // functions
+    // vm.create = signup;
 
-    // implementation details
-    function signup () {
-    };
-  };
+    // // implementation details
+    // function signup () {
+    // };
+  }
 })();
 
 
@@ -27,7 +27,6 @@
 //     var userObj = {
 //       username: username,
 //       email: email,
-//       phonenumber: phonenumber,
 //       firstname: firstname,
 //       lastname: lastname,
 //       password: password
