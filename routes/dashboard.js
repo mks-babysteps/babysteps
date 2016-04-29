@@ -31,3 +31,7 @@ User.find( {firstName:'Daniel'} , function(err, user){
 //     user.save()    
 //   }
 // })
+
+app.get('/dashboard', function(req, res){
+  
+})
