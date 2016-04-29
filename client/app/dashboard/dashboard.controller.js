@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('myDashboard');
+    .module('baby.dashboard');
     .controller('dashboardController', function($scope, Children){
         //need to create a factory to fetch Children data
         $scope.searchChild = function(){
-          console.log('in searchChild')
-        } 
+          console.log('in searchChild');
+        };
 
 
     })

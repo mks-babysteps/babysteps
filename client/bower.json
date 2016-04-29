@@ -1,0 +1,21 @@
+{
+  "name": "client",
+  "homepage": "https://github.com/chend2/babysteps",
+  "authors": [
+    "Daniel Chen <chend2@mail.uc.edu>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.2.18"
+  }
+}

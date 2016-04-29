@@ -45,6 +45,8 @@
 
     "unused": true,
 
-    "eqnull": true
+    "eqnull": true,
+    
+    "globals": { "MY_GLOBAL": false }
   }
 }

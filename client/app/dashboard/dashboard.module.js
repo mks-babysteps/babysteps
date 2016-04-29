@@ -1,6 +1,6 @@
 (function(){
   'use strict';
   angular
-    .module('myDashboard', []);
+    .module('baby.dashboard', []);
 })();
 

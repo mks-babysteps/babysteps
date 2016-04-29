@@ -17,7 +17,7 @@ mongoose.connection.on('error', console.error.bind(console,'connection error: ')
 
 mongoose.connection.once('open', function() {
   console.log('MongoDB is Connected!');
-});
+}); 
 
 var usersSchema = new mongoose.Schema ({
   firstName: String,
@@ -32,6 +32,4 @@ var usersSchema = new mongoose.Schema ({
 
 var User = mongoose.model('users', usersSchema);
 
-models.user = User;
-
-module.exports = models;
+module.exports = User;
