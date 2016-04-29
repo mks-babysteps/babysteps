@@ -3,7 +3,7 @@
 
   angular
     .module('baby.signup')
-    .controller('SignupController', SignupController);
+    .controller('SignupCtrl', SignupController);
 
   function SignupController () {
     // initialization
