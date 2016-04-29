@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('baby')
+    .module('baby.services')
     .factory('Auth', Auth);
 
   function Auth ($http, $localStorage, $state) {

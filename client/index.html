@@ -24,21 +24,18 @@
   </head>
   <body ng-app="baby">
       <div id="container">   
-      <nav class="navigation" ng-controller="NavCtrl as nav">
-        <ul>
-          <li>
-              <a href="#">About Us</a>
-          </li>
-          <li>
-             <h1>Baby Steps</h1>
-          </li>
-          <li>
-              <a href="#">Technology</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <!-- template -->
-    <div></div>
+      <div class="navigation">
+        <div class="wrap">
+          <ul>
+            <li><a href="#/about">About Us</a></li>
+            <li><h1>Baby Steps</h1></li>
+            <li><a href="#/tech">Technology</a></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+
+      <!-- template -->
+    <div ui-view></div>
   </body>
 </html>
