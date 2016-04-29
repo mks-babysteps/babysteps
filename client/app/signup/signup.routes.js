@@ -10,11 +10,11 @@
       .state('signup', {
         url: '/signup',
         views: {
-          'signup': {
+          '': {
             templateUrl: 'app/signup/signup.html',
             controller: 'SignupCtrl as signup'
-          };
-        };
+          }
+        }
       });
   }
 })();

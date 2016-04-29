@@ -6,11 +6,10 @@ var cors = require('cors');
 
 // var dashboard = require('./routes/dashboard.js');
 
-app.use(express.static(__dirname + '/client'));
+app.use(cors());
+app.use(express.static('client/'));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
-app.use(cors());
-
 
 app.listen(8080, function() {
   console.log('Listening to localhost:8080');
