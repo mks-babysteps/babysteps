@@ -3,11 +3,11 @@
 
   angular
     .module('baby.landing')
-    .controller('LandingCtrl', LandingController);
+    .controller('LandingCtrl', LandingCtrl);
 
-  function LandingController () {
+  function LandingCtrl() {
     // initialization
-    var vm = this;
+    // var vm = this;
 
     // variables
 

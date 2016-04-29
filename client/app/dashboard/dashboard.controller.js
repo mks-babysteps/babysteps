@@ -3,9 +3,9 @@
 
   angular
     .module('baby.dashboard')
-    .controller('DashboardCtrl', function($scope){
+    .controller('DashboardCtrl', function(){
       // initialization
-      var vm = this;
+      // var vm = this;
 
       // variables
 
