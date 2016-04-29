@@ -1,19 +1,20 @@
-(function () {
+(function() {
   'use strict';
 
   angular
-    .module('baby.landing')
-    .controller('LandingCtrl', LandingCtrl);
+  .module('baby.landing')
+  .controller('LandingCtrl', LandingCtrl);
 
-  function LandingCtrl() {
-    // initialization
-    // var vm = this;
+function LandingCtrl($state) {
 
-    // variables
+  var vm = this;
 
+  vm.redirectToSignup = function() {
+    $state.go('signup');
+  };
 
-    // functions
-
-  }
-
+  vm.redirectToLogin = function() {
+    $state.go('login');
+  };
+}
 })();
