@@ -5,7 +5,8 @@
     .module('baby')
     .run(run);
 
-  function run($state, $rootScope, Auth) {
+    // Auth, $rootScope
+  function run($state) {
     // // set headers & load dashboard if logged in
     // if (Auth.current().token) {
     //   // append authentication information to each HTTP request
