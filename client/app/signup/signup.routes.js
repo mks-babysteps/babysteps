@@ -12,9 +12,9 @@
         views: {
           'signup': {
             templateUrl: 'app/signup/signup.html',
-            controller: 'SignupController as signup'
-          }
-        }
+            controller: 'SignupCtrl as signup'
+          };
+        };
       });
   }
 })();
