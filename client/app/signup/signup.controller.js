@@ -3,22 +3,23 @@
 
   angular
     .module('baby.signup')
-    .controller('SignupController', SignupController);
+    .controller('SignupCtrl', SignupCtrl);
 
-  function SignupController () {
+  function SignupCtrl (Auth, $state) {
     // initialization
     var vm = this;
+    // activate();
 
-    // variables
+    // // variables
+    // vm.username = username;
 
-    // functions
-    vm.create = signup;
+    // // functions
+    // vm.create = signup;
 
-    // implementation details
-    function signup () {
-    }
-  }
-
+    // // implementation details
+    // function signup () {
+    // };
+  };
 })();
 
 
@@ -26,7 +27,6 @@
 //     var userObj = {
 //       username: username,
 //       email: email,
-//       phonenumber: phonenumber,
 //       firstname: firstname,
 //       lastname: lastname,
 //       password: password
