@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jshint . --exclude node_modules",
+    "test": "jshint . --exclude node_modules,client/bower_components",
     "start": "node server.js"
   },
   "author": "",

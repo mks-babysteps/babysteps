@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+  angular
+    .module('baby')
+    .run(run);
+
   function run($state) {
     // // set headers & load dashboard if logged in
     // if (Auth.current().token) {
@@ -14,7 +18,4 @@
     $state.go('landing');
   }
 
-  angular
-    .module('baby')
-    .run(run);
 })();
