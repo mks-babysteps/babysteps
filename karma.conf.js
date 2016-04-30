@@ -17,11 +17,21 @@ module.exports = function(config) {
     files: [
       'client/bower_components/angular/angular.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
+      'client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/app/app.module.js',
-      'client/app/dashboard.module.js',
-      'client/app/app.run.js',
-      'client/app/**/*.js',
-      'test/*.js'
+      'client/app/landing/landing.module.js',
+      'client/app/landing/landing.controller.js',
+      'client/app/landing/landing.routes.js',
+      'client/app/signup/signup.module.js',
+      'client/app/signup/signup.controller.js',
+      'client/app/signup/signup.routes.js',
+      'client/app/login/login.module.js',
+      'client/app/login/login.controller.js',
+      'client/app/login/login.routes.js',
+      'client/app/dashboard/dashboard.module.js',
+      'client/app/dashboard/dashboard.controller.js',
+      'client/app/dashboard/dashboard.routes.js',
+      'client/test/**/*.js'
     ],
 
     // list of files to exclude
