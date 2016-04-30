@@ -1,25 +1,23 @@
 //------- SPECS - TESTING -------------
 describe('baby.landing', function() {
+  beforeEach(module('baby'));
+  beforeEach(module('baby.landing'));
+  beforeEach(module('ui.router'));
 
-    var $controller;
-
+  //-- test controller
+  describe('Landing Controller', function() {
+    var landingController;
     beforeEach(function() {
-
-        module('baby.landing');
-
-        inject(function (_$controller_) {
-            // The injector unwraps the underscores (_)
-            // from around the parameter names when matching
-            $controller = _$controller_('LandingCtrl');
-        });
+      inject(function($controller) {
+        landingController = $controller('LandingCtrl');
+        console.log(landingController);
+      })
     });
 
-    //-- test controller
-    describe('Controller : Landing', function() {
-
-        it('should have an object with val 50', function () {
-            expect($controller.someValue).toBe(42);
-        });
+    it('should have an object with val 50', function () {
+      // expect(landing.someValue).toBe(50);
+      expect(landingController).toBeDefined();
     });
+  });
 
 });
