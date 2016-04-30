@@ -13,8 +13,8 @@
           '': {
             templateUrl: 'app/dashboard/dashboard.html',
             controller: 'DashboardCtrl as dashboard'
-          };
-        };
+          }
+        }
       }) // just placing route to about us page here, we can move it later!
       .state('about', {
         url: '/about',
@@ -27,4 +27,4 @@
         controller: ''
       });
     };
-})();
+})(); 

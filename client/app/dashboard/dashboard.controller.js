@@ -4,15 +4,28 @@
   angular
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
+    function DashboardCtrl(User){
+      console.log("DashboardCtrl")
+    
+      var vm = this; 
 
-    function DashboardCtrl() {
-      // initialization
-      // var vm = this;
+      vm.message = "hello world!"
 
-      // variables
+      console.log(vm)
 
-      // functions
+
+
+
+
+
+
+
+
+
+
+
     }
+
 })();
 
 
