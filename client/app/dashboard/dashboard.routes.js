@@ -26,5 +26,6 @@
         templateUrl: '../tech.html',
         controller: ''
       });
-    }
-})();
+
+    };
+})(); 

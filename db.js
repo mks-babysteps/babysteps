@@ -30,6 +30,7 @@ var usersSchema = new mongoose.Schema ({
   state: String
 });
 
+
 var conditionsSchema = new mongoose.Schema ({
   name: String,
   grossMotor: {
@@ -55,15 +56,3 @@ dbmodels.conditions = mongoose.model('conditions',conditionsSchema);
 
 module.exports = dbmodels;
 
-// var newcond = new dbmodels.conditions();
-
-// newcond.name = 'Cerebral Palsy';
-
-// newcond.save(function(err, condsaved) {
-//   if(err) {
-//     throw err;
-//     console.log(err);
-//   } else {
-//     console.log('saved!');
-//   }
-// });
