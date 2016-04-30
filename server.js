@@ -5,6 +5,8 @@ var cors = require('cors');
 // var db = require('./db.js');
 
 // var dashboard = require('./routes/dashboard.js');
+var milestone = require('./routes/milestone');
+app.use('/milestone', milestone);
 
 app.use(cors());
 app.use(express.static('client/'));

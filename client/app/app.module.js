@@ -9,7 +9,8 @@
       'baby.landing',
       'baby.signup',
       'baby.login',
-      'baby.dashboard'
+      'baby.dashboard',
+      'baby.milestone'
     ]);
 })();
 
