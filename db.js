@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var dbconfig = require('./config.js');
 
+var dbmodels = {};
+
 var options = {
   server: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}},
   replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000}}
@@ -28,6 +30,40 @@ var usersSchema = new mongoose.Schema ({
   state: String
 });
 
-var User = mongoose.model('users', usersSchema);
+var conditionsSchema = new mongoose.Schema ({
+  name: String,
+  grossMotor: {
+    sitsalone: [],
+    crawls: [],
+    stands: [],
+    walksalone: []
+  },
+  language: {
+    firstwords: [],
+    twowordphrases: []
+  },
+  personalSocial: {
+    responsivesmile: [],
+    fingerfeeds: [],
+    drinksunassisted: [],
+    usesspoon: []
+  }
+});
 
-module.exports = User;
+dbmodels.user = mongoose.model('users', usersSchema);
+dbmodels.conditions = mongoose.model('conditions',conditionsSchema);
+
+module.exports = dbmodels;
+
+// var newcond = new dbmodels.conditions();
+
+// newcond.name = 'Cerebral Palsy';
+
+// newcond.save(function(err, condsaved) {
+//   if(err) {
+//     throw err;
+//     console.log(err);
+//   } else {
+//     console.log('saved!');
+//   }
+// });
