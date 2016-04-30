@@ -12,7 +12,7 @@
         views: {
           '': {
             templateUrl: 'app/milestone/milestone.html',
-            controller: 'MilestoneCtrl as Milestone'
+            controller: 'MilestoneCtrl as milestone'
           }
         }
       });

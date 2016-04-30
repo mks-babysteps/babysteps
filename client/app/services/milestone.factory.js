@@ -3,21 +3,20 @@
 
   angular
     .module('baby')
-    .factory('Milestone', Milestone);
+    .factory('milestone', milestone);
 
   // Milestone.$inject = [$http];
 
-  function Milestone ($http) {
+  function milestone ($http) {
     var service = {
         getCondition: getCondition
     };
     return service;
 
-    function getCondition() {
-      $http.post('/milestone')
-        .then(function(res) {
-            console.log(res);
-    });
+    function getCondition(condition) {
+      var conditionObj = {conditionName : condition};
+
+      return $http.post('/milestone', conditionObj);
     }
 
   }
