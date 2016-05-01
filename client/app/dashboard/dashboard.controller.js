@@ -5,7 +5,7 @@
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
 
-    function DashboardCtrl() {
+  function DashboardCtrl() {
       // initialization
       // var vm = this;
 

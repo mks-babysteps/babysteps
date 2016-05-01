@@ -10,7 +10,9 @@
       'baby.signup',
       'baby.login',
       'baby.dashboard',
-      'baby.milestone'
+      'baby.milestone',
+      'baby.about',
+      'baby.tech'
     ]);
 })();
 

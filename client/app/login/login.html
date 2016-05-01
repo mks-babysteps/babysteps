@@ -1,23 +1,29 @@
 <div ui-view>
 
   <h1>Log In</h1>
+  <br>
 
   <div>
-    <label>
+    <form>
       <input ng-model="login.username" type="text" placeholder="username">
-    </label>
-    <label>
+      <br>
       <input ng-model="login.password" type="password" placeholder="password">
-    </label>
+      <br>
+        <button ng-click="login.login(login.username, login.password)">
+        Login
+        </button>
+        <br>
+        <button ng-click="login.redirectToSignup()">
+        Sign Up
+        </button>
+    </form>
   </div>
 
-
-  <button ng-click="login.login(login.username, login.password)">
-    Login
-  </button>
-
-  <button ng-click="login.redirectToSignup()" class="button button-block button-balanced">
-    Sign Up
-  </button>
+  <div ng-if="login.error" class="error">
+    <div class="">
+      <p></p>
+      <p>{{login.message}}</p>
+    </div>
+  </div>
 
 </div>

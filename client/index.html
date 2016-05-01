@@ -12,6 +12,7 @@
     <script src="app/app.run.js"></script>
     <script src="app/app.constants.js"></script>
     <script src="app/services/milestone.factory.js"></script>
+    <script src="app/services/auth.factory.js"></script>
     <script src="app/landing/landing.module.js"></script>
     <script src="app/landing/landing.controller.js"></script>
     <script src="app/landing/landing.routes.js"></script>
@@ -27,6 +28,10 @@
     <script src="app/milestone/milestone.module.js"></script>
     <script src="app/milestone/milestone.controller.js"></script>
     <script src="app/milestone/milestone.routes.js"></script>
+    <script src="app/about/about.module.js"></script>
+    <script src="app/about/about.routes.js"></script>
+    <script src="app/tech/tech.module.js"></script>
+    <script src="app/tech/tech.routes.js"></script>
 
   </head>
   <body ng-app="baby">
@@ -34,9 +39,9 @@
       <div class="navigation">
         <div class="wrap">
           <ul>
-            <li><a href="#/about">About Us</a></li>
-            <li><h1>Baby Steps</h1></li>
-            <li><a href="#/tech">Technology</a></li>
+            <li><a ui-sref="about">About Us</a></li>
+            <li><h1><a ui-sref="landing">Baby Steps</a></h1></li>
+            <li><a ui-sref="tech">Technology</a></li>
           </ul>
         </div>
       </div>

@@ -1,65 +1,50 @@
-// var express = require('express');
-// var router = express.Router();
-// var auth = require('../modules/auth');
+var express = require('express');
+var router = express.Router();
+// var auth = require('../tokens.js');
 
-// // we'll want to load the database module (knex) to make queries
-// var knex = require('../db');
+// var User = require('../db');
 
+router.post('/', function(req, res) {
+  var user = req.body;
 
-// /**
-//  *  router/signup.js
-//  *
-//  *  API endpint: /api/signup
-//  */
-// router.post('/', function(req, res) {
-//   var user = req.body;
-//   console.log(req.body);
+  // data validation
+  if (!validate(user)) {
+    res.json({
+      success: false,
+      message: 'Please provide a username and password.'
+    });
 
-//   /**
-//    *  You'll notice that we use res.json({}) to send responses to our client
-//    *  regardless of whether the operation succeeded or not. This is because
-//    *  error codes are not as helpful, but a json object with a description
-//    *  of what occured 
-//    *
-//    */
+  // if data validation passes
+  // Danny, need to change to mongo query 
+  } else {
+    // knex('users').where({username: user.username})
+    //   .then(function(resp) {
+    //     var userFromDb = resp[0];
 
-//   // data validation
-//   if (!validate(user)) {
-//     res.json({
-//       success: false,
-//       message: 'User information validation failed.'
-//     });
+    //     if (userFromDb && userFromDb.password === user.password) {
+    //       res.json({
+    //         success: true,
+    //         message: 'Logged in!',
+    //         token: auth.genToken(userFromDb)
+    //       });
+    //     } else {
+    //       res.json({
+    //         success: false,
+    //         message: 'Username or password is incorrect.'
+    //       });
+    //     }
+    // });
+  }
+});
 
-//   // if data validation passes, insert user object into database
-//   } else {
-//     knex('users').insert(user)
-//       .then(function(ID) {
-//         user.ID = ID[0];
-
-//         res.json({
-//           success: true,
-//           message: 'User inserted into database. Enjoy your token!',
-//           token: auth.genToken(user)
-//         });
-//       }, function(err) {
-//         var message = err.code;
-        
-//         if (err.errno === 19) {
-//           message = 'username already exists!'
-//         }
-//         res.json({
-//           success: false,
-//           message: message
-//         });
-//       });
-//   }
+// router.get('/', function(req, res) {
+  
 // });
 
-// // helper functions
-// function validate(user) {
-//   console.log(user);
-//   return user.username && user.firstname && user.lastname && user.email && user.password;
-// }
+// helper function
+function validate(user) {
+  return user.username && user.password;
+}
 
-// // export router
-// module.exports = router;
+// export router
+module.exports = router;
