@@ -5,43 +5,32 @@
     .module('baby.signup')
     .controller('SignupCtrl', SignupCtrl);
 
-  function SignupCtrl () {
-    // initialization
-    // var vm = this;
-    // activate();
+  function SignupCtrl($state, $rootScope, auth) {
+    
+    var vm = this;
 
-    // // variables
-    // vm.username = username;
+    vm.error = false;
+    vm.message = '';
 
-    // // functions
-    // vm.create = signup;
+    vm.signup = signup;
+  
+    function signup (firstname, lastname, email, username, password) {
+      var userObj = {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        username: username,
+        password: password
+      };
+      console.log(userObj);
 
-    // // implementation details
-    // function signup () {
-    // };
+      auth.signup(userObj)
+        .then(function(resp) {
+          if(resp) {
+            vm.error = true;
+            vm.message = resp.data.message;
+          }
+        });
+    }
   }
 })();
-
-
-// vm.signup = function(username, email, phonenumber, firstname, lastname, password) {
-//     var userObj = {
-//       username: username,
-//       email: email,
-//       firstname: firstname,
-//       lastname: lastname,
-//       password: password
-//     }
-//     console.log(userObj);
-
-//     Auth.signup(userObj)
-//       .then(function(resp) {
-//         if (resp.data.success) {
-//           $state.go('tab.profile');
-//           $rootScope.$broadcast('loggedIn');
-//         } else {
-//           vm.error = true;
-//           vm.message = resp.data.message;
-//         }
-//       });
-//   }
-// });

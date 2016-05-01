@@ -2,17 +2,16 @@
   'use strict';
 
   angular
-    .module('baby.dashboard')
+    .module('baby.tech')
     .config(config);
 
   function config ($stateProvider) {
     $stateProvider
-      .state('dashboard', {
-        url: '/dashboard',
+      .state('tech', {
+        url: '/tech',
         views: {
           '': {
-            templateUrl: 'app/dashboard/dashboard.html',
-            controller: 'DashboardCtrl as dashboard'
+            templateUrl: 'app/tech/tech.html'
           }
         }
       });

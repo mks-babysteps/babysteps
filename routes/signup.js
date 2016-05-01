@@ -1,49 +1,55 @@
-// var express = require('express');
-// var router = express.Router();
-// // we'll want to load the database module (mongoose) to make queries
-// var mongoose = require('../db');
+var express = require('express');
+var router = express.Router();
+// var auth = require('../tokens.js');
 
-// router.post('/', function(req, res) {
-//   var user = req.body;
-//   console.log(req.body);
-  
-//   // data validation
-//   if (!validate(user)) {
-//     res.json({
-//       success: false,
-//       message: 'User information validation failed.'
-//     });
+var User = require('../db.js');
 
-//   // if data validation passes, insert user object into database
-//   } else {
-//     knex('users').insert(user)
-//       .then(function(ID) {
-//         user.ID = ID[0];
+router.post('/', function(req, res) {
+  var user = req.body;
+  console.log('req.body', req.body);
 
-//         res.json({
-//           success: true,
-//           message: 'User inserted into database. Enjoy your token!',
-//           token: auth.genToken(user)
-//         });
-//       }, function(err) {
-//         var message = err.code;
-        
-//         if (err.errno === 19) {
-//           message = 'username already exists!'
-//         }
-//         res.json({
-//           success: false,
-//           message: message
-//         });
-//       });
-//   }
-// });
+  if (!validate(user)) {
+    res.json({
+      success: false,
+      message: 'User information validation failed.'
+    });
 
-// // helper functions
-// function validate(user) {
-//   console.log(user);
-//   return user.username && user.firstname && user.lastname && user.email && user.password;
-// }
+  // if data validation passes, insert user object into database
+  // for later: if username already exists;
+  } else {
+    console.log('into else db function');
+    var newUser = new User();
 
-// // export router
-// module.exports = router;
+      newUser.firstname = user.firstname;
+      newUser.lastname = user.lastname;
+      newUser.email = user.email;
+      newUser.username = user.username;
+      newUser.password = user.password;
+
+      res.json({
+        success: true,
+        message: 'User inserted into database.',
+        // token: auth.genToken(user)
+      });
+
+    newUser.save(function(err) {
+      if(err) {
+        console.error(err);
+        // res.json({
+        //   success: false,
+        //   message: // 'username already exists!'
+        // });
+      } else {
+          console.log('saved');
+        } 
+    });
+  }
+});
+
+// helper function
+function validate(user) {
+  console.log(user);
+  return user.firstname && user.lastname && user.email && user.username && user.password;
+}
+
+module.exports = router;
