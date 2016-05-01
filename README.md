@@ -2,7 +2,7 @@
 
 Track your baby's development!
 
-<!-- ![join.me logo](./www/img/joinme.png "joinme") -->
+<!-- ![babysteps logo](./www/img/babysteps.png "babysteps") -->
 
 # About
 

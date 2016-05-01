@@ -3,19 +3,33 @@
 
   angular
     .module('baby.login')
-    .controller('LoginCtrl', LoginController);
+    .controller('LoginCtrl', LoginCtrl);
 
-  function LoginController () {
-    // initialization
+  function LoginCtrl($state) {
+    
     var vm = this;
 
-    // variables
-    vm.greet = greet;
+    vm.error = false;
+    // vm.message;
 
-    // functions
-    function greet () {
-      console.log('Login!');
-    }
+  // vm.login = function(username, password) {
+  //   Auth.login(username, password)
+  //     .then(function(resp) {
+  //       if (resp.data.success) {
+  //         $rootScope.$broadcast('loggedIn');
+  //         console.log(resp.config.data.username);
+  //         Auth.username = resp.config.data.username;
+  //           $state.go('dashboard');
+  //       } else {
+  //         vm.error = true;
+  //         vm.message = resp.data.message;
+  //         console.error(resp.data.message);
+  //       }
+  //     });
+  // };  
+
+    vm.redirectToSignup = function() {
+      $state.go('signup');
+    };
   }
-
 })();

@@ -5,7 +5,7 @@
     .module('baby.landing')
     .config(config);
 
-  function config ($stateProvider) {
+  function config ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('landing', {
         url: '/landing',
@@ -16,5 +16,7 @@
           }
         }
       });
+    // if random url, go here: 
+    $urlRouterProvider.otherwise('/landing');
   }
 })();

@@ -3,7 +3,7 @@ var dbconfig = require('./config.js');
 
 var options = {
   server: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}},
-  replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000}}
+  replset: { socketOptions: {keepAlive: 300000, connectTimeoutMS : 30000}}
 };
 
 var mongodbUri = 'mongodb://'+ dbconfig.username + ':'+ dbconfig.password +
@@ -18,14 +18,15 @@ mongoose.connection.once('open', function() {
 });
 
 var usersSchema = new mongoose.Schema ({
-  firstName: String,
-  lastName: String,
+  firstname: String,
+  lastname: String,
   email: String,
+  username: String,
   password: String,
   children: [],
-  streetAddress: String,
   city: String,
-  state: String
+  state: String,
+  zip: String
 });
 
 var User = mongoose.model('users', usersSchema);
