@@ -2,8 +2,10 @@
 
   <h1>Dashboard</h1>
 
-  <button ng-click="">Add a Child!</button>
-  <div>{{dashboard.message}}</div>
+  <button ng-click="dashboard.displayUsers()">See the User!</button>
+  <div ng-repeat="child in dashboard.children">
+    <li>{{child}}</li>
+  </div>
 </div>
 
 <!-- FOR CHAT SYSTEM, SUPER ROUGH -->

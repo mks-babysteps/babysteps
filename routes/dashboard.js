@@ -1,23 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../db.js');
 var db = require('../db.js');
 
 
 router.get('/', function(req, res){
-   
-  var grabUser = function(){
-    User.find({}, function(err, user){
-      if(err){
-        res.send("error!")
-      }else{
-        res.status(200).send(user)
-      }
-    })
-  }
-
-  grabUser()
-
+   db.users.find( {'firstName': 'Daniel'}, function(err, users){
+    if(err){
+      console.log('error');
+    }else{
+      res.send(users);
+    }
+  });
 })
 
 module.exports = router
