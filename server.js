@@ -7,7 +7,7 @@ var cors = require('cors');
 //Routes
 
 var signup = require('./routes/signup');
-// var login = require('./routes/login');
+var login = require('./routes/login');
 var milestone = require('./routes/milestone');
 var dashboard = require('./routes/dashboard.js');
 
@@ -20,7 +20,7 @@ app.use(cors());
 
 // app.use('/dashboard', dashboard);
 app.use('/signup', signup);
-// app.use('/login', login);
+app.use('/login', login);
 // app.use('/milestone', milestone);
 
 
