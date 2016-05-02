@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('baby.dashboard')
+    .module('baby.dashboard', ['ui.bootstrap'])
     .controller('DashboardCtrl', DashboardCtrl);
     function DashboardCtrl($state, dashboard){
 
@@ -19,6 +19,7 @@
             vm.children = userObj.children;
           });
       }
+
 
     }
 
