@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jshint . --exclude node_modules,client/bower_components",
+    "test": "jshint . --exclude node_modules,client/bower_components && karma run",
     "start": "node server.js"
   },
   "author": "",
