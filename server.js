@@ -2,12 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var cors = require('cors');
-<<<<<<< HEAD
-=======
+
 var db = require('./db.js');
 
-
->>>>>>> dashboard
 
 //Routes
 
