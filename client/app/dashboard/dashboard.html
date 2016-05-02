@@ -2,16 +2,16 @@
 
   <h1>Dashboard</h1>
   
-  <div ng-init="dashboard.displayChildren()">
-    <div ng-repeat="child in dashboard.children">
-
-
+ 
   <div>
     <div class="container">
       <br />
       <button class="btn btn-primary" ng-click="dashboard.open()">ADD</button>&nbsp;Add a child
     </div>
   </div>
+
+ <div ng-init="dashboard.displayChildren()">
+    <div ng-repeat="child in dashboard.children">
 
         <div>{{child.firstName}} {{child.lastName}}
           <button style="float:right">Edit Child</button>

@@ -2,10 +2,9 @@
   'use strict';
 
   angular
-    .module('baby.dashboard')
+    .module('baby.dashboard', ['ui.bootstrap'])
     .controller('DashboardCtrl', DashboardCtrl);
     function DashboardCtrl($state, dashboard){
-
       var vm = this;
 
       vm.displayChildren = displayChildren;
