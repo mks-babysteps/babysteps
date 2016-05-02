@@ -20,7 +20,12 @@
           });
       }
 
-
+      vm.open = function() {
+        vm.modalInstance = $uibModal.open({
+          templateUrl: 'app/child/child.html',
+          controller: 'ModalController as modal'
+        });
+      };
     }
 
 })();
