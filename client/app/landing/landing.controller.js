@@ -13,11 +13,11 @@
 
     function redirectToSignup() {
       $state.go('signup');
-    };
+    }
 
     function redirectToLogin() {
       $state.go('login');
-    };
+    }
   }
 
 })();
