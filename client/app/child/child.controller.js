@@ -8,12 +8,12 @@
       function ModalController($uibModalInstance) {
         var vm = this;
 
-        vm.conditions = ["Normal", "Cerebral Palsy", "Down Syndrome"];
+        vm.conditions = ['Normal', 'Cerebral Palsy', 'Down Syndrome'];
 
         vm.addChild = function (name, birthday, condition){
-          console.log("Name: ", name," birthday: ", birthday, " condition: ", condition);
+          console.log('Name: ', name,' birthday: ', birthday, ' condition: ', condition);
           vm.close();
-        }
+        };
 
         vm.close = function () {
           $uibModalInstance.close();
@@ -105,5 +105,5 @@
           return '';
         }
 
-      };
+      }
 }());
