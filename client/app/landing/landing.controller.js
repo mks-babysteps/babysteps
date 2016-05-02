@@ -9,15 +9,15 @@
     var vm = this;
 
     vm.redirectToSignup = redirectToSignup;
-    vm.redirectToLogin = redirectToLogin
+    vm.redirectToLogin = redirectToLogin;
 
     function redirectToSignup() {
       $state.go('signup');
-    };
+    }
 
     function redirectToLogin() {
       $state.go('login');
-    };
+    }
   }
 
 })();
