@@ -2,10 +2,9 @@
   'use strict';
 
   angular
-    .module('baby.dashboard')
+    .module('baby.dashboard', ['ui.bootstrap'])
     .controller('DashboardCtrl', DashboardCtrl);
     function DashboardCtrl($state, dashboard){
-
       var vm = this;
 
       vm.displayUsers = displayUsers;
@@ -20,6 +19,12 @@
           });
       }
 
+      vm.open = function() {
+        vm.modalInstance = $uibModal.open({
+          templateUrl: 'app/child/child.html',
+          controller: 'ModalController as modal'
+        });
+      }
     }
 
 })();
