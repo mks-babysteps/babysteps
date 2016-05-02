@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var db = require('./db.js');
 
 
 //Routes
@@ -26,7 +25,7 @@ app.use('/signup', signup);
 
 
 app.use('/milestone', milestone);
-app.use('/dashboard', dashboard)
+app.use('/dashboard', dashboard);
 
 
 

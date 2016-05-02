@@ -1,5 +1,5 @@
 (function(){
-  'use strict'
+  'use strict';
 
   angular
     .module('baby')
@@ -8,11 +8,11 @@
     function dashboard($http){
       var service = {
         getUser: getUser
-      }
-      return service
+      };
+      return service;
     
       function getUser(){
-        return $http.get('/dashboard')
+        return $http.get('/dashboard');
       }
     }
 

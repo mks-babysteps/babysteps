@@ -13,11 +13,11 @@
       function displayUsers(){
         dashboard.getUser()
           .then(function(data){
-            var userObj = data.data[0]
-            console.log("data", data)
-            console.log("chillun", userObj.children)
+            var userObj = data.data[0];
+            console.log('data', data);
+            console.log('chillun', userObj.children);
             vm.children = userObj.children;
-          })
+          });
       }
 
     }
