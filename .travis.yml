@@ -3,6 +3,3 @@ node_js:
   - 4.0
 notifications:
   email: false
-before_script:
-  - npm install -g bower
-  - bower install

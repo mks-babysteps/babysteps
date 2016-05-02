@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "angular": "^1.5.5",
     "angular-mocks": "^1.5.5",
+    "angular-ui-router": "^0.2.18",
     "jasmine-core": "^2.4.1",
     "jshint": "^2.9.2",
     "karma": "^0.13.22",
@@ -31,16 +33,13 @@
     "camelcase": true,
     "eqeqeq": true,
     "indent": 2,
-
     "latedef": false,
     "maxlen": 100,
     "newcap": true,
     "quotmark": "single",
     "undef": true,
     "unused": true,
-
     "eqnull": true,
-
     "globals": {
       "describe": true,
       "inject": true,
