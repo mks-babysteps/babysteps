@@ -2,15 +2,6 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db.js');
 
-<<<<<<< HEAD
-User.find( {firstName:'Daniel'} , function(err, user){
-  if(err){
-    console.log('error');
-  }else{
-    console.log('not an error', 'user :', user);
-  }
-});
-=======
 
 router.get('/', function(req, res){
    db.users.find( {'firstName': 'Daniel'}, function(err, users){
@@ -37,4 +28,3 @@ module.exports = router
   //   user[0].save();
   // }
   // })
->>>>>>> dashboard

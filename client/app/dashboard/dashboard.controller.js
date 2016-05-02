@@ -6,13 +6,7 @@
     .controller('DashboardCtrl', DashboardCtrl);
     function DashboardCtrl($state, dashboard){
 
-<<<<<<< HEAD
-  function DashboardCtrl() {
-      // initialization
-      // var vm = this;
-=======
       var vm = this;
->>>>>>> dashboard
 
       vm.displayUsers = displayUsers;
 

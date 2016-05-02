@@ -2,21 +2,17 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var cors = require('cors');
-
 var db = require('./db.js');
 
 
 //Routes
 
-// var dashboard = require('./routes/dashboard');
 var signup = require('./routes/signup');
 // var login = require('./routes/login');
 var milestone = require('./routes/milestone');
-<<<<<<< HEAD
-=======
 var dashboard = require('./routes/dashboard.js');
 
->>>>>>> dashboard
+
 
 app.use(express.static(__dirname + '/client'));
 app.use(bodyParser.urlencoded({ extended: false}));
