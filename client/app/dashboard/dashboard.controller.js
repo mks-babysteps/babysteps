@@ -4,15 +4,24 @@
   angular
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
+    function DashboardCtrl($state, dashboard){
 
-  function DashboardCtrl() {
-      // initialization
-      // var vm = this;
+      var vm = this;
 
-      // variables
+      vm.displayUsers = displayUsers;
 
-      // functions
+      function displayUsers(){
+        dashboard.getUser()
+          .then(function(data){
+            var userObj = data.data[0]
+            console.log("data", data)
+            console.log("chillun", userObj.children)
+            vm.children = userObj.children;
+          })
+      }
+
     }
+
 })();
 
 

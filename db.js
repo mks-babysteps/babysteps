@@ -31,6 +31,7 @@ var usersSchema = new mongoose.Schema ({
   zip: String
 });
 
+
 var conditionsSchema = new mongoose.Schema ({
   name: String,
   grossMotor: {
@@ -51,20 +52,8 @@ var conditionsSchema = new mongoose.Schema ({
   }
 });
 
-dbmodels.user = mongoose.model('users', usersSchema);
+dbmodels.users = mongoose.model('users', usersSchema);
 dbmodels.conditions = mongoose.model('conditions',conditionsSchema);
 
 module.exports = dbmodels;
 
-// var newcond = new dbmodels.conditions();
-
-// newcond.name = 'Cerebral Palsy';
-
-// newcond.save(function(err, condsaved) {
-//   if(err) {
-//     throw err;
-//     console.log(err);
-//   } else {
-//     console.log('saved!');
-//   }
-// });
