@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jshint . --exclude node_modules,client/bower_components && ./node_modules/.bin/karma start --single-run --browsers PhantomJS",
+    "test": "jshint . --exclude node_modules,client/bower_components && karma start --single-run --browsers PhantomJS",
     "start": "node server.js"
   },
   "author": "",

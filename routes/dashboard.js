@@ -1,12 +1,16 @@
-// var express = require('express');
-// var router = express.Router();
-var User = require('../db.js');
-// var db = require('../db.js');
+var express = require('express');
+var router = express.Router();
+var db = require('../db.js');
 
-User.find( {firstName:'Daniel'} , function(err, user){
-  if(err){
-    console.log('error');
-  }else{
-    console.log('not an error', 'user :', user);
-  }
+
+router.get('/', function(req, res){
+   db.users.find( {'firstName': 'Daniel'}, function(err, users){
+    if(err){
+      console.log('error');
+    }else{
+      res.send(users);
+    }
+  });
 });
+
+module.exports = router;
