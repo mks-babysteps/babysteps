@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jshint . --exclude node_modules,client/bower_components && ./node_modules/.bin/karma start --single-run --browsers PhantomJS",
+    "test": "jshint . --exclude node_modules,client/bower_components && karma start --single-run --browsers PhantomJS",
     "start": "node server.js"
   },
   "author": "",
@@ -24,7 +24,8 @@
     "body-parser": "^1.15.0",
     "cors": "^2.7.1",
     "express": "^4.13.4",
-    "mongoose": "^4.4.13"
+    "mongoose": "^4.4.13",
+    "q": "^1.4.1"
   },
   "jshintConfig": {
     "browser": true,
