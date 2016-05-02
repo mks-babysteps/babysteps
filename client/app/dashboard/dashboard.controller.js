@@ -24,7 +24,7 @@
           templateUrl: 'app/child/child.html',
           controller: 'ModalController as modal'
         });
-      }
+      };
     }
 
 })();
