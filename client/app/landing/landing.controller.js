@@ -5,16 +5,19 @@
   .module('baby.landing')
   .controller('LandingCtrl', LandingCtrl);
 
-function LandingCtrl($state) {
+  function LandingCtrl($state) {
+    var vm = this;
 
-  var vm = this;
+    vm.redirectToSignup = redirectToSignup;
+    vm.redirectToLogin = redirectToLogin;
 
-  vm.redirectToSignup = function() {
-    $state.go('signup');
-  };
+    function redirectToSignup() {
+      $state.go('signup');
+    }
 
-  vm.redirectToLogin = function() {
-    $state.go('login');
-  };
-}
+    function redirectToLogin() {
+      $state.go('login');
+    }
+  }
+
 })();
