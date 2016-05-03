@@ -5,6 +5,7 @@
     .module('baby', [
       /* Shared Modules */
       'ui.router',
+      'LocalStorageModule',
       /* Feature areas */
       'baby.landing',
       'baby.signup',
