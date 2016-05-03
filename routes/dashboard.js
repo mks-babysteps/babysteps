@@ -15,7 +15,6 @@ router.get('/', function(req, res){
   });
 });
 
-
 // Add child to db post
 router.post('/addChild', function(req,res) {
   //console.log("inside post request dashboard js", req );
@@ -49,6 +48,7 @@ router.post('/addChild', function(req,res) {
 })
 
 router.post('/', function(req,res){
+<<<<<<< 1c33357ee94146cc568785a664cc96e972cd460d
   console.log('this is req.body.firstName ', req.body.firstName);
   console.log('this is req.body.userName ', req.body.userName);
   db.users.find( {username : req.body.userName}, function(err, users){
@@ -77,3 +77,4 @@ router.post('/', function(req,res){
 });
 
 module.exports = router;
+

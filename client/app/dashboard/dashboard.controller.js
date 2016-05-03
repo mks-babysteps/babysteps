@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('baby.dashboard', ['ui.bootstrap'])
+    .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
     function DashboardCtrl($state, dashboard){
       var vm = this;
