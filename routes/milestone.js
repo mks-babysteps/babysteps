@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+// var tokens = require('../tokens.js');
 var db = require('../db.js');
 
 router.post('/', function(req, res) {
