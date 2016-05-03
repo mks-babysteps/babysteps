@@ -18,10 +18,10 @@ router.post('/addChild', function(req,res) {
   //console.log("inside post request dashboard js", req );
   var childInfo = {
     firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    lastName: req.gtibody.lastName,
     birthday: req.body.birthday,
     condition: req.body.condition
-  }
+  };
 
   db.users.find({username: 'chend2'}, function(err, users){
     if(err){
@@ -38,34 +38,33 @@ router.post('/addChild', function(req,res) {
           console.log('Inside add child, db.users, line 34, child already exits');
         }
       }
-      users[0].save(function(err){
-       res.send(users)
-     })
+      users[0].save(function(){
+       res.send(users);
+     });
     }
-  })
-})
+  });
+});
 
 router.post('/', function(req,res){
- console.log(req.body.firstName)
+ console.log(req.body.firstName);
  db.users.find( {username : 'chend2'}, function(err, users){
    if(err){
      console.log('error');
    }else{
-     console.log(users, "users here")
+     console.log(users, 'users here');
      var spliced = [];
      for(var i=0; i<users[0].children.length; i++){
        if(users[0].children[i].firstName!==req.body.firstName){
          spliced.push(users[0].children[i]);
-         console.log(spliced, "array!")
+         console.log(spliced, 'array!');
        }
      }
      users[0].children = spliced;
-     users[0].save(function(err){
-       res.send(users)
-     })
-
+     users[0].save(function(){
+       res.send(users);
+     });
    }
- })
-})
+ });
+});
 
 module.exports = router;
