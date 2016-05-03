@@ -8,7 +8,6 @@
   function config ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('landing', {
-        cache: false,
         url: '/landing',
         views: {
           '': {

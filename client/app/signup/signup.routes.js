@@ -8,7 +8,6 @@
   function config ($stateProvider) {
     $stateProvider
       .state('signup', {
-        cache: false,
         url: '/signup',
         views: {
           '': {

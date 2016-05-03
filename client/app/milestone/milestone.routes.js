@@ -8,9 +8,7 @@
   function config($stateProvider) {
     $stateProvider
       .state('milestone', {
-        cache: false,
         url: '/milestone',
-        authenticate: true,
         views: {
           '': {
             templateUrl: 'app/milestone/milestone.html',

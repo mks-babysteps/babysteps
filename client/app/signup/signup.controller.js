@@ -13,8 +13,8 @@
     vm.message = '';
 
     // Functions
-    vm.signup = signup;
     vm.redirectToLogin = redirectToLogin;
+    vm.signup = signup;
 
     function redirectToLogin() {
       $state.go('login');
