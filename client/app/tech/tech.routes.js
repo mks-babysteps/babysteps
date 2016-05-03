@@ -8,6 +8,7 @@
   function config ($stateProvider) {
     $stateProvider
       .state('tech', {
+        cache: false,
         url: '/tech',
         views: {
           '': {

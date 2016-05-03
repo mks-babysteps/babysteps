@@ -8,6 +8,7 @@
   function config ($stateProvider) {
     $stateProvider
       .state('login', {
+        cache: false,
         url: '/login',
         views: {
           '': {

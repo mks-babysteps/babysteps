@@ -8,7 +8,9 @@
   function config($stateProvider) {
     $stateProvider
       .state('dashboard', {
+        cache: false,
         url: '/dashboard',
+        authenticate: true,
         views: {
           '': {
             templateUrl: 'app/dashboard/dashboard.html',

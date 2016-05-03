@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Q = require('q');
-// var auth = require('../tokens.js');
+var auth = require('../tokens');
 var db = require('../db');
 
 // Routes
@@ -52,7 +52,7 @@ function createAccount(newUser, foundUser, res) {
             res.json({
               success: true,
               message: 'User inserted into database.',
-            // token: auth.genToken(user)
+              token: auth.genToken(user)
             });
           } 
       });
