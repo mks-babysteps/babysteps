@@ -6,6 +6,7 @@ var db = require('../db.js');
 
 router.get('/', function(req, res){
    db.users.find( { username : 'chend2'}, function(err, users){
+
     if(err){
       console.log('error');
     }else{
@@ -14,6 +15,38 @@ router.get('/', function(req, res){
   });
 });
 
+
+// Add child to db post
+router.post('/addChild', function(req,res) {
+  //console.log("inside post request dashboard js", req );
+  var childInfo = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    birthday: req.body.birthday,
+    condition: req.body.condition
+  }
+
+  db.users.find({username: 'chend2'}, function(err, users){
+    if(err){
+      console.log('error');
+    }else{
+      console.log('Dans method', users[0].children);
+      //var childArray = users[0].children;
+      for(var i = 0; i < users[0].children.length; i++){
+        var childName = users[0].children[i].firstName;
+        if(childName !== req.body.firstName){
+          users[0].children.addToSet(childInfo);
+
+        }else{
+          console.log('Inside add child, db.users, line 34, child already exits');
+        }
+      }
+      users[0].save(function(err){
+       res.send(users)
+     })
+    }
+  })
+})
 
 router.post('/', function(req,res){
   console.log('this is req.body.firstName ', req.body.firstName);
