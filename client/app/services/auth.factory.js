@@ -35,24 +35,3 @@
     }
   }
 })();
-
-    //   signIn: function (username, password) {
-    //     $http.post('/landing/login', {
-    //       user: {
-    //         username: username,
-    //         password: password
-    //       }
-    //     }).success(function (data) {
-    //       $localStorage.username = username;
-    //       $localStorage.token = data.token;
-    //       $http.defaults.headers.common.username = username;
-    //       $http.defaults.headers.common.token = data.token;
-    //       $state.go('tab.classrooms');
-    //     });
-    //   },
-
-    //   signOut: function () {
-    //     $localStorage.$reset();
-    //     $state.go('landing');
-    //   }
-    // };
