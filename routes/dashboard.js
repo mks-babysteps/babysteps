@@ -20,10 +20,10 @@ router.post('/addChild', function(req,res) {
   //console.log("inside post request dashboard js", req );
   var childInfo = {
     firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    lastName: req.gtibody.lastName,
     birthday: req.body.birthday,
     condition: req.body.condition
-  }
+  };
 
   db.users.find({username: 'chend2'}, function(err, users){
     if(err){
@@ -40,15 +40,14 @@ router.post('/addChild', function(req,res) {
           console.log('Inside add child, db.users, line 34, child already exits');
         }
       }
-      users[0].save(function(err){
-       res.send(users)
-     })
+      users[0].save(function(){
+       res.send(users);
+     });
     }
-  })
-})
+  });
+});
 
 router.post('/', function(req,res){
-<<<<<<< 1c33357ee94146cc568785a664cc96e972cd460d
   console.log('this is req.body.firstName ', req.body.firstName);
   console.log('this is req.body.userName ', req.body.userName);
   db.users.find( {username : req.body.userName}, function(err, users){
@@ -77,4 +76,3 @@ router.post('/', function(req,res){
 });
 
 module.exports = router;
-

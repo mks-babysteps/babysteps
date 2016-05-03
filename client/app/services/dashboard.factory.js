@@ -27,7 +27,7 @@
           .success(function(resp){
             console.log('resp', resp);
             console.log('resp.success', resp.success);
-          })
+          });
       }
     }
 })();

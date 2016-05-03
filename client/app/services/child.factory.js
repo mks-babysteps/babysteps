@@ -1,7 +1,6 @@
 (function(){
-  'use strict'
+  'use strict';
 
   angular
-    .module('baby')
-    .factory('addChild', addChild);
+    .module('baby');
 })();
