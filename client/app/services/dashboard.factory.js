@@ -10,7 +10,6 @@
         getUser: getUser,
         addChild: addChild
         removeThisChild : removeThisChild
-
       };
       return service;
 

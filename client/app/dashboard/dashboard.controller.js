@@ -41,7 +41,6 @@
         dashboard.removeThisChild(childFirstName, 'chend2');
       }
 
-
     }
 
 })();
