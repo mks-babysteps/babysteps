@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 var Q = require('q');
 var User = require('../db.js').user;
 
@@ -13,7 +12,7 @@ router.get('/', function(req, res) {
 
 // Helper Functions
 function getUserBy(username, password, res) {
-  return Q(User.findOne({'username': username}).exec())
+  return new Q(User.findOne({'username': username}).exec())
   .then(function(foundUser) {
     if (foundUser && foundUser.password === password) {
       success(res, true);
