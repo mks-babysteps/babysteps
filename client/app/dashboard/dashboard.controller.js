@@ -8,16 +8,31 @@
 
       var vm = this;
 
+      vm.displayChildren = displayChildren;
       vm.displayUsers = displayUsers;
+      vm.removeChild = removeChild;
 
-      function displayUsers(){
+      function displayChildren(){
         dashboard.getUser()
           .then(function(data){
             var userObj = data.data[0];
             console.log('data', data);
-            console.log('chillun', userObj.children);
             vm.children = userObj.children;
+             console.log('chillun', vm.children);
           });
+      }
+
+      function displayUsers(){
+        dashboard.getUser()
+          .then(function(data){
+            var userObj = data.data;
+            vm.users = userObj;
+          });
+      }
+
+      function removeChild(childFirstName){
+        console.log('on click this is passed into removeChild', childFirstName);
+        dashboard.removeThisChild(childFirstName, 'chend2');
       }
 
     }
