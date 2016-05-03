@@ -6,29 +6,33 @@
     .factory('auth', auth);
 
   // $localStorage
-  function auth($http, $state) {
+  function auth($http, $state, localStorageService) {
     return {
-      signup: signup
+      signup: signup,
+      signIn: signIn
     };
 
     function signup(userObj) {
       return $http.post('/signup', userObj)
         .success(function(resp) {
-          console.log('resp', resp);
-          console.log('resp.success', resp.success);
-          
           if (resp.success) {
             $state.go('dashboard');
-            // $rootScope.$broadcast('loggedIn');
-        }
+          }
           // $localStorage.username = username;
           // $localStorage.token = data.token;
           // $http.defaults.headers.common.username = username;
           // $http.defaults.headers.common.token = data.token;
-        }
-        );
-      }
+        });
+    }
 
+    function signIn(username, password) {
+      return $http.get('/login', {
+        headers: {
+          username: username,
+          password: password
+        }
+      });
+    }
   }
 })();
 
