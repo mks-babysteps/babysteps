@@ -5,22 +5,18 @@
     .module('baby')
     .run(run);
 
-  function run($state) {
-    $state.go('landing');
+  function run($http, $state, auth) {
+    if (auth.current().token) {
+      // Append Authentication Information to Each HTTP Request
+      $http.defaults.headers.common.username = auth.current().username;
+      $http.defaults.headers.common.token = auth.current().token;
+
+      // Go To Classrooms Page
+      $state.go('dashboard');
+    } else {
+        // Otherwise Go To Landing Page
+        $state.go('landing');
+      }
   }
 })();
 
-  // // on state changes, we check for authentication!
-  // $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-  //   if (toState.url === '/findMatch' || toState.url === '/myMatches') {
-  //     console.log('broadcasting event');
-  //     $rootScope.$broadcast('rerender');
-  //   }
-
-  //   if (toState.authenticate && !Auth.isAuthed()) {
-  //     // User isn’t authenticated
-  //     event.preventDefault();
-  //     $state.go('login');
-
-  //   }
-  // });

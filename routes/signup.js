@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Q = require('q');
-// var auth = require('../tokens.js');
+var tokens = require('../tokens');
 var db = require('../db');
 
 // Routes
@@ -39,6 +39,7 @@ function getUserBy(userObj, res) {
 }
 
 function createAccount(newUser, foundUser, res) {
+  var username = newUser.username;
   if (foundUser) {
     res.json({
       success: false,
@@ -52,7 +53,7 @@ function createAccount(newUser, foundUser, res) {
             res.json({
               success: true,
               message: 'User inserted into database.',
-            // token: auth.genToken(user)
+              token: tokens.generateToken(username), username: username
             });
           } 
       });
