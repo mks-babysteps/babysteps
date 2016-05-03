@@ -6,7 +6,6 @@ var User = require('../db.js');
 
 router.post('/', function(req, res) {
   var user = req.body;
-  console.log('req.body', req.body);
 
   if (!validate(user)) {
     res.json({
@@ -17,7 +16,6 @@ router.post('/', function(req, res) {
   // if data validation passes, insert user object into database
   // for later: if username already exists;
   } else {
-    console.log('into else db function');
     var newUser = new User();
 
       newUser.firstname = user.firstname;
@@ -41,7 +39,7 @@ router.post('/', function(req, res) {
         // });
       } else {
           console.log('saved');
-        } 
+        }
     });
   }
 });
