@@ -7,14 +7,12 @@
 
   function run($http, $state, auth) {
     if (auth.current().token) {
-      // Append Authentication Information to Each HTTP Request
+      // Append authentication information to each http request
       $http.defaults.headers.common.username = auth.current().username;
       $http.defaults.headers.common.token = auth.current().token;
 
-      // Go To Classrooms Page
       $state.go('dashboard');
     } else {
-        // Otherwise Go To Landing Page
         $state.go('landing');
       }
   }
