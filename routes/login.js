@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Q = require('q');
-var User = require('../db.js').user;
+var User = require('../db.js').users;
 
 // Routes
 router.get('/', function(req, res) {
