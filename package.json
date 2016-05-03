@@ -18,7 +18,8 @@
     "body-parser": "^1.15.0",
     "cors": "^2.7.1",
     "express": "^4.13.4",
-    "mongoose": "^4.4.13"
+    "mongoose": "^4.4.13",
+    "q": "^1.4.1"
   },
   "jshintConfig": {
     "browser": true,
@@ -28,16 +29,15 @@
     "camelcase": true,
     "eqeqeq": true,
     "indent": 2,
-
     "latedef": false,
     "maxlen": 100,
     "newcap": true,
     "quotmark": "single",
     "undef": true,
     "unused": true,
-
     "eqnull": true,
-
-    "globals": { "angular": true }
+    "globals": {
+      "angular": true
+    }
   }
 }

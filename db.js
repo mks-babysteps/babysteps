@@ -5,7 +5,7 @@ var dbmodels = {};
 
 var options = {
   server: {socketOptions: {keepAlive: 300000, connectTimeoutMS: 30000}},
-  replset: { socketOptions: {keepAlive: 300000, connectTimeoutMS : 30000}}
+  replset: {socketOptions: {keepAlive: 300000, connectTimeoutMS : 30000}}
 };
 
 var mongodbUri = 'mongodb://'+ dbconfig.username + ':'+ dbconfig.password +
@@ -51,7 +51,7 @@ var conditionsSchema = new mongoose.Schema ({
   }
 });
 
-dbmodels.user = mongoose.model('users', usersSchema);
+dbmodels.users = mongoose.model('users', usersSchema);
 dbmodels.conditions = mongoose.model('conditions',conditionsSchema);
 
 module.exports = dbmodels;

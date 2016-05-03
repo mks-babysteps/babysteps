@@ -10,8 +10,8 @@ var signup = require('./routes/signup');
 // var login = require('./routes/login');
 var milestone = require('./routes/milestone');
 
-app.use(express.static(__dirname + '/client'));
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(express.static(__dirname + '/client/'));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 
