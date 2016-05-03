@@ -17,12 +17,10 @@
             'lastName': lastName,
         		'birthday': birthday,
         		'condition': condition
-        	};
+        	}
           //console.log("params", childObj);
         	dashboard.addChild(childObj);
           //console.log('Name: ', name,' birthday: ', birthday, ' condition: ', condition);
-        vm.addChild = function (name, birthday, condition){
-          console.log('Name: ', name,' birthday: ', birthday, ' condition: ', condition);
           vm.close();
         };
 
