@@ -6,6 +6,7 @@
       /* Shared Modules */
       'ui.router',
       'ngStorage',
+      'ui.bootstrap',
       /* Feature areas */
       'baby.landing',
       'baby.signup',
