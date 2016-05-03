@@ -36,6 +36,8 @@
     <script src="app/milestone/milestone.module.js"></script>
     <script src="app/milestone/milestone.controller.js"></script>
     <script src="app/milestone/milestone.routes.js"></script>
+    <!-- sidebar -->
+    <script src="app/dashboard/sidebar.controller.js"></script>
     <!-- about & tech -->
     <script src="app/about/about.module.js"></script>
     <script src="app/about/about.routes.js"></script>
@@ -44,20 +46,28 @@
 
   </head>
   <body ng-app="baby">
-      <div id="container">
-      <div class="navigation">
-        <div class="wrap">
-          <ul>
-            <li><a ui-sref="about">About Us</a></li>
-            <li><h1><a ui-sref="landing">Baby Steps</a></h1></li>
-            <li><a ui-sref="tech">Technology</a></li>
-          </ul>
-        </div>
-      </div>
-      </div>
+    <div id="container">
+    <div class="navigation">
+      <div class="wrap">
+        <ul ng-controller="SidebarCtrl as sidebar">
+          <li><a ui-sref="about">About Us</a></li>
+          <li><h1><a ui-sref="landing">Baby Steps</a></h1></li>
+          <li><a ui-sref="tech">Technology</a></li>
 
-      <!-- logout in navbar -->
-      <!-- <button ng-if="nav.authed" style="text-align:right" ng-click="nav.logout()">Logout</button>  -->
+          <li style="float:right"><button ng-if="sidebar.authed && !sidebar.inChat" ng-click="sidebar.chat()">
+            Global Chat</button>
+          </li>
+          <li style="float:right"><button ng-if="sidebar.inChat" ng-click="sidebar.leave()">
+            Leave Chat</button>
+          </li>
+          <li style="float:right"><button ng-if="sidebar.authed" ng-click="sidebar.logout()">
+            Logout</button>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    </div>
 
       <!-- template -->
     <div ui-view></div>
