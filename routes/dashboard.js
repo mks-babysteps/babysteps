@@ -16,27 +16,31 @@ router.get('/', function(req, res){
 
 
 router.post('/', function(req,res){
-  console.log("this is req.body.firstName ", req.body.firstName)
-  console.log("this is req.body.userName ", req.body.userName)
+  console.log('this is req.body.firstName ', req.body.firstName);
+  console.log('this is req.body.userName ', req.body.userName);
   db.users.find( {username : req.body.userName}, function(err, users){
     if(err){
       console.log('error');
     }else{
-      console.log(users, "users here")
+      console.log(users, 'users here');
       var spliced = [];
       for(var i=0; i<users[0].children.length; i++){
         if(users[0].children[i].firstName!==req.body.firstName){
           spliced.push(users[0].children[i]);
-          console.log(spliced, "array!") 
+          console.log(spliced, 'array!'); 
         }
       }
       users[0].children = spliced;
       users[0].save(function(err){
-        res.send(users)
-      })
-      
+        if(err){
+          console.log('error!');
+        }else{
+        res.send(users);
+      }
+     }
+    );
     }
-  })
-})
+  });
+});
 
 module.exports = router;
