@@ -5,30 +5,29 @@
     .module('baby.login')
     .controller('LoginCtrl', LoginCtrl);
 
-  function LoginCtrl($state) {
-    
+  function LoginCtrl($state, auth, localStorageService, $http) {
+
     var vm = this;
 
+    vm.login = login;
+    vm.redirectToSignup = redirectToSignup;
     vm.error = false;
-    // vm.message;
+    vm.message = 'Invalid user and password combination';
 
-  // vm.login = function(username, password) {
-  //   Auth.login(username, password)
-  //     .then(function(resp) {
-  //       if (resp.data.success) {
-  //         $rootScope.$broadcast('loggedIn');
-  //         console.log(resp.config.data.username);
-  //         Auth.username = resp.config.data.username;
-  //           $state.go('dashboard');
-  //       } else {
-  //         vm.error = true;
-  //         vm.message = resp.data.message;
-  //         console.error(resp.data.message);
-  //       }
-  //     });
-  // };  
+    function login(username, password) {
+      auth.signIn(username, password)
+        .then(function(data) {
+          if (data.data.success) {
+            localStorageService.set('username', username);
+            $http.defaults.headers.common.username = username;
+            $state.go('dashboard');
+          } else {
+            vm.error = true;
+          }
+        });
+    }
 
-    vm.redirectToSignup = function() {
+    function redirectToSignup() {
       $state.go('signup');
     };
   }
