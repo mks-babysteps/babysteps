@@ -16,7 +16,7 @@
     return {
       username: $localStorage.username,
       token: $localStorage.token
-    }
+    };
   }
 
   function signup(userObj) {
@@ -25,8 +25,8 @@
         if (resp.success) {
           $localStorage.username = userObj.username;
           $localStorage.token = data.token;
-          $http.defaults.headers.common['username'] = userObj.username;
-          $http.defaults.headers.common['token'] = data.token;
+          $http.defaults.headers.common.username = userObj.username;
+          $http.defaults.headers.common.token = data.token;
           $state.go('dashboard');
         }
       });
