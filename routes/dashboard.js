@@ -20,10 +20,11 @@ router.post('/addChild', function(req,res) {
   //console.log("inside post request dashboard js", req );
   var childInfo = {
     firstName: req.body.firstName,
-    lastName: req.gtibody.lastName,
+    lastName: req.body.lastName,
     birthday: req.body.birthday,
     condition: req.body.condition
   };
+
 
   db.users.find({username: 'chend2'}, function(err, users){
     if(err){
@@ -74,5 +75,5 @@ router.post('/', function(req,res){
     }
   });
 });
-
+  
 module.exports = router;
