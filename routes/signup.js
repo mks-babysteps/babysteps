@@ -32,7 +32,7 @@ function validate(user) {
 
 function getUserBy(userObj, res) {
   var username = userObj.username;
-  return Q(db.users.findOne({'username': username}).exec())
+  return new Q(db.users.findOne({'username': username}).exec())
   .then(function(foundUser) {
     createAccount(userObj, foundUser, res);
   });
