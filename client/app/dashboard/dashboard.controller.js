@@ -11,6 +11,7 @@
       vm.displayUsers = displayUsers;
       vm.removeChild = removeChild;
       vm.username = auth.current().username;
+      vm.milestonePage = milestonePage;
 
       function displayChildren(){
         dashboard.getUser()
@@ -44,6 +45,10 @@
             // console.log('refreshed');
             $state.reload('dashboard');
           });
+      }
+
+      function milestonePage(condition){
+        dashboard.goMilestone(condition);
       }
 
     }
