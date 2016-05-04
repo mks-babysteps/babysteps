@@ -5,7 +5,7 @@
     .module('baby.login')
     .controller('LoginCtrl', LoginCtrl);
 
-  function LoginCtrl($state, auth, $localStorage, $http) {
+  function LoginCtrl($state, $rootScope, auth, $localStorage, $http) {
 
     var vm = this;
 
@@ -19,6 +19,7 @@
         .then(function(data) {
           console.log(data.data);
           if (data.data.success) {
+            $rootScope.$broadcast('loggedIn');
             $localStorage.username = username;
             $http.defaults.headers.common.username = username;
             $state.go('dashboard');

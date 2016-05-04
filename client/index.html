@@ -3,7 +3,6 @@
   <head>
 
     <!-- stylesheet -->
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
     <!-- dependencies -->
     <script src="bower_components/angular/angular.js"></script>
@@ -45,9 +44,8 @@
     <script src="app/about/about.routes.js"></script>
     <script src="app/tech/tech.module.js"></script>
     <script src="app/tech/tech.routes.js"></script>
-    <script src="app/child/child.module.js"></script>
+    <!-- child modal -->
     <script src="app/child/child.controller.js"></script>
-    <script src="app/child/child.routes.js"></script>
 
   </head>
   <body ng-app="baby">
@@ -65,7 +63,8 @@
           <li style="float:right"><button ng-if="sidebar.inChat" ng-click="sidebar.leave()">
             Leave Chat</button>
           </li> -->
-          <li style="float:right"><button ng-click="sidebar.logout()">
+          <!-- put in dashboard ?-->
+          <li style="float:right"><button ng-if="sidebar.authed" ng-click="sidebar.logout()">
             Logout</button>
           </li>
 
