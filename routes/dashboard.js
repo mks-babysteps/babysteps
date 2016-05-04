@@ -5,15 +5,15 @@ var db = require('../db.js');
 
 
 router.get('/', function(req, res){
-  console.log("req.headers.username", req.headers.username)
-  console.log("this is the req.body", req.body)
+  console.log('req.headers.username', req.headers.username);
+  console.log('this is the req.body', req.body);
 
    db.users.find( { username : req.headers.username}, function(err, users){
 
     if(err){
       console.log('error');
     }else{
-      console.log("this is the res.body", res.body)
+      console.log('this is the res.body', res.body);
       res.send(users);
     }
   });
