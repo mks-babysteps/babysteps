@@ -11,6 +11,7 @@
       vm.displayUsers = displayUsers;
       vm.removeChild = removeChild;
       vm.open = open;
+      vm.edit = edit;
 
       function displayChildren() {
         dashboard.getUser()
@@ -22,12 +23,19 @@
           });
       }
 
+      function edit() {
+        vm.modalInstance = $uibModal.open({
+          templateUrl: 'app/editChild/editChild.html',
+          controller: 'EditChildCtrl as myChild'
+        });
+      }
+
       function open() {
         vm.modalInstance = $uibModal.open({
           templateUrl: 'app/child/child.html',
           controller: 'ChildController as child'
         });
-      };
+      }
 
       function displayUsers() {
         dashboard.getUser()
@@ -41,6 +49,7 @@
         console.log('on click this is passed into removeChild', childFirstName);
         dashboard.removeThisChild(childFirstName, 'chend2');
       }
+
 
     }
 

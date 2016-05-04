@@ -9,7 +9,8 @@
       var service = {
         getUser: getUser,
         addChild: addChild,
-        removeThisChild : removeThisChild
+        removeThisChild: removeThisChild,
+        editChild: editChild
       };
       return service;
 
@@ -27,6 +28,10 @@
             console.log('resp', resp);
             console.log('resp.success', resp.success);
           });
+      }
+
+      function editChild(childObj) {
+        return $http.post('/edit', childObj);
       }
     }
 })();

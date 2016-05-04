@@ -1,8 +1,8 @@
 <div ui-view style="width: 70%; margin: auto">
 
   <h1>Dashboard</h1>
-  
- 
+
+
   <div>
     <div class="container">
       <br />
@@ -15,13 +15,13 @@
 
 
         <div>{{child.firstName}} {{child.lastName}}
-          <button style="float:right">Edit Child</button>
+          <button ng-click="dashboard.edit()" style="float:right">Edit Child</button>
         <br>
         {{child.condition}}<button ng-click="dashboard.removeChild(child.firstName)" style="float:right">Remove Child</button>
         <br>
         <br>
         </div>
-      
+
 
     </div>
   </div>
