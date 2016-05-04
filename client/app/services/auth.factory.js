@@ -6,7 +6,7 @@
     .factory('auth', auth);
 
   // $localStorage
-  function auth($http, $state, localStorageService) {
+  function auth($http, $state) {
     return {
       signup: signup,
       signIn: signIn
@@ -26,6 +26,7 @@
     }
 
     function signIn(username, password) {
+      console.log('Running SIGN UP!');
       return $http.get('/login', {
         headers: {
           username: username,

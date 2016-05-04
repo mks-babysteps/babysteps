@@ -5,7 +5,7 @@
     .module('baby', [
       /* Shared Modules */
       'ui.router',
-      'LocalStorageModule',
+      'ngStorage',
       /* Feature areas */
       'baby.landing',
       'baby.signup',

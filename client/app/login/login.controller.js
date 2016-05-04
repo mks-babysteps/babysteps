@@ -5,7 +5,7 @@
     .module('baby.login')
     .controller('LoginCtrl', LoginCtrl);
 
-  function LoginCtrl($state, auth, localStorageService, $http) {
+  function LoginCtrl($state, auth, $localStorage, $http) {
 
     var vm = this;
 
@@ -17,8 +17,9 @@
     function login(username, password) {
       auth.signIn(username, password)
         .then(function(data) {
+          console.log(data.data);
           if (data.data.success) {
-            localStorageService.set('username', username);
+            $localStorage.username = username;
             $http.defaults.headers.common.username = username;
             $state.go('dashboard');
           } else {
@@ -29,6 +30,6 @@
 
     function redirectToSignup() {
       $state.go('signup');
-    };
+    }
   }
 })();
