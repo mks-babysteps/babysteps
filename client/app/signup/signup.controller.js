@@ -5,7 +5,7 @@
     .module('baby.signup')
     .controller('SignupCtrl', SignupCtrl);
 
-  function SignupCtrl($state, $rootScope, auth) {
+  function SignupCtrl($state, auth) {
     
     var vm = this;
 

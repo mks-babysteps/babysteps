@@ -1,6 +1,6 @@
-(function(){
-  'use strict';
+// (function(){
+//   'use strict';
 
-  angular
-    .module('baby.chat', []);
-})();
+//   angular
+//     .module('baby.chat', []);
+// })();

@@ -21,13 +21,14 @@
 
   function signup(userObj) {
     return $http.post('/signup', userObj)
-      .success(function(resp, data) {
+      .success(function(resp) {
         if (resp.success) {
           $localStorage.username = userObj.username;
-          $localStorage.token = data.token;
+          $localStorage.token = resp.token;
           $http.defaults.headers.common.username = userObj.username;
-          $http.defaults.headers.common.token = data.token;
+          $http.defaults.headers.common.token = resp.token;
           $state.go('dashboard');
+          console.log(resp.token);
         }
       });
   }
@@ -37,4 +38,5 @@
     $state.go('landing');
   }
 }
+
 })();

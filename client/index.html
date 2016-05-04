@@ -54,13 +54,13 @@
           <li><h1><a ui-sref="landing">Baby Steps</a></h1></li>
           <li><a ui-sref="tech">Technology</a></li>
 
-          <li style="float:right"><button ng-if="sidebar.authed && !sidebar.inChat" ng-click="sidebar.chat()">
+          <!-- <li style="float:right"><button ng-if="sidebar.authed && !sidebar.inChat" ng-click="sidebar.chat()">
             Global Chat</button>
           </li>
           <li style="float:right"><button ng-if="sidebar.inChat" ng-click="sidebar.leave()">
             Leave Chat</button>
-          </li>
-          <li style="float:right"><button ng-if="sidebar.authed" ng-click="sidebar.logout()">
+          </li> -->
+          <li style="float:right"><button ng-click="sidebar.logout()">
             Logout</button>
           </li>
 
