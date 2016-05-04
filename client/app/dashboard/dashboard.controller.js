@@ -4,7 +4,7 @@
   angular
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
-    function DashboardCtrl($state, $uibModal, dashboard){
+    function DashboardCtrl($state, $uibModal, dashboard, auth){
       var vm = this;
 
       vm.displayChildren = displayChildren;

@@ -13,8 +13,8 @@
       };
       return service;
 
-      function getUser(){
-        return $http.get('/dashboard');
+      function getUser(userName){
+        return $http.get('/dashboard', {userName: userName});
       }
 
       function removeThisChild(childName, userName){

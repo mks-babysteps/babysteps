@@ -5,7 +5,7 @@ var db = require('../db.js');
 
 
 router.get('/', function(req, res){
-   db.users.find( { username : 'chend2'}, function(err, users){
+   db.users.find( { username : req.body.userName}, function(err, users){
 
     if(err){
       console.log('error');
