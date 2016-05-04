@@ -7,7 +7,7 @@
     // should also have linkes to children, milestones, etc.
     .controller('SidebarCtrl', SidebarCtrl);
 
-  function SidebarCtrl(auth, $state, $scope) {
+  function SidebarCtrl(auth, $state) {
 
     var vm = this;
 
