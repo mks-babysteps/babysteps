@@ -5,26 +5,30 @@
     .module('baby.milestone',[])
     .controller('MilestoneCtrl', MilestoneCtrl);
 
-  function MilestoneCtrl($state, milestone) {
+  function MilestoneCtrl ($state, milestone, $stateParams) {
+
+    var currentChildCondition = $stateParams.condition;
 
     var vm = this;
     // Functions
     vm.displayCondition = displayCondition;
+    vm.init = init;
+    vm.condition = $stateParams.condition;
 
-    function displayCondition() {
+    function init() {
+      displayCondition();
+    }
 
-      milestone.getCondition(vm.condition)
+    function displayCondition () {
+      milestone.getCondition(currentChildCondition)
         .then(function(data) {
           var conditionData = data.data[0];
-          vm.conditionGrossMotor = conditionData.grossMotor;
-          vm.conditionPersonalSocial = conditionData.personalSocial;
-          vm.conditionLanguage = conditionData.language;
-          // console.log('This is data object',vm.conditionData);
-          // console.log('This is grossMotor',vm.conditionGrossMotor);
-          // console.log('This is personalSocial',vm.conditionPersonalSocial);
-          // console.log('This is language',vm.conditionLanguage);
+          vm.grossMotor = conditionData.grossMotor;
+          vm.personalSocial = conditionData.personalSocial;
+          vm.language = conditionData.language;
         });
     }
 
   }
 })();
+
