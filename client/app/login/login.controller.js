@@ -15,7 +15,7 @@
     vm.message = 'Invalid user and password combination';
 
     function login(username, password) {
-      auth.signIn(username, password)
+      auth.signin(username, password)
         .then(function(data) {
           console.log(data.data);
           if (data.data.success) {
