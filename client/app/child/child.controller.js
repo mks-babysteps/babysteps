@@ -6,6 +6,7 @@
       .controller('ChildController', ChildController);
 
       function ChildController($uibModalInstance, dashboard) {
+
         var vm = this;
 
         vm.conditions = ['Normal', 'Cerebral Palsy', 'Down Syndrome'];
@@ -28,7 +29,7 @@
           $uibModalInstance.close();
         };
 
-         vm.today = function() {
+        vm.today = function() {
           vm.dt = new Date();
         };
         vm.today();

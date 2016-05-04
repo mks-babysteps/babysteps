@@ -34,10 +34,10 @@ router.post('/addChild', function(req,res) {
       //var childArray = users[0].children;
       for(var i = 0; i < users[0].children.length; i++){
         var childName = users[0].children[i].firstName;
-        if(childName !== req.body.firstName){
+        if (childName !== req.body.firstName){
           users[0].children.addToSet(childInfo);
 
-        }else{
+        } else {
           console.log('Inside add child, db.users, line 34, child already exits');
         }
       }
@@ -60,7 +60,7 @@ router.post('/', function(req,res){
       for(var i=0; i<users[0].children.length; i++){
         if(users[0].children[i].firstName!==req.body.firstName){
           spliced.push(users[0].children[i]);
-          console.log(spliced, 'array!'); 
+          console.log(spliced, 'array!');
         }
       }
       users[0].children = spliced;
@@ -75,5 +75,5 @@ router.post('/', function(req,res){
     }
   });
 });
-  
+
 module.exports = router;
