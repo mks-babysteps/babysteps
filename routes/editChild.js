@@ -6,10 +6,10 @@ var User = require('../db.js').users;
 // Routes
 router.post('/', function(req, res) {
   var username = req.headers.username;
-  var firstName = req.body.child.firstName;
-  var lastName = req.body.child.lastName;
-  var birthdate = req.body.child.birthdate;
-  var newCondition = req.body.child.condition;
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
+  var birthdate = req.body.birthday;
+  var newCondition = req.body.condition;
   updateChild(res, username, firstName, lastName, birthdate, newCondition);
 });
 
@@ -21,7 +21,8 @@ function updateChild(res, username, firstName, lastName, birthdate, newCondition
       update(childrenArray, firstName, lastName, birthdate, newCondition);
       foundUser.update({children: foundUser.children}, function(err) {
         if(err) {
-          console.log('ERROR IN updateChild');
+          console.error(err);
+          res.json({success: false});
         } else {
           res.json({success: true});
         }
