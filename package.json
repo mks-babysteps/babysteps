@@ -32,6 +32,7 @@
     "express": "^4.13.4",
     "jsonwebtoken": "^6.2.0",
     "mongoose": "^4.4.13",
+    "node-gyp": "^3.3.1",
     "q": "^1.4.1"
   },
   "jshintConfig": {
