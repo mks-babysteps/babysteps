@@ -36,13 +36,17 @@ router.post('/addChild', function(req,res) {
     }else{
       // console.log('Dans method', users[0].children);
       //var childArray = users[0].children;
-      for(var i = 0; i < users[0].children.length; i++){
-        var childName = users[0].children[i].firstName;
-        if(childName !== req.body.firstName){
+        if(users[0].children.length === 0){
           users[0].children.addToSet(childInfo);
-
         }else{
-          console.log('Inside add child, db.users, line 34, child already exits');
+          for(var i = 0; i < users[0].children.length; i++){
+            var childName = users[0].children[i].firstName;
+            if(childName !== req.body.firstName){
+              users[0].children.addToSet(childInfo);
+
+            }else{
+              console.log('Inside add child, db.users, line 34, child already exits');
+            }
         }
       }
       users[0].save(function(){
