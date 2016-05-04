@@ -5,7 +5,7 @@
     .module('baby')
     .factory('auth', auth);
 
-  function auth($http, $state, $localStorage) {
+  function auth($http, $state, $localStorage, $rootScope) {
     return {
       current: current,
       signup: signup,
@@ -29,6 +29,7 @@
           $http.defaults.headers.common.username = userObj.username;
           $http.defaults.headers.common.token = resp.token;
           $state.go('dashboard');
+          $rootScope.$broadcast('loggedIn');
         }
       });
   }

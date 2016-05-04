@@ -1,17 +1,18 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular
-      .module('baby.dashboard')
-      .controller('ChildController', ChildController);
+  angular
+    .module('baby.dashboard')
+    .controller('ChildCtrl', ChildCtrl);
 
-      function ChildController($uibModalInstance, dashboard) {
+  function ChildCtrl($uibModalInstance, dashboard) {
+        
         var vm = this;
 
-        vm.conditions = ['Normal', 'Cerebral Palsy', 'Down Syndrome'];
+        vm.conditions = ['None', 'Cerebral Palsy', 'Down Syndrome'];
 
-        vm.addChild = function (firstName, lastName, birthday, condition){
-          //console.log("Addchild in ChildController", name, " + ", birthday, " + ", condition);
+        vm.addChild = function(firstName, lastName, birthday, condition) {
+          //console.log("Addchild in ChildCtrl", name, " + ", birthday, " + ", condition);
         	var childObj = {
         		'firstName': firstName,
             'lastName': lastName,
@@ -24,13 +25,14 @@
           vm.close();
         };
 
-        vm.close = function () {
+        vm.close = function() {
           $uibModalInstance.close();
         };
 
-         vm.today = function() {
+        vm.today = function() {
           vm.dt = new Date();
         };
+
         vm.today();
 
         vm.clear = function() {
@@ -44,19 +46,11 @@
         };
 
         vm.dateOptions = {
-          dateDisabled: disabled,
           formatYear: 'yy',
-          maxDate: new Date(2020, 5, 22),
-          minDate: new Date(),
+          maxDate: new Date(2050, 5, 22),
+          minDate: new Date(1993, 2, 6),
           startingDay: 1
         };
-
-        // Disable weekend selection
-        function disabled(data) {
-          var date = data.date,
-            mode = data.mode;
-          return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-        }
 
         vm.toggleMin = function() {
           vm.inlineOptions.minDate = vm.inlineOptions.minDate ? null : new Date();
@@ -80,21 +74,6 @@
         vm.popup1 = {
           opened: false
         };
-
-        var tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        var afterTomorrow = new Date();
-        afterTomorrow.setDate(tomorrow.getDate() + 1);
-        vm.events = [
-          {
-            date: tomorrow,
-            status: 'full'
-          },
-          {
-            date: afterTomorrow,
-            status: 'partially'
-          }
-        ];
 
         function getDayClass(data) {
           var date = data.date,
