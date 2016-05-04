@@ -68,7 +68,7 @@ router.post('/', function(req,res){
       for(var i=0; i<users[0].children.length; i++){
         if(users[0].children[i].firstName!==req.body.firstName){
           spliced.push(users[0].children[i]);
-          // console.log(spliced, 'array!'); 
+          // console.log(spliced, 'array!');
         }
       }
       users[0].children = spliced;
@@ -83,5 +83,5 @@ router.post('/', function(req,res){
     }
   });
 });
-  
+
 module.exports = router;

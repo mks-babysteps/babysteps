@@ -10,8 +10,10 @@
         getUser: getUser,
         addChild: addChild,
         removeThisChild: removeThisChild,
-        goMilestone: goMilestone
+        goMilestone: goMilestone,
+        editChild: editChild
       };
+
       return service;
 
       function getUser(){
@@ -34,6 +36,10 @@
         console.log(condition);
         var conditionObj = {condition: condition};
         $state.go('milestone', conditionObj);
+      }
+
+      function editChild(childObj) {
+        return $http.post('/edit', childObj);
       }
     }
 })();
