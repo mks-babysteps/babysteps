@@ -4,15 +4,10 @@ var Q = require('q');
 var tokens = require('../tokens');
 var db = require('../db');
 
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
-const someOtherPlaintextPassword = 'not_bacon';
-
 // Routes
 router.post('/', function(req, res) {
   var user = req.body;
-
+  var hash = 
   if (!validate(user)) {
     res.json({
       success: false,

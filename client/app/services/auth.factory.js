@@ -28,7 +28,6 @@
           $http.defaults.headers.common.username = userObj.username;
           $http.defaults.headers.common.token = resp.token;
           $state.go('dashboard');
-          console.log(resp.token);
         }
       });
   }
