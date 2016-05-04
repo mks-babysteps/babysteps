@@ -6,7 +6,6 @@
 <!-- modal body -->
 <div class="modal-body">
 
-
   <!-- form body -->
   <form name="editChild">
     <div class="form-group" ng-class="{'has-error': childForm.name.$invalid}">
@@ -27,4 +26,5 @@
       <select ng-model="typesOfConditions" ng-options="types for types in child.conditions"></select>
     </div>
   </form>
+
 </div>
