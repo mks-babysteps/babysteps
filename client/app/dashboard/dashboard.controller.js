@@ -24,7 +24,7 @@
       vm.open = function() {
         vm.modalInstance = $uibModal.open({
           templateUrl: 'app/child/child.html',
-          controller: 'ChildController as child'
+          controller: 'ChildCtrl as child'
         });
       };
 
