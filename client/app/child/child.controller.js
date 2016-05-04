@@ -22,7 +22,7 @@
         	dashboard.addChild(childObj)
           .then(function(){
             $state.reload('dashboard');
-          })
+          });
           //console.log('Name: ', name,' birthday: ', birthday, ' condition: ', condition);
           vm.close();
         };
