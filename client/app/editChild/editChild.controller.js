@@ -2,14 +2,12 @@
   'use strict';
 
   angular
-    .module('baby.login')
-    .controller('LoginCtrl', LoginCtrl);
+    .module('baby.dashboard')
+    .controller('EditChildCtrl', EditChildCtrl);
 
-  function LoginCtrl($state, auth, $localStorage, $http) {
-
-    // initializations
+  function EditChildCtrl($uibModalInstance, dashboard) {
+    // initialize
     var vm = this;
-    vm.toggleMin();
 
     // variables
     vm.altInputFormats = ['M!/d!/yyyy'];
@@ -31,23 +29,37 @@
         status: 'partially'
       }
     ];
-    vm.format = vm.formats[0];
     vm.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-      opened: false
+    vm.format = vm.formats[0];
+    vm.inlineOptions = {
+      customClass: getDayClass,
+      minDate: new Date(),
+      showWeeks: true
     };
     vm.popup1 = {
       opened: false
     };
 
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var afterTomorrow = new Date();
+    afterTomorrow.setDate(tomorrow.getDate() + 1);
+
+
     // functions
-    vm.addChild = addChild;
+    vm.editChild = editChild;
     vm.clear = clear;
     vm.close = close;
     vm.disabled = disabled;
-    vm.today = today;
-    vm.toggleMin = toggleMin;
+    vm.getDayClass = getDayClass;
     vm.open1 = open1;
     vm.setDate = setDate;
+    vm.today = today;
+    vm.toggleMin = toggleMin;
+
+    // start up functions
+    vm.toggleMin();
+    vm.today();
 
     function close() {
       $uibModalInstance.close();
@@ -55,15 +67,17 @@
 
     function today() {
       vm.dt = new Date();
-    };
+    }
 
-    function addChild() {
+    function editChild(firstName, lastName, birthday, condition) {
       var childObj = {
         'firstName': firstName,
         'lastName': lastName,
         'birthday': birthday,
         'condition': condition
       };
+      dashboard.editChild(childObj);
+      vm.close();
     }
 
     function clear() {
@@ -88,5 +102,20 @@
     function setDate(year, month, day) {
       vm.dt = new Date(year, month, day);
     }
-  }
+
+    function getDayClass(data) {
+      var date = data.date,
+        mode = data.mode;
+      if (mode === 'day') {
+        var dayToCheck = new Date(date).setHours(0,0,0,0);
+        for (var i = 0; i < vm.events.length; i++) {
+          var currentDay = new Date(vm.events[i].date).setHours(0,0,0,0);
+          if (dayToCheck === currentDay) {
+            return vm.events[i].status;
+          }
+        }
+      }
+      return '';
+    }
+ }
 })();
