@@ -5,7 +5,7 @@
     .module('baby.dashboard')
     .controller('ChildCtrl', ChildCtrl);
 
-      function ChildController($uibModalInstance, dashboard, $state) {
+      function ChildCtrl($uibModalInstance, dashboard, $state) {
         var vm = this;
 
         vm.conditions = ['None', 'Cerebral Palsy', 'Down Syndrome'];
