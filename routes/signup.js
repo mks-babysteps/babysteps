@@ -7,7 +7,7 @@ var db = require('../db');
 // Routes
 router.post('/', function(req, res) {
   var user = req.body;
-
+  var hash = 
   if (!validate(user)) {
     res.json({
       success: false,
