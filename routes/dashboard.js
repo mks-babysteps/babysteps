@@ -5,11 +5,15 @@ var db = require('../db.js');
 
 
 router.get('/', function(req, res){
-   db.users.find( { username : req.body.userName}, function(err, users){
+  console.log("req.headers.username", req.headers.username)
+  console.log("this is the req.body", req.body)
+
+   db.users.find( { username : req.headers.username}, function(err, users){
 
     if(err){
       console.log('error');
     }else{
+      console.log("this is the res.body", res.body)
       res.send(users);
     }
   });
@@ -26,7 +30,7 @@ router.post('/addChild', function(req,res) {
   };
 
 
-  db.users.find({username: 'chend2'}, function(err, users){
+  db.users.find({username: req.headers.username}, function(err, users){
     if(err){
       console.log('error');
     }else{
@@ -51,7 +55,7 @@ router.post('/addChild', function(req,res) {
 router.post('/', function(req,res){
   console.log('this is req.body.firstName ', req.body.firstName);
   console.log('this is req.body.userName ', req.body.userName);
-  db.users.find( {username : req.body.userName}, function(err, users){
+  db.users.find( {username : req.headers.username}, function(err, users){
     if(err){
       console.log('error');
     }else{

@@ -10,6 +10,7 @@
       vm.displayChildren = displayChildren;
       vm.displayUsers = displayUsers;
       vm.removeChild = removeChild;
+      vm.username = auth.current().username
 
       function displayChildren(){
         dashboard.getUser()
@@ -38,7 +39,11 @@
 
       function removeChild(childFirstName){
         console.log('on click this is passed into removeChild', childFirstName);
-        dashboard.removeThisChild(childFirstName, 'chend2');
+        dashboard.removeThisChild(childFirstName)
+          .then(function(){
+            console.log("refreshed");
+            $state.reload("dashboard");
+          });
       }
 
     }

@@ -13,12 +13,12 @@
       };
       return service;
 
-      function getUser(userName){
-        return $http.get('/dashboard', {userName: userName});
+      function getUser(){
+        return $http.get('/dashboard');
       }
 
-      function removeThisChild(childName, userName){
-        return $http.post('/dashboard', {firstName: childName, userName: userName});
+      function removeThisChild(childName){
+        return $http.post('/dashboard', {firstName: childName});
       }
 
       function addChild(params){
