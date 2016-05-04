@@ -5,23 +5,24 @@
 //     .module('baby.chat')
 //     .controller('ChatCtrl', ChatCrl);
 
-//     function ChatCtrl($scope, $state, Messages, Auth) {
-    
-//       $scope.messages = Messages;
-//       $scope.username = Auth.username;
-//       $scope.chat = {
-//         string: ''
-//       };
-//       $scope.text;
+//   function ChatCtrl($scope, $state, messages, auth) {
+  
+//     vm = this;
 
-//       $scope.addMessage = function(text) {
-//         $scope.text = text;
-//         $scope.chat.string = '';
-//         $scope.messages.$add(
-//         {
-//           "message": $scope.text,
-//           "username": $scope.username
+//     vm.messages = messages;
+//     vm.username = $localStorage.username;
+//     vm.chat = { string: '' };
+//     vm.text;
+
+//     vm.addMessage = addMessage;
+
+//     function addMessage(text) {
+//       vm.text = text;
+//       vm.chat.string = '';
+//       vm.messages.$add({
+//           "message": vm.text,
+//           "username": vm.username
 //         });
-//       };
-//     };
+//       }
+//     }
 // })();
