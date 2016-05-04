@@ -8,8 +8,9 @@
   function auth($http, $state, $localStorage) {
     return {
       current: current,
-      signup: signup, 
-      logout: logout
+      signup: signup,
+      logout: logout,
+      signin: signin
     };
 
   function current() {
@@ -30,6 +31,15 @@
           $state.go('dashboard');
         }
       });
+  }
+
+  function signin(username, password) {
+    return $http.get('/login', {
+      headers: {
+        username: username,
+        password: password
+      }
+    });
   }
 
   function logout() {

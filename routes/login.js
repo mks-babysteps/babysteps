@@ -1,50 +1,36 @@
 var express = require('express');
 var router = express.Router();
-// var tokens = require('../tokens.js');
+var Q = require('q');
+var User = require('../db.js').users;
 
-// var User = require('../db');
-
-router.post('/', function(req, res) {
-  var user = req.body;
-
-  // data validation
-  if (!validate(user)) {
-    res.json({
-      success: false,
-      message: 'Please provide a username and password.'
-    });
-
-  // if data validation passes
-  // Danny, need to change to mongo query 
-  } else {
-    // knex('users').where({username: user.username})
-    //   .then(function(resp) {
-    //     var userFromDb = resp[0];
-
-    //     if (userFromDb && userFromDb.password === user.password) {
-    //       res.json({
-    //         success: true,
-    //         message: 'Logged in!',
-    //         token: auth.genToken(userFromDb)
-    //       });
-    //     } else {
-    //       res.json({
-    //         success: false,
-    //         message: 'Username or password is incorrect.'
-    //       });
-    //     }
-    // });
-  }
+// Routes
+router.get('/', function(req, res) {
+  var username = req.headers.username;
+  var password = req.headers.password;
+  getUserBy(username, password, res);
 });
 
-// router.get('/', function(req, res) {
-  
-// });
-
-// helper function
-function validate(user) {
-  return user.username && user.password;
+// Helper Functions
+function getUserBy(username, password, res) {
+  return new Q(User.findOne({'username': username}).exec())
+  .then(function(foundUser) {
+    if (foundUser && foundUser.password === password) {
+      success(res, true);
+    } else {
+      success(res, false, 'Username and password invalid!');
+    }
+  });
 }
 
-// export router
+function success(res, bool, msg) {
+  if (bool) {
+    res.json({success: bool});
+  } else {
+    res.json({
+      success: bool,
+      message: msg
+    });
+  }
+}
+
 module.exports = router;
