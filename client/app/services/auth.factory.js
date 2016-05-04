@@ -33,7 +33,7 @@
       });
   }
 
-  function signIn(username, password) {
+  function signin(username, password) {
     return $http.get('/login', {
       headers: {
         username: username,
