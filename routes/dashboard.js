@@ -5,15 +5,15 @@ var db = require('../db.js');
 
 
 router.get('/', function(req, res){
-  console.log('req.headers.username', req.headers.username);
-  console.log('this is the req.body', req.body);
+  // console.log('req.headers.username', req.headers.username);
+  // console.log('this is the req.body', req.body);
 
    db.users.find( { username : req.headers.username}, function(err, users){
 
     if(err){
-      console.log('error');
+      console.log(err);
     }else{
-      console.log('this is the res.body', res.body);
+      // console.log('this is the res.body', res.body);
       res.send(users);
     }
   });
@@ -32,9 +32,9 @@ router.post('/addChild', function(req,res) {
 
   db.users.find({username: req.headers.username}, function(err, users){
     if(err){
-      console.log('error');
+      console.log(err);
     }else{
-      console.log('Dans method', users[0].children);
+      // console.log('Dans method', users[0].children);
       //var childArray = users[0].children;
       for(var i = 0; i < users[0].children.length; i++){
         var childName = users[0].children[i].firstName;
@@ -53,18 +53,18 @@ router.post('/addChild', function(req,res) {
 });
 
 router.post('/', function(req,res){
-  console.log('this is req.body.firstName ', req.body.firstName);
-  console.log('this is req.body.userName ', req.body.userName);
+  // console.log('this is req.body.firstName ', req.body.firstName);
+  // console.log('this is req.body.userName ', req.body.userName);
   db.users.find( {username : req.headers.username}, function(err, users){
     if(err){
-      console.log('error');
+      console.log(err);
     }else{
-      console.log(users, 'users here');
+      // console.log(users, 'users here');
       var spliced = [];
       for(var i=0; i<users[0].children.length; i++){
         if(users[0].children[i].firstName!==req.body.firstName){
           spliced.push(users[0].children[i]);
-          console.log(spliced, 'array!'); 
+          // console.log(spliced, 'array!'); 
         }
       }
       users[0].children = spliced;
