@@ -4,20 +4,21 @@
   angular
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
-    function DashboardCtrl($state, $uibModal, dashboard){
+    function DashboardCtrl($state, $uibModal, dashboard, auth){
       var vm = this;
 
       vm.displayChildren = displayChildren;
       vm.displayUsers = displayUsers;
       vm.removeChild = removeChild;
+      vm.username = auth.current().username;
 
       function displayChildren(){
         dashboard.getUser()
           .then(function(data){
             var userObj = data.data[0];
-            console.log('data', data);
+            // console.log('data', data);
             vm.children = userObj.children;
-             console.log('chillun', vm.children);
+             // console.log('chillun', vm.children);
           });
       }
 
@@ -37,8 +38,12 @@
       }
 
       function removeChild(childFirstName){
-        console.log('on click this is passed into removeChild', childFirstName);
-        dashboard.removeThisChild(childFirstName, 'chend2');
+        // console.log('on click this is passed into removeChild', childFirstName);
+        dashboard.removeThisChild(childFirstName)
+          .then(function(){
+            // console.log('refreshed');
+            $state.reload('dashboard');
+          });
       }
 
     }
