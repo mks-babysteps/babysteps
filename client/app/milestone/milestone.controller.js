@@ -5,7 +5,7 @@
     .module('baby.milestone',[])
     .controller('MilestoneCtrl', MilestoneCtrl);
 
-  function MilestoneCtrl ($state, milestone, $scope, $stateParams) {
+  function MilestoneCtrl ($state, milestone, $stateParams) {
 
     var currentChildCondition = $stateParams.condition;
 
