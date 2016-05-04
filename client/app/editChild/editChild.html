@@ -1,0 +1,35 @@
+<!-- modal header -->
+<div class="modal-header">
+  <h3 class="modal-title">Edit Child Information</h3>
+</div>
+
+<!-- modal body -->
+<div class="modal-body">
+
+  <!-- form body -->
+  <form name="editChild">
+    <div class="form-group">
+      First Name: <input type="text" class="childForm-control" name="firstName" ng-model="myChild.firstName" placeholder="Child First Name" required />
+    </div>
+    <div class="form-group">
+      Last Name: <input type="text" class="childForm-control" name="lastName" ng-model="myChild.lastName" placeholder="Child Last Name" required />
+    </div>
+    <div class="form-group">
+      <pre>
+        <button type="button" class="btn btn-default" >
+          <i class="glyphicon glyphicon-calendar" ng-click="myChild.open1()" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="myChild.popup1.opened" datepicker-options="myChild.dateOptions" ng-required="true" close-text="myChild.Close" alt-input-formats="myChild.altInputFormats" ></i>
+        </button>&nbsp;Child's Birthday: <em>{{dt | date:'fullDate' }}</em>
+      </pre>
+    </div>
+    <div class="form-group">
+      Condition:
+      <select ng-model="typesOfConditions" ng-options="types for types in myChild.conditions"></select>
+    </div>
+  </form>
+
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-info" ng-click="myChild.editChild(myChild.firstName, myChild.lastName, dt, typesOfConditions)">Edit Child</button>
+  <button class="btn btn-info" ng-click="myChild.close()">Close</button>
+</div>
