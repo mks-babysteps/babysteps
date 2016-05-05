@@ -9,6 +9,7 @@ var login = require('./routes/login');
 var milestone = require('./routes/milestone');
 var dashboard = require('./routes/dashboard.js');
 var edit = require('./routes/editChild.js');
+var vaccinations = require('./routes/vaccinations.js');
 
 app.use(express.static(__dirname + '/client/'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,6 +21,7 @@ app.use('/login', login);
 app.use('/edit', edit);
 app.use('/milestone', milestone);
 app.use('/dashboard', dashboard);
+app.use('/vaccinations', vaccinations);
 
 app.listen(8080, function() {
   console.log('Listening to localhost:8080');
