@@ -41,5 +41,4 @@ function success(res, bool, msg) {
   }
 }
 
-
 module.exports = router;
