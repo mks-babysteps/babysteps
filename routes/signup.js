@@ -3,8 +3,8 @@ var router = express.Router();
 var Q = require('q');
 var tokens = require('../tokens');
 var db = require('../db');
+var bcrypt = require('bcrypt');
 
-// var bcrypt = require('bcrypt');
 // var saltRounds = 10;
 // var myPlaintextPassword = 's0/\/\P4$$w0rD';
 // var someOtherPlaintextPassword = 'not_bacon';
@@ -23,7 +23,7 @@ var db = require('../db');
 // Routes
 router.post('/', function(req, res) {
   var user = req.body;
-  
+
   if (!validate(user)) {
     res.json({
       success: false,
@@ -36,13 +36,19 @@ router.post('/', function(req, res) {
       newUser.lastname = user.lastname;
       newUser.email = user.email;
       newUser.username = user.username;
-      newUser.password = user.password;
+      //hashing password
+        bcrypt.hash(user.password, 10,
+          function(err, hash) {
+            newUser.password = hash;
+          });
+
       getUserBy(newUser, res);
     }
 });
 
 // Helper Functions
 function validate(user) {
+  console.log("This is our userPassword inside validate",user.password)
   return user.firstname && user.lastname && user.email && user.username && user.password;
 }
 
