@@ -15,6 +15,8 @@ Track your baby's development!
 ```
 $ npm install
 ```
+* Go to the client folder, and:
+
 ```
 $ bower install
 ```
@@ -26,11 +28,6 @@ $ node server/server.js
 ```
 
 * You should now be able to view the app. 
-  
-# Milestones
-* Set up system for users to login
-* Setup database (MongoDB) to store user info
-* Integrated 
 
 # Backlog
 *

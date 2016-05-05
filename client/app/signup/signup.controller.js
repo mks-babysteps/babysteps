@@ -6,13 +6,14 @@
     .controller('SignupCtrl', SignupCtrl);
 
   function SignupCtrl($state, auth) {
-    
+    // initialize
     var vm = this;
 
+    // variables
     vm.error = false;
     vm.message = '';
 
-    // Functions
+    // functions
     vm.redirectToLogin = redirectToLogin;
     vm.signup = signup;
 
@@ -38,5 +39,6 @@
           }
         });
     }
+    
   }
 })();

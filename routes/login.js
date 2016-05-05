@@ -3,14 +3,14 @@ var router = express.Router();
 var Q = require('q');
 var User = require('../db.js').users;
 
-// Routes
+// routes
 router.get('/', function(req, res) {
   var username = req.headers.username;
   var password = req.headers.password;
   getUserBy(username, password, res);
 });
 
-// Helper Functions
+// helper Functions
 function getUserBy(username, password, res) {
   return new Q(User.findOne({'username': username}).exec())
   .then(function(foundUser) {

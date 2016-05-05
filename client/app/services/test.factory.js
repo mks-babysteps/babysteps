@@ -10,7 +10,6 @@
         double: double,
         getName: getName
     };
-
     return service;
 
     function double(x) {
@@ -23,5 +22,3 @@
 
   }
 })();
-
-// test factory for jasmine test

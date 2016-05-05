@@ -6,11 +6,13 @@
     .controller('MilestoneCtrl', MilestoneCtrl);
 
   function MilestoneCtrl($state, milestone, $stateParams) {
-
-    var currentChildCondition = $stateParams.condition;
-
+    // initialize
     var vm = this;
-    // Functions
+
+    // variables
+    var currentChildCondition = $stateParams.condition;
+    
+    // functions
     vm.displayCondition = displayCondition;
     vm.init = init;
     vm.condition = $stateParams.condition;
@@ -28,6 +30,6 @@
           vm.language = conditionData.language;
         });
     }
+  
   }
 })();
-

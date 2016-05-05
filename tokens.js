@@ -1,5 +1,4 @@
 var jwt = require('jsonwebtoken');
-// var dotenv = require('dotenv').config();
 
 var tokens = {};
 

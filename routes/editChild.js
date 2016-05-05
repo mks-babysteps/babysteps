@@ -3,7 +3,7 @@ var router = express.Router();
 var Q = require('q');
 var User = require('../db.js').users;
 
-// Routes
+// routes
 router.post('/', function(req, res) {
   var username = req.headers.username;
   var firstName = req.body.firstName;
