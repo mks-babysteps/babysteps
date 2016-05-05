@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcrypt');
 var Q = require('q');
+
 var User = require('../db.js').users;
 
 // routes
@@ -22,6 +24,7 @@ function getUserBy(username, password, res) {
   });
 }
 
+
 function success(res, bool, msg) {
   if (bool) {
     res.json({success: bool});
@@ -32,5 +35,6 @@ function success(res, bool, msg) {
     });
   }
 }
+
 
 module.exports = router;
