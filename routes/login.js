@@ -21,17 +21,14 @@ function getUserBy(username, password, res) {
             console.log('error: ', err);
       } else {
           if (foundUser && result) {
-            console.log('Password Correct');
             res.json({success: true, token: getToken(username)});
           } else {
-            console.log('Password Wrong');
             success(res, false, 'Username and password invalid!');
           }
       }
     });
   });
 }
-
 
 function success(res, bool, msg) {
   if (bool) {
