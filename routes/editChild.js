@@ -3,6 +3,11 @@ var router = express.Router();
 var Q = require('q');
 var User = require('../db.js').users;
 
+// authentication
+router.use(function(req, res, next) {
+  verify(req.headers.token, res, next);
+});
+
 // routes
 router.post('/', function(req, res) {
   var username = req.headers.username;
