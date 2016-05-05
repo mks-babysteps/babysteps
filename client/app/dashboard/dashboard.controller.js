@@ -4,6 +4,7 @@
   angular
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
+
     function DashboardCtrl($state, $uibModal, dashboard, auth) {
       var vm = this;
 
@@ -13,7 +14,7 @@
       // functions
       vm.displayChildren = displayChildren;
       vm.displayUsers = displayUsers;
-      vm.removeChild = removeChild;
+      vm.removeChild = removeChild; 
       vm.milestonePage = milestonePage;
       vm.open = open;
       vm.edit = edit;
@@ -62,6 +63,6 @@
       function milestonePage(condition) {
         dashboard.goMilestone(condition);
       }
-
+      
     }
 })();

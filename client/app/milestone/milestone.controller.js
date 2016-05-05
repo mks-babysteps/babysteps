@@ -5,7 +5,7 @@
     .module('baby.milestone',[])
     .controller('MilestoneCtrl', MilestoneCtrl);
 
-  function MilestoneCtrl ($state, milestone, $stateParams) {
+  function MilestoneCtrl($state, milestone, $stateParams) {
 
     var currentChildCondition = $stateParams.condition;
 
@@ -19,7 +19,7 @@
       displayCondition();
     }
 
-    function displayCondition () {
+    function displayCondition() {
       milestone.getCondition(currentChildCondition)
         .then(function(data) {
           var conditionData = data.data[0];
@@ -28,7 +28,6 @@
           vm.language = conditionData.language;
         });
     }
-
   }
 })();
 
