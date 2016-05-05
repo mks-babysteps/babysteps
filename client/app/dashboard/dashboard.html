@@ -13,21 +13,16 @@
  <div ng-init="dashboard.displayChildren()">
     <div ng-repeat="child in dashboard.children">
 
-
-        <div>{{child.firstName}} {{child.lastName}}
-          <button ng-click="dashboard.edit()" style="float:right">Edit Child</button>
-        <br>
+      <div>{{child.firstName}} {{child.lastName}}
+        <button ng-click="dashboard.edit()" style="float:right">Edit Child</button>
+          <br>
         <button ng-click="dashboard.milestonePage(child.condition)" style="float:right">MileStones</button>
-        <br>
-        <button ng-click="dashboard.milestonePage(child.condition)" style="float:right">MileStones</button>
-        <br>
+          <br>
         {{child.condition}}<button ng-click="dashboard.removeChild(child.firstName)" style="float:right">Remove Child</button>
-        <br>
-        <br>
-        </div>
-
+          <br>
+          <br>
+      </div>
 
     </div>
-  </div>
-</displayChildrenv>
+ </div>
 </div>
