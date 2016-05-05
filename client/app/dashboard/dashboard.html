@@ -1,5 +1,6 @@
-<div ui-view style="width: 70%; margin: auto; font-size: 20px">
 
+<div ui-view class>
+  <div class="dashboard">
   <h1>Dashboard</h1>
 
   <div>
@@ -10,18 +11,20 @@
   </div>
 
  <div ng-init="dashboard.displayChildren()">
-    <div ng-repeat="child in dashboard.children">
+    <div ng-repeat="child in dashboard.children" class="children">
 
-      <div>{{child.firstName}} {{child.lastName}}
-        <button ng-click="dashboard.edit()" style="float:right">Edit Child</button>
+      {{child.firstName}}&nbsp{{child.lastName}}&nbsp|&nbsp{{child.condition}}
+      <div class="childbtn1"><button ng-click="dashboard.edit()">Edit Child</button>&nbsp<button ng-click="dashboard.removeChild(child.firstName)">Remove Child</button>
+      </div>  
           <br>
-        <button ng-click="dashboard.milestonePage(child.condition)" style="float:right">MileStones</button>
-          <br>
-        {{child.condition}}<button ng-click="dashboard.removeChild(child.firstName)" style="float:right">Remove Child</button>
-          <br>
-          <br>
+      <div class="childbtn2">
+        <button ng-click="dashboard.milestonePage(child.condition)">MileStones</button>
+        <button ng-click="">Vaccinations</button>
+        <button ng-click="">Appointments</button>
       </div>
 
     </div>
  </div>
+
+</div>
 </div>

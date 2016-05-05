@@ -81,3 +81,25 @@ form {
 .landing {
   text-align: center;
 }
+
+.dashboard {
+  width: 70%;
+  margin: auto;
+  font-size: 20px;
+}
+
+.children {
+  margin: 20px;
+  border-style: solid;
+  border-width: 5px 
+}
+
+.childbtn1 {
+  float: right;
+  margin: 5px;
+}
+
+.childbtn2 {
+  text-align: left;
+  margin: 10px;
+}
