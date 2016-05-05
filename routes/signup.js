@@ -18,16 +18,15 @@ router.post('/', function(req, res) {
 
   } else {
     var newUser = new db.users();
-      newUser.firstname = user.firstname;
-      newUser.lastname = user.lastname;
-      newUser.email = user.email;
-      newUser.username = user.username;
-        bcrypt.hash(user.password, 10,
-          function(err, hash) {
-            newUser.password = hash;
-          });
-
-      getUserBy(newUser, res);
+      bcrypt.hash(user.password, 10,
+        function(err, hash) {
+          newUser.firstname = user.firstname;
+          newUser.lastname = user.lastname;
+          newUser.email = user.email;
+          newUser.username = user.username;
+          newUser.password = hash;
+          getUserBy(newUser, res);
+        });
     }
 });
 
