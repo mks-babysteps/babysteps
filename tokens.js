@@ -8,12 +8,12 @@ tokens.generateToken = function (username) {
   return jwt.sign({username: username}, my.secret, {expiresIn: 1440});
 };
 
-tokens.verifyToken = function (token, successCb, errorCb) {
-  return jwt.verify(token, function (err) {
+tokens.verifyToken = function (token, res, next) {
+  return jwt.verify(token, my.secret, function (err) {
     if (err) {
-      errorCb();
+      res.json({success: false, message: 'Unauthorized user'});
     } else {
-      successCb();
+      next();
     }
   });
 };
