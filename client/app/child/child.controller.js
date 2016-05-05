@@ -5,7 +5,7 @@
     .module('baby.dashboard')
     .controller('ChildCtrl', ChildCtrl);
 
-  function ChildCtrl($uibModalInstance) {
+  function ChildCtrl($uibModalInstance, dashboard, $state) {
     // initialize
     var vm = this;
 
@@ -30,6 +30,7 @@
     };
 
     // functions
+    vm.addChild = addChild;
     vm.clear = clear;
     vm.close = close;
     vm.getDayClass = getDayClass;
@@ -38,7 +39,21 @@
     vm.today = today;
     vm.toggleMin = toggleMin;
 
-    // start up functions
+    function addChild(firstName, lastName, birthday, condition) {
+      var childObj = {
+        'firstName': firstName,
+        'lastName': lastName,
+        'birthday': birthday,
+        'condition': condition
+      };
+      dashboard.addChild(childObj)
+        .then(function() {
+          $state.reload('dashboard');
+        });
+        vm.close();
+    };
+
+    // datepicker functions
     vm.toggleMin();
     vm.today();
 
