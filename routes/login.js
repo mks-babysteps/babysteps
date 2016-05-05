@@ -17,13 +17,13 @@ router.get('/', function(req, res) {
 function getUserBy(username, password, res) {
   return new Q(User.findOne({'username': username}).exec())
   .then(function(foundUser) {
-    bcrypt.compare(password, foundUser.password , function(err, res1) {
+    bcrypt.compare(password, foundUser.password , function(err, result) {
       if(err) {
             console.log('error: ', err);
       } else {
-          if (foundUser && res1) {
+          if (foundUser && result) {
             console.log('Password Correct');
-            success(res, true);
+
           } else {
             console.log('Password Wrong');
             success(res, false, 'Username and password invalid!');
