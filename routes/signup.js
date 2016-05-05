@@ -33,7 +33,6 @@ router.post('/', function(req, res) {
 
 // helper functions
 function validate(user) {
-  console.log("This is our userPassword inside validate",user.password)
   return user.firstname && user.lastname && user.email && user.username && user.password;
 }
 
