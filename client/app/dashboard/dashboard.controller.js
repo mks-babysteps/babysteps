@@ -63,5 +63,9 @@
       function milestonePage(condition) {
         dashboard.goMilestone(condition);
       }
+
+      function milestonePage(condition) {
+        dashboard.goMilestone(condition);
+      }
     }
 })();
