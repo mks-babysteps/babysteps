@@ -22,7 +22,6 @@ router.post('/', function(req, res) {
       newUser.lastname = user.lastname;
       newUser.email = user.email;
       newUser.username = user.username;
-      //hashing password
         bcrypt.hash(user.password, 10,
           function(err, hash) {
             newUser.password = hash;
