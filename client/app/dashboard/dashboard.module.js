@@ -4,5 +4,3 @@
   angular
     .module('baby.dashboard', []);
 })();
-
-// inject firebase, firechat?

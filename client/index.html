@@ -64,9 +64,13 @@
           <li style="float:right"><button ng-if="sidebar.inChat" ng-click="sidebar.leave()">
             Leave Chat</button>
           </li> -->
-          <!-- put in dashboard ?-->
+
           <li style="float:right"><button ng-if="sidebar.authed" ng-click="sidebar.logout()">
             Logout</button>
+          </li>
+
+          <li style="float:right"><button ng-if="sidebar.authed" ng-click="sidebar.redirectToDash()">
+            Dashboard</button>
           </li>
 
         </ul>

@@ -3,27 +3,13 @@ var router = express.Router();
 var Q = require('q');
 var tokens = require('../tokens');
 var db = require('../db');
-
-// var bcrypt = require('bcrypt');
-// var saltRounds = 10;
-// var myPlaintextPassword = 's0/\/\P4$$w0rD';
-// var someOtherPlaintextPassword = 'not_bacon';
-// var hashPassword = '';
-
-// where insert user password as parameter?
-
-// bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-//   if (err) {
-//     console.error(err);
-//   } else {
-//       hashPassword = hash;
-//   }
-// });
+var bcrypt = require('bcrypt');
 
 // Routes
+
 router.post('/', function(req, res) {
   var user = req.body;
-  
+
   if (!validate(user)) {
     res.json({
       success: false,
@@ -36,12 +22,16 @@ router.post('/', function(req, res) {
       newUser.lastname = user.lastname;
       newUser.email = user.email;
       newUser.username = user.username;
-      newUser.password = user.password;
+        bcrypt.hash(user.password, 10,
+          function(err, hash) {
+            newUser.password = hash;
+          });
+
       getUserBy(newUser, res);
     }
 });
 
-// Helper Functions
+// helper functions
 function validate(user) {
   return user.firstname && user.lastname && user.email && user.username && user.password;
 }

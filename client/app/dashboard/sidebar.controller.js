@@ -2,23 +2,29 @@
   'use strict';
 
   angular
-    .module('baby') // ??
-    // should be in dashboard, milestones, etc.
-    // should also have linkes to children, milestones, etc.
+    .module('baby')
     .controller('SidebarCtrl', SidebarCtrl);
 
   function SidebarCtrl(auth, $state, $scope) {
-
+    // initialize
     var vm = this;
 
+    // variables
     // vm.inChat = false;
-    vm.logout = logout;
     // vm.chat = chat;
     // vm.leave = leave;
+
+    // functions
+    vm.logout = logout;
+    vm.redirectToDash = redirectToDash;
 
     function logout() {
       auth.logout();
       $state.go('login');
+    }
+
+    function redirectToDash() {
+      $state.go('dashboard');
     }
 
     $scope.$on('loggedOut', function() {

@@ -6,8 +6,10 @@ angular
   .controller('LandingCtrl', LandingCtrl);
 
   function LandingCtrl($state) {
+    // initialize
     var vm = this;
 
+    // functions
     vm.redirectToSignup = redirectToSignup;
     vm.redirectToLogin = redirectToLogin;
 

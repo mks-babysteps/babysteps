@@ -6,13 +6,16 @@
     .controller('LoginCtrl', LoginCtrl);
 
   function LoginCtrl($state, $rootScope, auth, $localStorage, $http) {
-
+    // initialize
     var vm = this;
 
-    vm.login = login;
-    vm.redirectToSignup = redirectToSignup;
+    // variables
     vm.error = false;
     vm.message = 'Invalid user and password combination';
+    
+    // functions
+    vm.login = login;
+    vm.redirectToSignup = redirectToSignup;
 
     function login(username, password) {
       auth.signin(username, password)
@@ -32,5 +35,6 @@
     function redirectToSignup() {
       $state.go('signup');
     }
+
   }
 })();

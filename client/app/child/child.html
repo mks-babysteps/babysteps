@@ -1,13 +1,16 @@
+<!-- stylesheet -->
 <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 
+<!-- modal header -->
 <div class="modal-header">
   <h3 class="modal-title">Child Info</h3>
 </div>
 
+<!-- modal body -->
 <div class="modal-body">
 
+<!-- form body -->
 <form>
-
   <div class="form-group">
     <input type="text" ng-model="child.firstName" placeholder="first name"/>
   </div>
@@ -35,6 +38,7 @@ Condition: {{typesOfConditions}}
 
 </div>
 
+<!-- modal footer -->
 <div class="modal-footer">
   <button class="btn btn-info" ng-click="child.addChild(child.firstName, child.lastName, dt, typesOfConditions)">Add Child</button>
   <button class="btn btn-info" ng-click="child.close()">Close</button>
