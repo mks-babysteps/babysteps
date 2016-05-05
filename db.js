@@ -59,7 +59,7 @@ var vaccinationsSchema = new mongoose.Schema ({
 
 var referenceSchema = new mongoose.Schema ({
   references: []
-})
+});
 
 dbmodels.users = mongoose.model('users', usersSchema);
 dbmodels.conditions = mongoose.model('conditions',conditionsSchema);
