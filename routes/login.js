@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
 var Q = require('q');
-
 var User = require('../db.js').users;
 var getToken = require('../tokens.js').generateToken;
 
@@ -23,7 +22,7 @@ function getUserBy(username, password, res) {
       } else {
           if (foundUser && result) {
             console.log('Password Correct');
-
+            res.json({success: true, token: getToken(username)});
           } else {
             console.log('Password Wrong');
             success(res, false, 'Username and password invalid!');
