@@ -10,17 +10,17 @@
 <div class="modal-body">
 
   <!-- form body -->
-  <form name="editChild">
+  <form>
     <div class="form-group">
-      First Name: <input type="text" class="childForm-control" name="firstName" ng-model="myChild.firstName" placeholder="Child First Name" required />
+      <input type="text" ng-model="myChild.firstName" placeholder="first name"/>
     </div>
     <div class="form-group">
-      Last Name: <input type="text" class="childForm-control" name="lastName" ng-model="myChild.lastName" placeholder="Child Last Name" required />
+      <input type="text" ng-model="myChild.lastName" placeholder="last name"/>
     </div>
     <div class="form-group">
       <pre>
-        <button type="button" class="btn btn-default" >
-          <i class="glyphicon glyphicon-calendar" ng-click="myChild.open1()" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="myChild.popup1.opened" datepicker-options="myChild.dateOptions" ng-required="true" close-text="myChild.Close" alt-input-formats="myChild.altInputFormats" ></i>
+        <button type="button" class="btn btn-default" ng-click="myChild.open1()">
+          <i class="glyphicon glyphicon-calendar" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="myChild.popup1.opened" datepicker-options="myChild.dateOptions" close-text="Close"></i>
         </button>&nbsp;Child's Birthday: <em>{{dt | date:'fullDate' }}</em>
       </pre>
     </div>
