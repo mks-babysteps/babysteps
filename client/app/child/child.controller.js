@@ -5,96 +5,98 @@
     .module('baby.dashboard')
     .controller('ChildCtrl', ChildCtrl);
 
-      function ChildCtrl($uibModalInstance, dashboard, $state) {
+  function ChildCtrl($uibModalInstance, dashboard, $state) {
+    // initialize
+    var vm = this;
 
-        var vm = this;
-
-        vm.conditions = ['None', 'Cerebral Palsy', 'Down Syndrome'];
-
-        vm.addChild = function(firstName, lastName, birthday, condition) {
-          //console.log("Addchild in ChildCtrl", name, " + ", birthday, " + ", condition);
-        	var childObj = {
-        		'firstName': firstName,
-            'lastName': lastName,
-        		'birthday': birthday,
-        		'condition': condition
-        	};
-          //console.log("params", childObj);
-        	dashboard.addChild(childObj)
-          .then(function(){
-            $state.reload('dashboard');
-          });
-          //console.log('Name: ', name,' birthday: ', birthday, ' condition: ', condition);
-          vm.close();
-        };
-
-        vm.close = function() {
-          $uibModalInstance.close();
-        };
-
-        vm.today = function() {
-          vm.dt = new Date();
-        };
-
-        vm.today();
-
-        vm.clear = function() {
-          vm.dt = null;
-        };
-
-        vm.inlineOptions = {
-          customClass: getDayClass,
-          minDate: new Date(),
-          showWeeks: true
-        };
-
-        vm.dateOptions = {
-          formatYear: 'yy',
-          maxDate: new Date(2050, 5, 22),
-          minDate: new Date(1993, 2, 6),
-          startingDay: 1
-        };
-
-        vm.toggleMin = function() {
-          vm.inlineOptions.minDate = vm.inlineOptions.minDate ? null : new Date();
-          vm.dateOptions.minDate = vm.inlineOptions.minDate;
-        };
-
-        vm.toggleMin();
-
-        vm.open1 = function() {
-          vm.popup1.opened = true;
-        };
-
-        vm.setDate = function(year, month, day) {
-          vm.dt = new Date(year, month, day);
-        };
-
-        vm.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-        vm.format = vm.formats[0];
-        vm.altInputFormats = ['M!/d!/yyyy'];
-
-        vm.popup1 = {
-          opened: false
-        };
-
-        function getDayClass(data) {
-          var date = data.date,
-            mode = data.mode;
-          if (mode === 'day') {
-            var dayToCheck = new Date(date).setHours(0,0,0,0);
-
-            for (var i = 0; i < vm.events.length; i++) {
-              var currentDay = new Date(vm.events[i].date).setHours(0,0,0,0);
-
-              if (dayToCheck === currentDay) {
-                return vm.events[i].status;
-              }
-            }
-          }
-
-          return '';
-        }
-
+    // variables
+    vm.conditions = ['None', 'Cerebral Palsy', 'Down Syndrome'];
+    vm.dateOptions = {
+      formatYear: 'yy',
+      maxDate: new Date(2020, 5, 22),
+      minDate: new Date(1993, 2, 6),
+      startingDay: 1
+    };
+    vm.events = [
+      {
+        date: tomorrow,
+        status: 'full'
+      },
+      {
+        date: afterTomorrow,
+        status: 'partially'
       }
+    ];
+    vm.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    vm.format = vm.formats[0];
+    vm.inlineOptions = {
+      customClass: getDayClass,
+      minDate: new Date(),
+      showWeeks: true
+    };
+    vm.popup1 = {
+      opened: false
+    };
+
+    // functions
+    vm.clear = clear;
+    vm.close = close;
+    vm.getDayClass = getDayClass;
+    vm.open1 = open1;
+    vm.setDate = setDate;
+    vm.today = today;
+    vm.toggleMin = toggleMin;
+
+    // start up functions
+    vm.toggleMin();
+    vm.today();
+
+    function close() {
+      $uibModalInstance.close();
+    }
+
+    function today() {
+      vm.dt = new Date();
+    }
+
+    function clear() {
+      vm.dt = null;
+    }
+
+    function disabled(data) {
+      var date = data.data;
+      var mode = data.mode;
+      return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+    }
+
+    function toggleMin() {
+      vm.inlineOptions.minDate = vm.inlineOptions.minDate ? null : new Date();
+      vm.dateOptions.minDate = vm.inlineOptions.minDate;
+    }
+
+    function open1() {
+      vm.popup1.opened = true;
+    }
+
+    function setDate(year, month, day) {
+      vm.dt = new Date(year, month, day);
+    }
+
+    function getDayClass(data) {
+      var date = data.date,
+        mode = data.mode;
+      if (mode === 'day') {
+        var dayToCheck = new Date(date).setHours(0,0,0,0);
+
+        for (var i = 0; i < vm.events.length; i++) {
+          var currentDay = new Date(vm.events[i].date).setHours(0,0,0,0);
+            if (dayToCheck === currentDay) {
+              return vm.events[i].status;
+            }
+        }
+      }
+      return '';
+    }
+
+  }
 }());

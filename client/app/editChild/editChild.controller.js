@@ -10,13 +10,11 @@
     var vm = this;
 
     // variables
-    vm.altInputFormats = ['M!/d!/yyyy'];
-    vm.conditions = ['Normal', 'Cerebral Palsy', 'Down Syndrome'];
+    vm.conditions = ['None', 'Cerebral Palsy', 'Down Syndrome'];
     vm.dateOptions = {
-      dateDisabled: vm.disabled,
       formatYear: 'yy',
       maxDate: new Date(2020, 5, 22),
-      minDate: new Date(),
+      minDate: new Date(1993, 2, 6),
       startingDay: 1
     };
     vm.events = [
@@ -40,17 +38,10 @@
       opened: false
     };
 
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    var afterTomorrow = new Date();
-    afterTomorrow.setDate(tomorrow.getDate() + 1);
-
-
     // functions
     vm.editChild = editChild;
     vm.clear = clear;
     vm.close = close;
-    vm.disabled = disabled;
     vm.getDayClass = getDayClass;
     vm.open1 = open1;
     vm.setDate = setDate;
@@ -111,11 +102,12 @@
         mode = data.mode;
       if (mode === 'day') {
         var dayToCheck = new Date(date).setHours(0,0,0,0);
+
         for (var i = 0; i < vm.events.length; i++) {
           var currentDay = new Date(vm.events[i].date).setHours(0,0,0,0);
-          if (dayToCheck === currentDay) {
-            return vm.events[i].status;
-          }
+            if (dayToCheck === currentDay) {
+              return vm.events[i].status;
+            }
         }
       }
       return '';

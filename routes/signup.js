@@ -4,23 +4,7 @@ var Q = require('q');
 var tokens = require('../tokens');
 var db = require('../db');
 
-// var bcrypt = require('bcrypt');
-// var saltRounds = 10;
-// var myPlaintextPassword = 's0/\/\P4$$w0rD';
-// var someOtherPlaintextPassword = 'not_bacon';
-// var hashPassword = '';
-
-// where insert user password as parameter?
-
-// bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-//   if (err) {
-//     console.error(err);
-//   } else {
-//       hashPassword = hash;
-//   }
-// });
-
-// Routes
+// routes
 router.post('/', function(req, res) {
   var user = req.body;
   
@@ -41,7 +25,7 @@ router.post('/', function(req, res) {
     }
 });
 
-// Helper Functions
+// helper functions
 function validate(user) {
   return user.firstname && user.lastname && user.email && user.username && user.password;
 }
