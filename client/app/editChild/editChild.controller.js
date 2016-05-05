@@ -17,16 +17,7 @@
       minDate: new Date(1993, 2, 6),
       startingDay: 1
     };
-    vm.events = [
-      {
-        date: tomorrow,
-        status: 'full'
-      },
-      {
-        date: afterTomorrow,
-        status: 'partially'
-      }
-    ];
+    vm.events = [];
     vm.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     vm.format = vm.formats[0];
     vm.inlineOptions = {
@@ -76,12 +67,6 @@
 
     function clear() {
       vm.dt = null;
-    }
-
-    function disabled(data) {
-      var date = data.data;
-      var mode = data.mode;
-      return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
     }
 
     function toggleMin() {

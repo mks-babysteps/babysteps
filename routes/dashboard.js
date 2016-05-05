@@ -34,7 +34,7 @@ router.post('/addChild', function(req,res) {
             if (childName !== req.body.firstName) {
               users[0].children.addToSet(childInfo);
             } else {
-              alert('Child already exists!');
+              console.error('Child already exists!');
             }
           }
         }
