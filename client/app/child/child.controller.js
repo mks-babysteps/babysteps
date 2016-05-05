@@ -51,7 +51,7 @@
           $state.reload('dashboard');
         });
         vm.close();
-    };
+    }
 
     // datepicker functions
     vm.toggleMin();
