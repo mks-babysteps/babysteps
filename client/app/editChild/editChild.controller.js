@@ -39,18 +39,6 @@
     vm.today = today;
     vm.toggleMin = toggleMin;
 
-    // start up functions
-    vm.toggleMin();
-    vm.today();
-
-    function close() {
-      $uibModalInstance.close();
-    }
-
-    function today() {
-      vm.dt = new Date();
-    }
-
     function editChild(firstName, lastName, birthday, condition) {
       var childObj = {
         'firstName': firstName,
@@ -64,6 +52,19 @@
         });
       vm.close();
     }
+
+    // datepicker functions
+    vm.toggleMin();
+    vm.today();
+    
+    function close() {
+      $uibModalInstance.close();
+    }
+
+    function today() {
+      vm.dt = new Date();
+    }
+
 
     function clear() {
       vm.dt = null;
