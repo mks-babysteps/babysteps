@@ -6,7 +6,6 @@ var db = require('../db');
 var bcrypt = require('bcrypt');
 
 // Routes
-
 router.post('/', function(req, res) {
   var user = req.body;
 
