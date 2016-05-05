@@ -59,7 +59,8 @@ function createAccount(newUser, foundUser, res) {
             res.json({
               success: true,
               message: 'User inserted into database.',
-              token: tokens.generateToken(username), username: username
+              token: tokens.generateToken(username),
+              username: username
             });
           }
       });
