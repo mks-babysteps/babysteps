@@ -2,7 +2,7 @@
   'user strict';
 
   angular
-    .module('baby.vaccinations')
+    .module('baby.vaccination')
     .config(config);
 
   function config($stateProvider) {
@@ -12,10 +12,13 @@
         views: {
           '': {
             templateUrl: 'app/vaccinations/vaccinations.html',
-            controller: 'vaccinationsCtrl as vaccinations'
+            controller: 'VaccinationsCtrl as vaccinations'
           }
         },
-        params: { conditions: null }
+        params: { condition: null },
+        data: {
+          requiredLogin: true
+        }
       });
   }
 })();

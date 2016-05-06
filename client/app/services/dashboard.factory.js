@@ -11,7 +11,8 @@
       addChild: addChild,
       removeThisChild: removeThisChild,
       goMilestone: goMilestone,
-      editChild: editChild
+      editChild: editChild, 
+      goVaccinations: goVaccinations
     };
     return service;
 
@@ -37,6 +38,12 @@
 
     function editChild(childObj) {
       return $http.post('/edit', childObj);
+    }
+
+    function goVaccinations(condition) {
+      console.log("yo mama so fat")
+      var conditionObj = {condition : condition};
+        $state.go('vaccinations', conditionObj)
     }
 
   }
