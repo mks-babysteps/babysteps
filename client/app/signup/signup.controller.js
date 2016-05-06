@@ -14,13 +14,8 @@
     vm.message = '';
 
     // functions
-    vm.redirectToLogin = redirectToLogin;
     vm.signup = signup;
 
-    function redirectToLogin() {
-      $state.go('login');
-    }
-  
     function signup(firstname, lastname, email, username, password) {
       var userObj = {
         firstname: firstname,

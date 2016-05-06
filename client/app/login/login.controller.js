@@ -15,7 +15,6 @@
 
     // functions
     vm.login = login;
-    vm.redirectToSignup = redirectToSignup;
 
     function login(username, password) {
       auth.signin(username, password)
@@ -32,10 +31,5 @@
           }
         });
     }
-
-    function redirectToSignup() {
-      $state.go('signup');
-    }
-
   }
 })();
