@@ -15,8 +15,7 @@
       'baby.milestone',
       'baby.about',
       'baby.faq',
-      'baby.tech',
-      'baby.vaccination'
+      'baby.tech'
     ]);
 })();
 

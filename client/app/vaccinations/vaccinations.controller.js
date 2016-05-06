@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('baby.vaccination', [])
+    .module('baby.vaccinations', [])
     .controller('VaccinationsCtrl', VaccinationsCtrl);
 
     function VaccinationsCtrl($state, vaccinations, $stateParams){
