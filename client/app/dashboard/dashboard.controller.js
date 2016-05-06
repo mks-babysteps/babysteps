@@ -15,7 +15,7 @@
       // functions
       vm.displayChildren = displayChildren;
       vm.displayUsers = displayUsers;
-      vm.removeChild = removeChild; 
+      vm.removeChild = removeChild;
       vm.milestonePage = milestonePage;
       vm.open = open;
       vm.edit = edit;
@@ -28,10 +28,15 @@
           });
       }
 
-      function edit() {
+      function edit(firstName, lastName) {
         vm.modalInstance = $uibModal.open({
           templateUrl: 'app/editChild/editChild.html',
-          controller: 'EditChildCtrl as myChild'
+          controller: 'EditChildCtrl as myChild',
+          resolve: {
+            child: function() {
+              return [firstName, lastName];
+            }
+          }
         });
       }
 

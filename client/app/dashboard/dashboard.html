@@ -1,27 +1,26 @@
 <div ui-view class>
   <div class="dashboard">
-  <h1>Dashboard</h1>
+    <h1>Dashboard</h1>
 
-  <div>
     <div>
-      <button class="btn btn-default" ng-click="dashboard.open()">Add Child</button>
-    </div>
-  </div>
-
- <div ng-init="dashboard.displayChildren()">
-    <div ng-repeat="child in dashboard.children">     
-        <p>{{child.firstName}}&nbsp{{child.lastName}}</p>
-        <p>{{child.condition}}</p>
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default" ng-click="dashboard.edit()">Edit</button>
-        <button type="button" class="btn btn-default" ng-click="dashboard.removeChild(child.firstName)">Remove</button>
-        <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">Milestones</button>
-        <button type="button" class="btn btn-default" ng-click="">Vaccinations</button>
-        <button type="button" class="btn btn-default" ng-click="">Appointments</button>
+      <div>
+        <button class="btn btn-default" ng-click="dashboard.open()">Add Child</button>
       </div>
-
     </div>
- </div>
 
-</div>
+   <div ng-init="dashboard.displayChildren()">
+      <div ng-repeat="child in dashboard.children">
+          <p>{{child.firstName}}&nbsp{{child.lastName}}</p>
+          <p>{{child.condition}}</p>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-default" ng-click="dashboard.edit(child.firstName, child.lastName)">Edit</button>
+          <button type="button" class="btn btn-default" ng-click="dashboard.removeChild(child.firstName)">Remove</button>
+          <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">Milestones</button>
+          <button type="button" class="btn btn-default" ng-click="">Vaccinations</button>
+          <button type="button" class="btn btn-default" ng-click="">Appointments</button>
+        </div>
+      </div>
+   </div>
+
+  </div>
 </div>
