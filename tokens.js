@@ -18,7 +18,7 @@ tokens.verifyToken = function (token, res, next) {
   });
 };
 
-tokens.verifyuser = function (token, res) {
+tokens.verifyUser = function (token, res) {
   return jwt.verify(token, my.secret, function (err) {
     if (err) {
       res.json({success: false, message: 'Unauthorized user'});

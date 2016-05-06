@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Q = require('q');
-var tokens = require('../tokens');
+var tokens = require('../tokens.js');
 var db = require('../db');
 var bcrypt = require('bcrypt');
 
