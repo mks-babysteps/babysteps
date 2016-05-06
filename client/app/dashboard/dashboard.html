@@ -1,26 +1,23 @@
-
 <div ui-view class>
   <div class="dashboard">
   <h1>Dashboard</h1>
 
   <div>
-    <div class="container">
-      <br />
-      <button class="btn btn-primary" ng-click="dashboard.open()">Add Child</button>
+    <div>
+      <button class="btn btn-default" ng-click="dashboard.open()">Add Child</button>
     </div>
   </div>
 
  <div ng-init="dashboard.displayChildren()">
-    <div ng-repeat="child in dashboard.children" class="children">
-
-      {{child.firstName}}&nbsp{{child.lastName}}&nbsp|&nbsp{{child.condition}}
-      <div class="childbtn1"><button ng-click="dashboard.edit()">Edit Child</button>&nbsp<button ng-click="dashboard.removeChild(child.firstName)">Remove Child</button>
-      </div>  
-          <br>
-      <div class="childbtn2">
-        <button ng-click="dashboard.milestonePage(child.condition)">MileStones</button>
-        <button ng-click="">Vaccinations</button>
-        <button ng-click="">Appointments</button>
+    <div ng-repeat="child in dashboard.children">     
+        <p>{{child.firstName}}&nbsp{{child.lastName}}</p>
+        <p>{{child.condition}}</p>
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" ng-click="dashboard.edit()">Edit</button>
+        <button type="button" class="btn btn-default" ng-click="dashboard.removeChild(child.firstName)">Remove</button>
+        <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">Milestones</button>
+        <button type="button" class="btn btn-default" ng-click="">Vaccinations</button>
+        <button type="button" class="btn btn-default" ng-click="">Appointments</button>
       </div>
 
     </div>

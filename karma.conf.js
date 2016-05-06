@@ -26,7 +26,7 @@ module.exports = function(config) {
       'client/app/login/login.module.js',
       'client/app/milestone/milestone.module.js',
       'client/app/about/about.module.js',
-      'client/app/tech/tech.module.js',
+      'client/app/faq/faq.module.js',
       'client/app/app.module.js',
       'client/app/services/auth.factory.js',
       'client/app/services/test.factory.js',

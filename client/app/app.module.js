@@ -14,7 +14,7 @@
       'baby.dashboard',
       'baby.milestone',
       'baby.about',
-      'baby.tech'
+      'baby.faq'
     ]);
 })();
 
