@@ -11,7 +11,7 @@ router.post('/', function(req, res) {
   if (!validate(user)) {
     res.json({
       success: false,
-      message: 'User information validation failed.'
+      message: 'user information invalid.'
     });
 
   } else {
@@ -43,7 +43,7 @@ function createAccount(newUser, foundUser, res) {
   if (foundUser) {
     res.json({
       success: false,
-      message: 'Username already exists!'
+      message: 'username already exists!'
     });
   } else {
       newUser.save(function(err) {
@@ -52,7 +52,6 @@ function createAccount(newUser, foundUser, res) {
         } else {
             res.json({
               success: true,
-              message: 'User inserted into database.',
               token: tokens.generateToken(username), username: username
             });
           }

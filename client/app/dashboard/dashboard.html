@@ -3,23 +3,20 @@
   <h1>Dashboard</h1>
 
   <div>
-    <div class="container">
-      <br />
-      <button class="btn btn-primary" ng-click="dashboard.open()">Add Child</button>
+    <div>
+      <button class="btn btn-default" ng-click="dashboard.open()">Add Child</button>
     </div>
   </div>
 
  <div ng-init="dashboard.displayChildren()">
     <div ng-repeat="child in dashboard.children">
-
-      <div>{{child.firstName}} {{child.lastName}}
-        <button ng-click="dashboard.edit()" style="float:right">Edit Child</button>
-          <br>
-        <button ng-click="dashboard.milestonePage(child.condition)" style="float:right">MileStones</button>
-          <br>
-        {{child.condition}}<button ng-click="dashboard.removeChild(child.firstName)" style="float:right">Remove Child</button>
-          <br>
-          <br>
+        
+        <p>{{child.firstName}} {{child.lastName}}</p>
+        <p>{{child.condition}}</p>
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" ng-click="dashboard.edit()">Edit</button>
+        <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">Milestones</button>
+        <button class="btn btn-default" ng-click="dashboard.removeChild(child.firstName)">Remove</button>
       </div>
 
     </div>

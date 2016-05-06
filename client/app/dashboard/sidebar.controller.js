@@ -21,6 +21,7 @@
     function logout() {
       auth.logout();
       $state.go('login');
+      vm.authed = false;
     }
 
     function redirectToDash() {

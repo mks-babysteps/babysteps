@@ -2,8 +2,11 @@
 <html>
   <head>
 
-    <!-- stylesheet -->
+    <!-- stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <!-- dependencies -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -40,42 +43,33 @@
     <script src="app/milestone/milestone.routes.js"></script>
     <!-- sidebar -->
     <script src="app/dashboard/sidebar.controller.js"></script>
-    <!-- about & tech -->
+    <!-- about & faq -->
     <script src="app/about/about.module.js"></script>
     <script src="app/about/about.routes.js"></script>
-    <script src="app/tech/tech.module.js"></script>
-    <script src="app/tech/tech.routes.js"></script>
+    <script src="app/faq/faq.module.js"></script>
+    <script src="app/faq/faq.routes.js"></script>
     <script src="app/editChild/editChild.controller.js"></script>
     <script src="app/child/child.controller.js"></script>
 
   </head>
   <body ng-app="baby">
-    <div id="container">
-    <div class="navigation">
-      <div class="wrap">
-        <ul ng-controller="SidebarCtrl as sidebar">
+    <div ng-controller="SidebarCtrl as sidebar">
+    <nav class="navbar navbar-default" ng-if="sidebar.authed">
+        <ul class="nav nav-pills nav-justified">
+          <li><a ui-sref="landing">Baby Steps</a></li>
           <li><a ui-sref="about">About Us</a></li>
-          <li><h1><a ui-sref="landing">Baby Steps</a></h1></li>
-          <li><a ui-sref="tech">Technology</a></li>
-
+          <li><a ui-sref="faq">FAQ</a></li>
+          <li><a ui-sref="dashboard">Dashboard</a></li>
           <!-- <li style="float:right"><button ng-if="sidebar.authed && !sidebar.inChat" ng-click="sidebar.chat()">
             Global Chat</button>
           </li>
           <li style="float:right"><button ng-if="sidebar.inChat" ng-click="sidebar.leave()">
             Leave Chat</button>
           </li> -->
-
-          <li style="float:right"><button ng-if="sidebar.authed" ng-click="sidebar.logout()">
-            Logout</button>
+          <li><button class="btn btn-default navbar-btn" ng-if="sidebar.authed" ng-click="sidebar.logout()">Logout</button>
           </li>
-
-          <li style="float:right"><button ng-if="sidebar.authed" ng-click="sidebar.redirectToDash()">
-            Dashboard</button>
-          </li>
-
         </ul>
-      </div>
-    </div>
+    </nav>
     </div>
 
       <!-- template -->

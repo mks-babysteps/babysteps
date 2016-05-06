@@ -2,5 +2,5 @@
   'use strict';
 
   angular
-    .module('baby.tech', []);
+    .module('baby.faq', []);
 })();

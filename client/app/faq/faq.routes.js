@@ -2,16 +2,16 @@
   'use strict';
 
   angular
-    .module('baby.tech')
+    .module('baby.faq')
     .config(config);
 
   function config ($stateProvider) {
     $stateProvider
-      .state('tech', {
-        url: '/tech',
+      .state('faq', {
+        url: '/faq',
         views: {
           '': {
-            templateUrl: 'app/tech/tech.html'
+            templateUrl: 'app/faq/faq.html'
           }
         }
       });
