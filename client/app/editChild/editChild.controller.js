@@ -5,11 +5,13 @@
     .module('baby.dashboard')
     .controller('EditChildCtrl', EditChildCtrl);
 
-  function EditChildCtrl($uibModalInstance, dashboard, $state) {
+  function EditChildCtrl($uibModalInstance, dashboard, $state, child) {
     // initialize
     var vm = this;
 
     // variables
+    vm.firstName = child[0];
+    vm.lastName = child[1];
     vm.conditions = ['None', 'Cerebral Palsy', 'Down Syndrome'];
     vm.dateOptions = {
       formatYear: 'yy',
@@ -56,7 +58,7 @@
     // datepicker functions
     vm.toggleMin();
     vm.today();
-    
+
     function close() {
       $uibModalInstance.close();
     }
