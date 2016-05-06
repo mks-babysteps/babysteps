@@ -58,7 +58,8 @@
       "expect": true,
       "angular": true,
       "supertest": true,
-      "request": true
+      "request": true,
+      "AmCharts": true
     }
   }
 }
