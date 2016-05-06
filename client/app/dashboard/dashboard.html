@@ -14,8 +14,8 @@
     <div ng-repeat="child in dashboard.children" class="children">
 
       {{child.firstName}}&nbsp{{child.lastName}}&nbsp|&nbsp{{child.condition}}
-      <div class="childbtn1"><button ng-click="dashboard.edit()">Edit Child</button>&nbsp<button ng-click="dashboard.removeChild(child.firstName)">Remove Child</button>
-      </div>  
+      <div class="childbtn1"><button ng-click="dashboard.edit(child.firstName, child.lastName)">Edit Child</button>&nbsp<button ng-click="dashboard.removeChild(child.firstName)">Remove Child</button>
+      </div>
           <br>
       <div class="childbtn2">
         <button ng-click="dashboard.milestonePage(child.condition)">MileStones</button>
