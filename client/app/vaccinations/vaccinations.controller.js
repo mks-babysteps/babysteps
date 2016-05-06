@@ -2,23 +2,27 @@
   'use strict';
 
   angular
-    .module('baby.vaccinations')
+    .module('baby.vaccination', [])
     .controller('VaccinationsCtrl', VaccinationsCtrl);
 
-    function VaccinationsCtrl(vaccinations, $stateParams){
+    function VaccinationsCtrl($state, vaccinations, $stateParams){
 
       var vm = this;
 
       //variables
       var currentChildCondition = $stateParams.condition;
-  
-      //functions
+      var vaccinationData = vaccinationData;
+      // functions
       vm.displayVaccinations = displayVaccinations;
+      vm.condition = $stateParams.condition;
 
       function displayVaccinations(){
-        vaccinations.getVaccinations(currentChildCondition)
+        console.log('inside controller');
+        console.log("condition", vm.condition);
+        vaccinations.getVaccinations(vm.condition)
           .then(function(data) {
-            console.log("vaxdata", data)
+            vm.vaccinationData = data.data[0].vaccinations;
+            console.log(data.data[0].vaccinations)
           })
       }
 

@@ -12,9 +12,11 @@
       return service;
 
         function getVaccinations(condition){
+          console.log('condition in factory', condition)
           var vaccinationObj = {
-            
-          }
+            conditionName : condition
+          };
+          return $http.post('/vaccinations', vaccinationObj);
         }
     }
-})
+})();
