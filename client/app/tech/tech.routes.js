@@ -13,6 +13,9 @@
           '': {
             templateUrl: 'app/tech/tech.html'
           }
+        },
+        data: {
+          requiredLogin: false
         }
       });
     }

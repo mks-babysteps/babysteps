@@ -14,7 +14,10 @@
             templateUrl: 'app/dashboard/dashboard.html',
             controller: 'DashboardCtrl as dashboard'
           }
+        },
+        data: {
+          requiredLogin: true
         }
       });
     }
-})(); 
+})();

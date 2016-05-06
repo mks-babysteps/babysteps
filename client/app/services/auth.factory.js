@@ -10,7 +10,8 @@
       current: current,
       signup: signup,
       logout: logout,
-      signin: signin
+      signin: signin,
+      checkAuth: checkAuth
     };
     return service;
 
@@ -47,6 +48,25 @@
     function logout() {
       $localStorage.$reset();
       $state.go('landing');
+    }
+
+    function checkUser(token) {
+      return $http.post('/auth', {
+        token: token
+      }).then(function(data) {
+        return data.data.success;
+      });
+    }
+
+    function checkAuth() {
+      var token = $localStorage.token;
+      if(token) {
+        checkUser(token).then(function(bool) {
+          return bool;
+        });
+      } else {
+        return false;
+      }
     }
 
   }

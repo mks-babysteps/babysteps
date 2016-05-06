@@ -13,6 +13,9 @@
           '': {
             templateUrl: 'app/about/about.html'
           }
+        },
+        data: {
+          requiredLogin: false
         }
       });
     }
