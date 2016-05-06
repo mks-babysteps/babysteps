@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Q = require('q');
 var User = require('../db.js').users;
-var verify = require('../token');
+var verify = require('../tokens.js').verifyToken;
 
 // authentication
 router.use(function(req, res, next) {
