@@ -5,12 +5,14 @@ var my = require('./config.js');
 var tokens = {};
 
 tokens.generateToken = function (username) {
-  return jwt.sign({username: username}, my.secret, {expiresIn: 1440});
+  return jwt.sign({username: username}, my.secret, {expiresIn: 36000});
 };
 
 tokens.verifyToken = function (token, res, next) {
+  console.log('Verifying token: ', token);
   return jwt.verify(token, my.secret, function (err) {
     if (err) {
+      console.log('Token invalid');
       res.json({success: false, message: 'Unauthorized user'});
     } else {
       next();
