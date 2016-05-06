@@ -14,9 +14,12 @@
             templateUrl: 'app/landing/landing.html',
             controller: 'LandingCtrl as landing'
           }
+        },
+        data: {
+          requiredLogin: false
         }
       });
-    // if random url, go here: 
+    // if random url, go here:
     $urlRouterProvider.otherwise('/landing');
   }
 })();

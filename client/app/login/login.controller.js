@@ -12,7 +12,7 @@
     // variables
     vm.error = false;
     vm.message = 'Invalid user and password combination';
-    
+
     // functions
     vm.login = login;
     vm.redirectToSignup = redirectToSignup;
@@ -24,6 +24,7 @@
           if (data.data.success) {
             $rootScope.$broadcast('loggedIn');
             $localStorage.username = username;
+            $localStorage.token = data.data.token;
             $http.defaults.headers.common.username = username;
             $state.go('dashboard');
           } else {
