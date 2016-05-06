@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
 var Q = require('q');
-
 var User = require('../db.js').users;
+var getToken = require('../tokens.js').generateToken;
 
 // routes
 router.get('/', function(req, res) {
@@ -16,22 +16,19 @@ router.get('/', function(req, res) {
 function getUserBy(username, password, res) {
   return new Q(User.findOne({'username': username}).exec())
   .then(function(foundUser) {
-    bcrypt.compare(password, foundUser.password , function(err, res1) {
+    bcrypt.compare(password, foundUser.password , function(err, result) {
       if(err) {
             console.log('error: ', err);
       } else {
-          if (foundUser && res1) {
-            console.log('Password Correct');
-            success(res, true);
+          if (foundUser && result) {
+            res.json({success: true, token: getToken(username)});
           } else {
-            console.log('Password Wrong');
             success(res, false, 'Username and password invalid!');
           }
       }
     });
   });
 }
-
 
 function success(res, bool, msg) {
   if (bool) {
@@ -43,6 +40,5 @@ function success(res, bool, msg) {
     });
   }
 }
-
 
 module.exports = router;

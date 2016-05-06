@@ -1,7 +1,13 @@
 var express = require('express');
 var router = express.Router();
-// var tokens = require('../tokens.js');
 var db = require('../db.js');
+var verify = require('../token');
+
+
+// authentication
+router.use(function(req, res, next) {
+  verify(req.headers.token, res, next);
+});
 
 // routes
 router.post('/', function(req, res) {

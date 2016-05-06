@@ -14,6 +14,9 @@
             templateUrl: 'app/login/login.html',
             controller: 'LoginCtrl as login'
           }
+        },
+        data: {
+          requiredLogin: false
         }
       });
   }

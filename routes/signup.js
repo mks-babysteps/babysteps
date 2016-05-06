@@ -6,7 +6,6 @@ var db = require('../db');
 var bcrypt = require('bcrypt');
 
 // Routes
-
 router.post('/', function(req, res) {
   var user = req.body;
 
@@ -58,7 +57,8 @@ function createAccount(newUser, foundUser, res) {
             res.json({
               success: true,
               message: 'User inserted into database.',
-              token: tokens.generateToken(username), username: username
+              token: tokens.generateToken(username),
+              username: username
             });
           }
       });
