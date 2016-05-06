@@ -5,7 +5,7 @@ var my = require('./config.js');
 var tokens = {};
 
 tokens.generateToken = function (username) {
-  return jwt.sign({username: username}, my.secret, {expiresIn: 36000});
+  return jwt.sign({username: username}, my.secret, {expiresIn: '10h'});
 };
 
 tokens.verifyToken = function (token, res, next) {
