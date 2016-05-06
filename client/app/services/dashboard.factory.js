@@ -41,9 +41,8 @@
     }
 
     function goVaccinations(condition) {
-      console.log("yo mama so fat")
       var conditionObj = {condition : condition};
-        $state.go('vaccinations', conditionObj)
+        $state.go('vaccinations', conditionObj);
     }
 
   }

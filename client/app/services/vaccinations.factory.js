@@ -12,7 +12,6 @@
       return service;
 
         function getVaccinations(condition){
-          console.log('condition in factory', condition)
           var vaccinationObj = {
             conditionName : condition
           };

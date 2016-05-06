@@ -28,10 +28,13 @@ module.exports = function(config) {
       'client/app/about/about.module.js',
       'client/app/faq/faq.module.js',
       'client/app/app.module.js',
+      'client/app/vaccinations/vaccinations.module.js',
       'client/app/services/auth.factory.js',
       'client/app/services/test.factory.js',
+      'client/app/services/vaccinations.factory.js',
       'client/app/landing/landing.controller.js',
       'client/app/landing/landing.routes.js',
+      'client/app/vaccinations/vaccinations.controller.js',
       'test/**/*.js'
     ],
 
