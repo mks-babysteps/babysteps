@@ -2,7 +2,7 @@
   'user strict';
 
   angular
-    .module('baby.vaccination')
+    .module('baby.vaccinations')
     .config(config);
 
   function config($stateProvider) {
