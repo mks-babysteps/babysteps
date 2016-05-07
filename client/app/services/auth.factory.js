@@ -60,7 +60,7 @@
 
     function checkAuth() {
       var token = $localStorage.token;
-      if(token) {
+      if (token) {
         checkUser(token).then(function(bool) {
           return bool;
         });
