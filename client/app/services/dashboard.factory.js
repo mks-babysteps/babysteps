@@ -32,7 +32,7 @@
 
     function goMilestone(condition) {
       var conditionObj = {condition: condition};
-        $state.go('milestone', conditionObj);
+      $state.go('milestone', conditionObj);
     }
 
     function editChild(childObj) {
