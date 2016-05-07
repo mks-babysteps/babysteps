@@ -68,6 +68,7 @@
       }
 
       function vaccinationsPage(condition){
+        console.log('condition', condition);
         dashboard.goVaccinations(condition);
       }
 

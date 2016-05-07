@@ -8,11 +8,13 @@ router.use(function(req, res, next) {
   verify(req.headers.token, res, next);
 });
 
-router.post('/',function(req, res){
-  db.vaccinations.find({'condition': req.body.conditionName }, function(err, vaccinations) {
+router.post('/', function(req, res) {
+  console.log('inside vaccination resbdy: ', req.body.condition);
+  db.vaccinations.find({'condition': req.body.condition }, function(err, vaccinations) {
     if(err){
       console.log('error');
     } else {
+      console.log('vaccinations', vaccinations);
       res.send(vaccinations);
     }
   });

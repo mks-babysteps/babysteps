@@ -5,7 +5,7 @@
     .module('baby.vaccinations', [])
     .controller('VaccinationsCtrl', VaccinationsCtrl);
 
-    function VaccinationsCtrl($state, vaccinations, $stateParams){
+    function VaccinationsCtrl($state, vaccinations) {
 
       var vm = this;
 
@@ -13,11 +13,13 @@
       var vaccinationData = vaccinationData;
       // functions
       vm.displayVaccinations = displayVaccinations;
-      vm.condition = $stateParams.condition;
+      vm.condition = $state.params;
+      console.log(vm.condition);
 
-      function displayVaccinations(){
+      function displayVaccinations() {
         vaccinations.getVaccinations(vm.condition)
           .then(function(data) {
+            console.log('data', data);
             vm.vaccinationData = data.data[0].vaccinations;
           });
       }

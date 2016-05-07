@@ -5,17 +5,16 @@
     .module('baby')
     .factory('vaccinations', vaccinations);
 
-    function vaccinations($http){
+    function vaccinations($http) {
       var service = {
           getVaccinations: getVaccinations
       };
       return service;
 
-        function getVaccinations(condition){
-          var vaccinationObj = {
-            conditionName : condition
-          };
-          return $http.post('/vaccinations', vaccinationObj);
-        }
+      function getVaccinations(condition) {
+        console.log('condition factory', condition);
+        return $http.post('/vaccinations', {condition: condition.condition});
+      }
     }
+
 })();
