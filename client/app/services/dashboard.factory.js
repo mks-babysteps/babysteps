@@ -5,13 +5,14 @@
     .module('baby')
     .factory('dashboard', dashboard);
 
-  function dashboard($http,$state) {
+  function dashboard($http, $state) {
     var service = {
       getUser: getUser,
       addChild: addChild,
       removeThisChild: removeThisChild,
       goMilestone: goMilestone,
-      editChild: editChild
+      editChild: editChild, 
+      goVaccinations: goVaccinations
     };
     return service;
 
@@ -37,6 +38,13 @@
 
     function editChild(childObj) {
       return $http.post('/edit', childObj);
+    }
+
+    function goVaccinations(condition) {
+      console.log('inside govax', condition);
+      var conditionObj = {condition : condition};
+      $state.go('vaccinations', conditionObj);
+      console.log('end of govax');
     }
 
   }

@@ -19,6 +19,7 @@
       vm.milestonePage = milestonePage;
       vm.open = open;
       vm.edit = edit;
+      vm.vaccinationsPage = vaccinationsPage;
 
       function displayChildren() {
         dashboard.getUser()
@@ -64,6 +65,11 @@
 
       function milestonePage(condition) {
         dashboard.goMilestone(condition);
+      }
+
+      function vaccinationsPage(condition){
+        console.log('condition', condition);
+        dashboard.goVaccinations(condition);
       }
 
     }
