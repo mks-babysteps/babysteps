@@ -5,7 +5,7 @@
     .module('baby')
     .factory('dashboard', dashboard);
 
-  function dashboard($http,$state) {
+  function dashboard($http, $state) {
     var service = {
       getUser: getUser,
       addChild: addChild,
@@ -41,8 +41,10 @@
     }
 
     function goVaccinations(condition) {
+      console.log('inside govax', condition);
       var conditionObj = {condition : condition};
-        $state.go('vaccinations', conditionObj);
+      $state.go('vaccinations', conditionObj);
+      console.log('end of govax');
     }
 
   }
