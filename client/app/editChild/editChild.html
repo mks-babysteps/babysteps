@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
       <pre>
-        <button type="button" class="btn btn-default" ng-click="myChild.open1()">
+        <button type="button" class="btn btn-default" ng-focus="myChild.open1()">
           <i class="glyphicon glyphicon-calendar" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="myChild.popup1.opened" datepicker-options="myChild.dateOptions" close-text="Close"></i>
         </button>&nbsp;Child's Birthday: <em>{{dt | date:'fullDate' }}</em>
       </pre>
