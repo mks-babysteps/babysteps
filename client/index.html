@@ -51,8 +51,8 @@
     <script src="app/milestone/milestone.module.js"></script>
     <script src="app/milestone/milestone.controller.js"></script>
     <script src="app/milestone/milestone.routes.js"></script>
-    <!-- sidebar -->
-    <script src="app/dashboard/sidebar.controller.js"></script>
+    <!-- nav -->
+    <script src="app/dashboard/nav.controller.js"></script>
     <!-- about & faq -->
     <script src="app/about/about.module.js"></script>
     <script src="app/about/about.routes.js"></script>
@@ -63,26 +63,31 @@
 
   </head>
   <body ng-app="baby">
-    <div ng-controller="SidebarCtrl as sidebar">
-    <nav class="navbar navbar-default" ng-if="sidebar.authed">
-        <ul class="nav nav-pills nav-justified">
-          <li><a ui-sref="landing">Baby Steps</a></li>
-          <li><a ui-sref="about">About Us</a></li>
-          <li><a ui-sref="faq">FAQ</a></li>
-          <li><a ui-sref="dashboard">Dashboard</a></li>
-          <!-- <li style="float:right"><button ng-if="sidebar.authed && !sidebar.inChat" ng-click="sidebar.chat()">
+    <div ng-controller="NavCtrl as nav">
+
+    <nav class="navbar center" role="navigation" ng-if="nav.authed">
+      <div class="container-fluid">
+        <div class="navbar-inner">
+          <div class="cl-effect-11">
+            <a ui-sref="dashboard" data-hover="home">home</a>
+            <a ui-sref="about" data-hover="About Us">About Us</a>
+            <a ui-sref="faq" data-hover="FAQ">FAQ</a>
+            <a ui-sref="login" data-hover="logout" ng-click="nav.logout()">logout</a>
+          <!-- <li style="float:right"><button ng-if="nav.authed && !nav.inChat" ng-click="nav.chat()">
             Global Chat</button>
           </li>
-          <li style="float:right"><button ng-if="sidebar.inChat" ng-click="sidebar.leave()">
+          <li style="float:right"><button ng-if="nav.inChat" ng-click="nav.leave()">
             Leave Chat</button>
           </li> -->
-          <li><button class="btn btn-default navbar-btn" ng-if="sidebar.authed" ng-click="sidebar.logout()">Logout</button>
-          </li>
-        </ul>
+          </div>
+        </div>
+      </div>
     </nav>
+    
     </div>
 
       <!-- template -->
     <div ui-view></div>
+
   </body>
 </html>

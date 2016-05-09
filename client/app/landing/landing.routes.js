@@ -12,7 +12,6 @@
         views: {
           '': {
             templateUrl: 'app/landing/landing.html',
-            controller: 'LandingCtrl as landing'
           }
         },
         data: {

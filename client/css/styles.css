@@ -1,6 +1,14 @@
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html,
 body {
-  background: #efefef;
+  background: #40C7E9;
   font-size: 14px;
   padding: 10px;
   font-family: 'Varela Round';
@@ -8,16 +16,16 @@ body {
 /*=== 2. Anchor Link ===*/
 a {
   font-size: 14px;
-  color: #aaaaaa;
+  color: white;
   transition: all ease-in-out 200ms;
 }
-a:hover {
+/*a:hover {
   color: #333333;
   text-decoration: none;
-}
+}*/
 /*=== 3. Text Outside the Box ===*/
 .etc-login-form {
-  color: #919191;
+  color: white;
   padding: 10px 20px;
   font-size: 14px;
 }
@@ -53,7 +61,7 @@ a:hover {
 }
 .login-form-1 .form-group {
   margin-bottom: 0;
-  border-bottom: 2px solid #efefef;
+  border-bottom: solid #40C7E9;
   padding-right: 20px;
   position: relative;
 }
@@ -66,9 +74,7 @@ a:hover {
   border-radius: 8px;
   padding: 10px 20px;
 }
-.login-group-checkbox {
-  padding: 5px 0;
-}
+
 /*=== 5. Login Button ===*/
 .login-form-1 .login-button {
   position: absolute;
@@ -80,7 +86,7 @@ a:hover {
   width: 50px;
   height: 50px;
   margin-top: -25px;
-  border: 5px solid #efefef;
+  border: 5px solid #40C7E9;
   border-radius: 50%;
   transition: all ease-in-out 500ms;
 }
@@ -104,7 +110,7 @@ a:hover {
 .logo {
   padding: 15px 0;
   font-size: 25px;
-  color: #aaaaaa;
+  color: white;
   font-weight: bold;
 }
 
@@ -243,4 +249,64 @@ form {
     .intro-divider {
         width: 100%;
     }
+}
+
+.cl-effect-11 a {
+  padding: 10px 0;
+  color: #0972b4;
+  text-shadow: none;
+} 
+
+.cl-effect-11 a::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding: 10px 0;
+  max-width: 0;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  content: attr(data-hover);
+  -webkit-transition: max-width 0.5s;
+  -moz-transition: max-width 0.5s;
+  transition: max-width 0.5s;
+  white-space: nowrap;
+}
+
+.cl-effect-11 a:hover::before,
+.cl-effect-11 a:focus::before {
+  max-width: 100%;
+}
+
+nav a {
+  position: relative;
+  display: inline-block;
+  margin: 15px 25px;
+  outline: none;
+  color: #fff;
+  text-decoration: none;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-shadow: 0 0 1px rgba(255,255,255,0.3);
+  font-size: 1.35em;
+}
+
+nav a:hover,
+nav a:focus {
+  outline: none;
+}
+
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+
+.navbar.center .navbar-inner .nav {
+    display:inline-block;
+    float: none;
+    vertical-align: top;
+}
+
+.back {
+  background-image: url(../../assets/background.png);
 }
