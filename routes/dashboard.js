@@ -63,7 +63,6 @@ router.post('/addChild', function(req,res) {
       users[0].save(function() {
         //res.send(users);
       });
-
     }
   }
   );
@@ -108,5 +107,6 @@ router.post('/image', function(req, res) {
   users[0].save();
   });
 });
+
 
 module.exports = router;
