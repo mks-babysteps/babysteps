@@ -8,15 +8,14 @@
   function config($stateProvider) {
     $stateProvider
       .state('milestone', {
-        url: '/milestone',
+        url: '/milestone/:condition',
         views: {
           '': {
             templateUrl: 'app/milestone/milestone.html',
             controller: 'MilestoneCtrl as milestone'
           }
         },
-        data: { requiredLogin: true },
-        params: { condition: null }
+        data: { requiredLogin: true }
       });
   }
 })();
