@@ -12,18 +12,19 @@ router.get('/', function(req, res) {
   getUserBy(username, password, res);
 });
 
-// helper Functions
+// helper functions
 function getUserBy(username, password, res) {
   return new Q(User.findOne({'username': username}).exec())
   .then(function(foundUser) {
-    bcrypt.compare(password, foundUser.password , function(err, result) {
-      if(err) {
-            console.log('error: ', err);
+    bcrypt.compare(password, foundUser.password ,function(err, result) {
+      if (err) {
+        console.log('error: ', err);
+        res.json({success: false, message: 'username or password invalid!'})
       } else {
           if (foundUser && result) {
             res.json({success: true, token: getToken(username)});
           } else {
-            success(res, false, 'Username and password invalid!');
+            success(res, false, 'username or password invalid!');
           }
       }
     });

@@ -11,7 +11,7 @@
 
     // variables
     vm.error = false;
-    vm.message = 'Invalid user and password combination';
+    vm.message = '';
 
     // functions
     vm.login = login;
@@ -27,7 +27,9 @@
             $http.defaults.headers.common.username = username;
             $state.go('dashboard');
           } else {
-            vm.error = true;
+              vm.error = true;
+              vm.message = "username or password invalid!";
+              console.log(vm.message);
           }
         });
     }
