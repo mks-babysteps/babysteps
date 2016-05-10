@@ -15,7 +15,7 @@
 
       function getCondition(condition) {
         var conditionObj = {
-          conditionName : condition
+          conditionName: condition
         };
         return $http.post('/milestone', conditionObj);
       }

@@ -3,9 +3,9 @@
 
   angular
     .module('baby')
-    .controller('SidebarCtrl', SidebarCtrl);
+    .controller('NavCtrl', NavCtrl);
 
-  function SidebarCtrl(auth, $state, $scope) {
+  function NavCtrl(auth, $state, $scope) {
     // initialize
     var vm = this;
 
@@ -16,16 +16,11 @@
 
     // functions
     vm.logout = logout;
-    vm.redirectToDash = redirectToDash;
 
     function logout() {
       auth.logout();
       $state.go('login');
       vm.authed = false;
-    }
-
-    function redirectToDash() {
-      $state.go('dashboard');
     }
 
     $scope.$on('loggedOut', function() {
