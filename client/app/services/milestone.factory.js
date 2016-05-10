@@ -13,12 +13,12 @@
     };
     return service;
 
-      function getCondition(condition) {
-        var conditionObj = {
-          conditionName: condition
-        };
-        return $http.post('/milestone', conditionObj);
-      }
-      
+    function getCondition(condition) {
+      var conditionObj = {
+        conditionName: condition
+      };
+      return $http.post('/milestone', conditionObj);
+    }
+
   }
 })();
