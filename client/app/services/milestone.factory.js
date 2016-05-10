@@ -7,15 +7,15 @@
 
   function milestone($http) {
     var service = {
-        getConditionBy: getConditionBy
+        getCondition: getCondition
     };
 
     return service;
 
-    function getConditionBy(child) {
+    function getCondition(condition) {
       return $http.get('/milestone', {
         headers: {
-          child: child
+          condition: condition
         }
       });
     }
