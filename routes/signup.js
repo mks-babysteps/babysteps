@@ -5,7 +5,7 @@ var tokens = require('../tokens.js');
 var db = require('../db');
 var bcrypt = require('bcrypt');
 
-// Routes
+// routes
 router.post('/', function(req, res) {
   var user = req.body;
 

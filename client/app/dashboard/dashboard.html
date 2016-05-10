@@ -1,16 +1,15 @@
 <div ui-view>
   <div>
-    <button class="btn btn-default" ng-click="dashboard.open()" style="">Add Child</button>
-  </div>
+    <button class="btn btn-default" ng-click="dashboard.open()" style="width:550px;text-align:center">Add Child</button>
   <br>
   <br>
 
  <div ng-init="dashboard.displayChildren()">
     <div ng-repeat="child in dashboard.children">
 
-    <div class="container" style="display:flex; margin:auto;">
-      <div class="row">
-            <div class="login-group" style="color:black; width:750px; margin-bottom:20px">
+    <div>
+      <div>
+            <div class="login-group" style="color:black; width:550px; margin-bottom:20px">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
                         <img src="../../assets/image.png" style="padding-top:15px; padding-left:15px" class="img-rounded img-responsive" />
@@ -41,6 +40,7 @@
       </div>
       <br>
       <br>
+  </div>
                           </div>
                 </div>
             </div>

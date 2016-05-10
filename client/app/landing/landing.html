@@ -1,47 +1,26 @@
 <div ui-view>
+  <div class="back">
 
-    <!-- Header -->
-    <a name="about"></a>
+    <!-- header -->
     <div class="intro-header">
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message" style="text-align:center;">
-                        <h1>baby steps</h1>
-                        <h3>track your baby's progress!</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                            </li>
-                            <br>
-                            <br>
-                            <br>
-                            <li>
-                              <div class="login-form-1">
-  <div class="btn-group-vertical" role="group" aria-label="...">
-    <button class="btn btn-default" ng-click="landing.redirectToLogin()" class="button">log in</button>
-    <button class="btn btn-default" ng-click="landing.redirectToSignup()" class="button">create account</button>
-  </div>
-</div>
-                            </li>
-                        </ul>
+                      <h1 style="color:white">baby steps</h1>
+                      <h3 style="color:white">track your baby's progress!</h3>
+                      <hr class="intro-divider"></hr>
+                        <div>
+                          <a ui-sref="login" style="font-size:22px;">log in</a>
+                          <h6 style="margin-top:15px; color:white"> OR </h6>
+                          <a ui-sref="signup" style="font-size:22px;">create account</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
-        <!-- /.container -->
-
     </div>
-    <!-- /.intro-header -->
-
-    <!-- Page Content -->
+  </div>
 </div>
