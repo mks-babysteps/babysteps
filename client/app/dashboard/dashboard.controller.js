@@ -64,7 +64,8 @@
       }
 
       function milestonePage(condition) {
-        dashboard.goMilestone(condition);
+        // dashboard.goMilestone(condition);
+        $state.go('milestone', {condition: condition});
       }
 
       function vaccinationsPage(condition){
