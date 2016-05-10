@@ -3,7 +3,6 @@ var router = express.Router();
 var verify = require('../tokens.js').verifyToken;
 var db = require('../db.js');
 
-
 // authentication
 router.use(function(req, res, next) {
   verify(req.headers.token, res, next);
@@ -21,6 +20,8 @@ router.get('/', function(req, res) {
 });
 
 router.post('/addChild', function(req,res) {
+  
+
   var childInfo = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -28,10 +29,19 @@ router.post('/addChild', function(req,res) {
     condition: req.body.condition
   };
 
+
+  db.dose.find( {condition: req.body.condition}, function(err , dose){
+    console.log("dose[0].doses", dose[0].doses);
+    childInfo.doses = dose[0].doses;
+    console.log("childInfo", childInfo)
+  });
+
+
   db.users.find({username: req.headers.username}, function(err, users) {
     if (err) {
       console.error(err);
     } else {
+
       if (users[0].children.length === 0) {
         users[0].children.addToSet(childInfo);
       } else {
@@ -53,8 +63,10 @@ router.post('/addChild', function(req,res) {
       users[0].save(function() {
         //res.send(users);
       });
+
     }
-  });
+  }
+  );
 });
 
 router.post('/', function(req,res) {
@@ -62,6 +74,7 @@ router.post('/', function(req,res) {
     if (err) {
       console.error(err);
     } else {
+      console.log("this is the req.body", req.body)
       var spliced = [];
       for(var i = 0; i < users[0].children.length; i++) {
         if (users[0].children[i].firstName !== req.body.firstName) {

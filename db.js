@@ -59,14 +59,20 @@ var vaccinationsSchema = new mongoose.Schema ({
   vaccinations: []
 });
 
-var referenceSchema = new mongoose.Schema ({
-  references: []
+var referencesSchema = new mongoose.Schema ({
+  references: Array
+});
+
+var doseSchema = new mongoose.Schema ({
+  condition: String,
+  doses: Array
 });
 
 dbmodels.users = mongoose.model('users', usersSchema);
 dbmodels.conditions = mongoose.model('conditions',conditionsSchema);
 dbmodels.vaccinations = mongoose.model('vaccinations', vaccinationsSchema);
-dbmodels.reference = mongoose.model('reference', referenceSchema);
+dbmodels.references = mongoose.model('references', referencesSchema);
+dbmodels.dose = mongoose.model('dose', doseSchema);
+
 
 module.exports = dbmodels;
-
