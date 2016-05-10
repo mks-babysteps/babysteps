@@ -28,7 +28,7 @@
             $state.go('dashboard');
           } else {
               vm.error = true;
-              vm.message = "username or password invalid!";
+              vm.message = 'username or password invalid!';
               console.log(vm.message);
           }
         });
