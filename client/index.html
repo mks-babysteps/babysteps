@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>BabySteps</title>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon -->
+   <link rel='shortcut icon' href='../assets/favicon.ico' type='image/x-icon'/>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <!-- dependencies -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <!-- charts for milestones -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="https://www.amcharts.com/lib/3/gantt.js"></script>
+
+    <!-- app -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.run.js"></script>
+    <script src="app/app.constants.js"></script>
+    <!-- services -->
+    <script src="app/services/dashboard.factory.js"></script>
+    <script src="app/services/milestone.factory.js"></script>
+    <script src="app/services/auth.factory.js"></script>
+    <script src="app/services/vaccinations.factory.js"></script>
+
+    <!-- landing -->
+    <script src="app/landing/landing.module.js"></script>
+    <script src="app/landing/landing.routes.js"></script>
+    <!-- login -->
+    <script src="app/login/login.module.js"></script>
+    <script src="app/login/login.controller.js"></script>
+    <script src="app/login/login.routes.js"></script>
+    <!-- signup -->
+    <script src="app/signup/signup.module.js"></script>
+    <script src="app/signup/signup.controller.js"></script>
+    <script src="app/signup/signup.routes.js"></script>
+    <!-- dashboard -->
+    <script src="app/dashboard/dashboard.module.js"></script>
+    <script src="app/dashboard/dashboard.controller.js"></script>
+    <script src="app/dashboard/dashboard.routes.js"></script>
+    <!-- milestone -->
+    <script src="app/milestone/milestone.module.js"></script>
+    <script src="app/milestone/milestone.controller.js"></script>
+    <script src="app/milestone/milestone.routes.js"></script>
+    <!-- vaccinations -->
+    <script src="app/vaccinations/vaccinations.module.js"></script>
+    <script src="app/vaccinations/vaccinations.controller.js"></script>
+    <script src="app/vaccinations/vaccinations.routes.js"></script>
+    <!-- nav -->
+    <script src="app/dashboard/nav.controller.js"></script>
+    <!-- about & faq -->
+    <script src="app/about/about.module.js"></script>
+    <script src="app/about/about.routes.js"></script>
+    <script src="app/faq/faq.module.js"></script>
+    <script src="app/faq/faq.routes.js"></script>
+    <script src="app/editChild/editChild.controller.js"></script>
+    <script src="app/child/child.controller.js"></script>
+
+  </head>
+  <body ng-app="baby">
+    <div ng-controller="NavCtrl as nav">
+
+    <nav class="navbar center" role="navigation" ng-if="nav.authed">
+      <div class="container-fluid">
+        <div class="navbar-inner">
+          <div class="cl-effect-11">
+            <a ui-sref="dashboard" data-hover="home">home</a>
+            <a ui-sref="about" data-hover="About Us">About Us</a>
+            <a ui-sref="faq" data-hover="FAQ">FAQ</a>
+            <a ui-sref="login" data-hover="logout" ng-click="nav.logout()">logout</a>
+          <!-- <li style="float:right"><button ng-if="nav.authed && !nav.inChat" ng-click="nav.chat()">
+            Global Chat</button>
+          </li>
+          <li style="float:right"><button ng-if="nav.inChat" ng-click="nav.leave()">
+            Leave Chat</button>
+          </li> -->
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    </div>
+
+      <!-- template -->
+    <div ui-view></div>
+
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<div ng-init="vaccinations.displayVaccinations()">
+  <h1>Vaccinations</h1>
+  <div ng-repeat="vaccination in vaccinations.vaccinationData">
+    {{vaccination.name}}
+    <br>
+    First Dose: {{vaccination.dose.firstDose}}
+    <br>
+    Second Dose: {{vaccination.dose.secondDose}} 
+    <br>
+    Third Dose: {{vaccination.dose.thirdDose}}
+    <br>
+    Fourth Dose: {{vaccination.dose.fourthDose}}
+    <br>
+    <br>
+  </div>  
+<!--   <div>Vaccinations: {{vaccinations.vaccinationData}}
+ --></div>  
+
+
+
