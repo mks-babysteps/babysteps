@@ -11,8 +11,12 @@
 
     // variables
     vm.condition = $stateParams.condition;
+    vm.getConditionData = getConditionData;
 
     // functions
+    function getConditionData() {
+      milestone.getCondition(vm.condition);
+    }
 
   }
 
