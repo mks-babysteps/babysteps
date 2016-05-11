@@ -28,7 +28,8 @@ var usersSchema = new mongoose.Schema ({
   children: [],
   city: String,
   state: String,
-  zip: String
+  zip: String,
+  events: []
 });
 
 

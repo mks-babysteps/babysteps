@@ -1,0 +1,50 @@
+<div ng-init="eventadd.init()" class="modal-header">
+  <h3 class="modal-title">Child Info</h3>
+</div>
+
+<div class="modal-body">
+  <!-- form body -->
+  <form>
+          <div class="form-group">
+            <label class="sr-only">Appointment</label>
+            <input ng-model="eventadd.appointment" type="text" class="form-control" placeholder="appointment">
+          </div>
+          <div class="form-group">
+            <label class="sr-only">Location</label>
+            <input ng-model="eventadd.doctor" type="text" class="form-control" placeholder="doctor">
+          </div>
+          <div class="form-group">
+            <label class="sr-only">Appointment</label>
+            <input ng-model="eventadd.location" type="text" class="form-control" placeholder="location">
+          </div>
+
+          <h4>Choose Date</h4>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="{{eventadd.format}}" ng-model="eventadd.dt" is-open="eventadd.popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="eventadd.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>
+            </div>
+          </div>
+
+                   <!-- dropdown -->
+          <span>{{eventadd.childName}}</span>
+          <div class="form-group btn-group" uib-dropdown is-open="eventadd.status.isopen">
+            <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="vm.disabled" >
+              {{child.firstName}}<span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button" >
+              <li role="menuitem" ng-repeat= "child in eventadd.allChildren ">  <span ng-click="eventadd.inputName(child.firstName)">{{child.firstName}} </span></li>
+            </ul>
+          </div>
+  </form>
+  <div class="modal-footer">
+          <button ng-click="eventadd.storeEvent(eventadd.appointment,
+          eventadd.doctor, eventadd.location, eventadd.dt, eventadd.childName); eventAdd.displayEvents()">
+            SEND EVENT
+          </button>
+  </div>
