@@ -1,6 +1,8 @@
 <div ui-view>
   <div>
     <button class="btn btn-default" ng-click="dashboard.open()" style="">Add Child</button>
+    <button type="button" class="btn btn-default" ng-click="dashboard.eventsPage()">Appointments</button>
+
   </div>
   <br>
   <br>
@@ -16,12 +18,12 @@
                         <img src="../../assets/image.png" style="padding-top:15px; padding-left:15px" class="img-rounded img-responsive" />
                     </div>
                     <div class="col-sm-6 col-md-8">
-      
+
       <p>
         <br>
         <i class="glyphicon glyphicon-user"></i><strong>&nbsp{{child.firstName}}&nbsp{{child.lastName}}</strong>
         <br><br>
-        <i class="glyphicon glyphicon-gift"></i>&nbsp{{child.birthday}}
+        <i class="glyphicon glyphicon-gift"></i>&nbsp{{child.birthday | date:'longDate'}}
         <br><br>
         <i class="glyphicon glyphicon-heart-empty"></i>&nbsp{{child.condition}}
         <br><br>
@@ -36,7 +38,6 @@
       <div class="btn-group" role="group" aria-label="...">
         <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">Milestones</button>
         <button type="button" class="btn btn-default" ng-click="dashboard.vaccinationsPage(child.condition)">Vaccinations</button>
-        <button type="button" class="btn btn-default" ng-click="">Appointments</button>
 
       </div>
       <br>
@@ -50,7 +51,7 @@
 
     </div>
   </div>
-  
+
   </div>
  </div>
 </div>

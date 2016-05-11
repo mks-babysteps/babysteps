@@ -9,12 +9,17 @@
 
   function events($http) {
     var service = {
-      addEvent: addEvent
+      addEvent: addEvent,
+      getEvents: getEvents
     };
     return service;
 
     function addEvent(eventDetails) {
       return $http.post('/events', eventDetails);
+    }
+
+    function getEvents() {
+      return $http.get('/events');
     }
 
   }

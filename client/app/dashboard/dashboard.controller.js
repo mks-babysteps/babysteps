@@ -20,6 +20,7 @@
       vm.open = open;
       vm.edit = edit;
       vm.vaccinationsPage = vaccinationsPage;
+      vm.eventsPage = eventsPage;
 
       function displayChildren() {
         dashboard.getUser()
@@ -70,6 +71,10 @@
       function vaccinationsPage(condition){
         console.log('condition', condition);
         dashboard.goVaccinations(condition);
+      }
+
+      function eventsPage() {
+        dashboard.goEvents();
       }
 
     }

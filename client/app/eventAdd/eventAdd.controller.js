@@ -2,12 +2,10 @@
   'use strict';
 
   angular
-    .module('baby.events',[])
-    .controller('EventsCtrl', EventsCtrl);
+    .module('baby.events')
+    .controller('EventsAddCtrl', EventsAddCtrl);
 
-  function EventsCtrl($state, events, $uibModal) {
-
-    console.log(events);
+    function EventsAddCtrl($state, events, $uibModalInstance) {
     // initialize
     var vm = this;
 
@@ -19,18 +17,10 @@
     vm.storeEvent = storeEvent;
     vm.init = init;
     vm.inputName = inputName;
-    vm.open = open;
+    vm.displayEvents = displayEvents;
 
     function init() {
       displayEvents();
-    }
-
-    function open() {
-      console.log("Modal Opening")
-      vm.modalInstance = $uibModal.open({
-        templateUrl: 'app/eventAdd/eventAdd.html',
-        controller: 'EventsAddCtrl as eventadd'
-      });
     }
 
     function storeEvent(appointment, doctor, location, dt, childName) {
@@ -40,27 +30,29 @@
       eventObj.location = location;
       eventObj.dt = dt;
       eventObj.childName = vm.childName;
+      console.log("This is the object we are going to send",eventObj)
       events.addEvent(eventObj)
         .then(function(data) {
           displayEvents();
         });
     }
 
+    function compareDates(date2) {
+      return new Date().getDate() > new Date(date2).getDate();
+    }
+
     function displayEvents() {
       console.log('getting Events')
       events.getEvents()
         .then(function(data) {
-          console.log(data);
           var events = data.data.events
+          console.log(events)
           vm.allChildren = data.data.children;
           vm.comingEvents = [];
           vm.pastEvents = [];
           for(var i = 0; i < events.length; i++) {
-            console.log(events[i].dt)
-
             var today = new Date();
             var eventDates = new Date(events[i].dt);
-
             if(today < eventDates) {
               vm.comingEvents.push(events[i]);
             } else {
@@ -146,5 +138,4 @@
       return '';
     }
     }
-
-})();
+}());
