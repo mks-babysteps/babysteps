@@ -32,4 +32,16 @@ router.get('/', function(req, res) {
   });
 });
 
+router.post('/remove', function(req, res) {
+  db.users.update({username : req.headers.username},{
+    $pull: { 'events' : { 'dt' :req.body.dt } } },
+    function(err, users) {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log(res.send(users));
+      }
+  });
+});
+
 module.exports = router;
