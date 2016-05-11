@@ -5,7 +5,7 @@
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
 
-    function DashboardCtrl($state, $uibModal, dashboard, auth) {
+    function DashboardCtrl($state, $scope, $uibModal, dashboard, auth) {
       // initialize
       var vm = this;
 
@@ -13,6 +13,7 @@
       vm.username = auth.current().username;
 
       // functions
+      vm.logout = logout;
       vm.displayChildren = displayChildren;
       vm.displayUsers = displayUsers;
       vm.removeChild = removeChild;
@@ -20,7 +21,20 @@
       vm.open = open;
       vm.edit = edit;
       vm.vaccinationsPage = vaccinationsPage;
-      vm.eventsPage = eventsPage;
+      
+      $scope.$on('loggedOut', function() {
+        vm.authed = false;
+      });
+
+      $scope.$on('loggedIn', function() {
+        vm.authed = true;
+      });
+
+      function logout() {
+        auth.logout();
+        $state.go('login');
+        vm.authed = false;
+      }
 
       function displayChildren() {
         dashboard.getUser()
@@ -69,14 +83,9 @@
         $state.go('milestone', {condition: condition});
       }
 
-      function vaccinationsPage(condition){
+      function vaccinationsPage(condition) {
         console.log('condition', condition);
         dashboard.goVaccinations(condition);
       }
-
-      function eventsPage() {
-        dashboard.goEvents();
-      }
-
     }
 })();

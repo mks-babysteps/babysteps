@@ -2,18 +2,18 @@
 <html>
   <head>
 
-    <title>Baby Steps</title>
+    <title> Baby Steps</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon -->
-   <link rel='shortcut icon' href='../assets/favicon.ico' type='image/x-icon'/>
+    <link rel="shortcut icon" href="../assets/favicon2.ico" type="image/x-icon"/>
     <!-- stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
     <!-- dependencies -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -25,7 +25,6 @@
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
     <script src="https://www.amcharts.com/lib/3/gantt.js"></script>
-
     <!-- app -->
     <script src="app/app.module.js"></script>
     <script src="app/app.run.js"></script>
@@ -47,7 +46,7 @@
     <script src="app/signup/signup.module.js"></script>
     <script src="app/signup/signup.controller.js"></script>
     <script src="app/signup/signup.routes.js"></script>
-    <!-- dashboard -->
+    <!-- dashboard & nav, sidebar -->
     <script src="app/dashboard/dashboard.module.js"></script>
     <script src="app/dashboard/dashboard.controller.js"></script>
     <script src="app/dashboard/dashboard.routes.js"></script>
@@ -59,49 +58,65 @@
     <script src="app/vaccinations/vaccinations.module.js"></script>
     <script src="app/vaccinations/vaccinations.controller.js"></script>
     <script src="app/vaccinations/vaccinations.routes.js"></script>
-    <!-- nav -->
-    <script src="app/dashboard/nav.controller.js"></script>
+    <!-- nav & sidebar -->
+    <!-- <script src="app/index/nav.controller.js"></script> -->
     <!-- events -->
     <script src="app/events/events.module.js"></script>
     <script src="app/events/events.controller.js"></script>
     <script src="app/events/events.routes.js"></script>
-    <!-- sidebar -->
-    <script src="app/dashboard/sidebar.controller.js"></script>
     <!-- about & faq -->
     <script src="app/about/about.module.js"></script>
     <script src="app/about/about.routes.js"></script>
     <script src="app/faq/faq.module.js"></script>
     <script src="app/faq/faq.routes.js"></script>
+    <!-- modals -->
     <script src="app/editChild/editChild.controller.js"></script>
     <script src="app/child/child.controller.js"></script>
     <script src="app/eventAdd/eventAdd.controller.js"></script>
 
   </head>
-  <body ng-app="baby">
-    <div ng-controller="NavCtrl as nav">
 
-    <nav class="navbar center" role="navigation" ng-if="nav.authed">
-      <div class="container-fluid">
-        <div class="navbar-inner">
-          <div class="cl-effect-11">
-            <a ui-sref="dashboard" data-hover="home">home</a>
-            <a ui-sref="about" data-hover="About Us">About Us</a>
-            <a ui-sref="faq" data-hover="FAQ">FAQ</a>
-            <a ui-sref="login" data-hover="logout" ng-click="nav.logout()">logout</a>
+  <body ng-app="baby">
+
+<!-- nav view -->
+<div ng-controller="DashboardCtrl as dashboard">
+  <nav class="navbar center" role="navigation" ng-if="dashboard.authed">
+    <div class="container-fluid">
+      <div class="navbar-inner">
+        <div class="cl-effect-11">
+
+          <a href="#" id="st-trigger-effects" data-effect="st-effect-3">Push</a>
+          <a ui-sref="dashboard" data-hover="Home">home</a>
+          <a ui-sref="about" data-hover="About Us">about us</a>
+          <a ui-sref="faq" data-hover="FAQ">faq</a>
           <!-- <li style="float:right"><button ng-if="nav.authed && !nav.inChat" ng-click="nav.chat()">
             Global Chat</button>
           </li>
           <li style="float:right"><button ng-if="nav.inChat" ng-click="nav.leave()">
             Leave Chat</button>
           </li> -->
-          </div>
         </div>
       </div>
-    </nav>
-
     </div>
+  </nav> <!-- end of nav -->
 
-      <!-- template -->
+<!-- sidebar -->
+  <div id="st-container" class="st-container">
+    <div class="st-pusher">
+      <nav class="st-menu st-effect-3" id="menu-3">
+        <h2>Hi, {{dashboard.username}}</h2> 
+          <ul>
+            <li><a href="#" ng-click="dashboard.open()">add a child</a></li>
+            <li><a ui-sref="events">appointments</a></li>
+            <li><a ui-sref="login" ng-click="dashboard.logout()">logout</a></li>
+          </ul>
+      </nav>
+    </div>
+  </div><!-- end of sidebar -->
+
+</div> <!-- end of controller -->
+
+    <!-- template -->
     <div ui-view></div>
 
   </body>
