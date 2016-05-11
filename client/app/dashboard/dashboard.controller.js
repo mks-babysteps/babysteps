@@ -90,10 +90,10 @@
       $state.go('milestone', {condition: condition});
     }
 
-    function vaccinationsPage(condition) {
-      console.log('condition', condition);
-      dashboard.goVaccinations(condition);
-    }
+      function vaccinationsPage(firstName){
+        console.log('firstName', firstName);
+        dashboard.goVaccinations(firstName);
+      }
 
     function pickFile() {
       filepickerService.pick({mimetype: 'image/*'}, function(Blob) {

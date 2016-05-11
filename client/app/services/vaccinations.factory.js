@@ -11,9 +11,9 @@
       };
       return service;
 
-      function getVaccinations(condition) {
-        console.log('condition factory', condition);
-        return $http.post('/vaccinations', {condition: condition.condition});
+      function getVaccinations(firstName) {
+        console.log('firstName in vac factory', firstName);
+        return $http.post('/vaccinations', {firstName: firstName});
       }
     }
 

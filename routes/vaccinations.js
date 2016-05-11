@@ -9,13 +9,21 @@ router.use(function(req, res, next) {
 });
 
 router.post('/', function(req, res) {
-  console.log('inside vaccination resbdy: ', req.body.condition);
-  db.vaccinations.find({'condition': req.body.condition }, function(err, vaccinations) {
+  console.log("req.headers.username", req.headers.username)
+  console.log('inside vaccination resbdy: ', req.body.firstName);
+  db.users.find({'username': req.headers.username }, function(err, user) {
     if(err){
       console.log('error');
     } else {
-      console.log('vaccinations', vaccinations);
-      res.send(vaccinations);
+      console.log("user[0].children[0].firstName", user[0].children[0].firstName)
+      for(var i=0 ; i<user[0].children.length; i++){
+        if(user[0].children[i].firstName === req.body.firstName.firstName){
+         console.log("the good shit", user[0].children[i].doses)
+         res.send(user[0].children[i].doses)
+        }else{
+          console.log("I couldn't find a child with that name")
+        }
+      }
     }
   });
 });
