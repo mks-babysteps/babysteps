@@ -11,8 +11,9 @@
       addChild: addChild,
       removeThisChild: removeThisChild,
       goMilestone: goMilestone,
-      editChild: editChild, 
-      goVaccinations: goVaccinations
+      editChild: editChild,
+      goVaccinations: goVaccinations,
+      goEvents: goEvents
     };
     return service;
 
@@ -45,6 +46,10 @@
       var conditionObj = {condition : condition};
       $state.go('vaccinations', conditionObj);
       console.log('end of govax');
+    }
+
+    function goEvents() {
+      $state.go('events');
     }
 
   }

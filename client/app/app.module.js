@@ -13,6 +13,7 @@
       'baby.login',
       'baby.dashboard',
       'baby.milestone',
+      'baby.events',
       'baby.about',
       'baby.faq',
       'baby.vaccinations'
