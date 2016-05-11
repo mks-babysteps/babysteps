@@ -26,14 +26,13 @@
     }
 
     function open() {
-      console.log("Modal Opening")
       vm.modalInstance = $uibModal.open({
         templateUrl: 'app/eventAdd/eventAdd.html',
         controller: 'EventsAddCtrl as eventadd'
       });
     }
 
-    function storeEvent(appointment, doctor, location, dt, childName) {
+    function storeEvent(appointment, doctor, location, dt) {
       var eventObj = {};
       eventObj.appointment = appointment;
       eventObj.doctor = doctor;
@@ -41,26 +40,21 @@
       eventObj.dt = dt;
       eventObj.childName = vm.childName;
       events.addEvent(eventObj)
-        .then(function(data) {
+        .then(function() {
           displayEvents();
         });
     }
 
     function displayEvents() {
-      console.log('getting Events')
       events.getEvents()
         .then(function(data) {
-          console.log(data);
-          var events = data.data.events
+          var events = data.data.events;
           vm.allChildren = data.data.children;
           vm.comingEvents = [];
           vm.pastEvents = [];
           for(var i = 0; i < events.length; i++) {
-            console.log(events[i].dt)
-
             var today = new Date();
             var eventDates = new Date(events[i].dt);
-
             if(today < eventDates) {
               vm.comingEvents.push(events[i]);
             } else {
@@ -70,14 +64,7 @@
         });
     }
 
-    function dateFilter(eventDate) {
-      return function(eventDate) {
-
-      }
-    }
-
     function inputName(childName) {
-      console.log("This is the child Name",childName);
       vm.childName = childName;
     }
 
@@ -116,7 +103,7 @@
 
     function today() {
       vm.dt = new Date();
-    };
+    }
 
     // Disable weekend selection
     function disabled(data) {
@@ -127,7 +114,7 @@
 
     function open1() {
       vm.popup1.opened = true;
-    };
+    }
 
     function getDayClass(data) {
       var date = data.date,

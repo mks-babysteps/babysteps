@@ -5,7 +5,7 @@
     .module('baby.events')
     .controller('EventsAddCtrl', EventsAddCtrl);
 
-    function EventsAddCtrl($state, events, $uibModalInstance) {
+    function EventsAddCtrl($state, events) {
     // initialize
     var vm = this;
 
@@ -23,30 +23,23 @@
       displayEvents();
     }
 
-    function storeEvent(appointment, doctor, location, dt, childName) {
+    function storeEvent(appointment, doctor, location, dt) {
       var eventObj = {};
       eventObj.appointment = appointment;
       eventObj.doctor = doctor;
       eventObj.location = location;
       eventObj.dt = dt;
       eventObj.childName = vm.childName;
-      console.log("This is the object we are going to send",eventObj)
       events.addEvent(eventObj)
-        .then(function(data) {
+        .then(function() {
           displayEvents();
         });
     }
 
-    function compareDates(date2) {
-      return new Date().getDate() > new Date(date2).getDate();
-    }
-
     function displayEvents() {
-      console.log('getting Events')
       events.getEvents()
         .then(function(data) {
-          var events = data.data.events
-          console.log(events)
+          var events = data.data.events;
           vm.allChildren = data.data.children;
           vm.comingEvents = [];
           vm.pastEvents = [];
@@ -62,14 +55,7 @@
         });
     }
 
-    function dateFilter(eventDate) {
-      return function(eventDate) {
-
-      }
-    }
-
     function inputName(childName) {
-      console.log("This is the child Name",childName);
       vm.childName = childName;
     }
 
@@ -108,7 +94,7 @@
 
     function today() {
       vm.dt = new Date();
-    };
+    }
 
     // Disable weekend selection
     function disabled(data) {
@@ -119,7 +105,7 @@
 
     function open1() {
       vm.popup1.opened = true;
-    };
+    }
 
     function getDayClass(data) {
       var date = data.date,

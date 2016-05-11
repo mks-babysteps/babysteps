@@ -25,6 +25,7 @@ module.exports = function(config) {
       'client/app/dashboard/dashboard.module.js',
       'client/app/login/login.module.js',
       'client/app/milestone/milestone.module.js',
+      'client/app/events/events.module.js',
       'client/app/about/about.module.js',
       'client/app/faq/faq.module.js',
       'client/app/vaccinations/vaccinations.module.js',
@@ -32,6 +33,7 @@ module.exports = function(config) {
       'client/app/services/auth.factory.js',
       'client/app/services/test.factory.js',
       'client/app/services/vaccinations.factory.js',
+      'client/app/services/events.factory.js',
       'client/app/landing/landing.controller.js',
       'client/app/landing/landing.routes.js',
       'test/**/*.js'
