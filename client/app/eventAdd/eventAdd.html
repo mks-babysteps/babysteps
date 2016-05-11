@@ -1,5 +1,5 @@
 <div ng-init="eventadd.init()" class="modal-header">
-  <h3 class="modal-title">Child Info</h3>
+  <h3 class="modal-title">Appointment Info</h3>
 </div>
 
 <div class="modal-body">
@@ -29,6 +29,12 @@
               </p>
             </div>
           </div>
+          <uib-timepicker
+            ng-model="eventadd.dt"
+            hour-step="1"
+            minute-step="30"
+            show-meridian="true">
+          </uib-timepicker>
 
                    <!-- dropdown -->
           <span>{{eventadd.childName}}</span>
@@ -44,7 +50,8 @@
   </form>
   <div class="modal-footer">
           <button ng-click="eventadd.storeEvent(eventadd.appointment,
-          eventadd.doctor, eventadd.location, eventadd.dt, eventadd.childName); eventAdd.displayEvents()">
+          eventadd.doctor, eventadd.location, eventadd.dt, eventadd.childName); eventadd.displayEvents()">
             SEND EVENT
           </button>
+          <button class="btn btn-info" ng-click="eventadd.close()">Close</button>
   </div>

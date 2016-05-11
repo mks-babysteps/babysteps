@@ -5,7 +5,7 @@
     .module('baby.events')
     .controller('EventsAddCtrl', EventsAddCtrl);
 
-    function EventsAddCtrl($state, events) {
+    function EventsAddCtrl($state, events, $uibModalInstance) {
     // initialize
     var vm = this;
 
@@ -17,10 +17,16 @@
     vm.storeEvent = storeEvent;
     vm.init = init;
     vm.inputName = inputName;
-    vm.displayEvents = displayEvents;
+    vm.populateChildren = populateChildren;
+    vm.close = close;
 
     function init() {
-      displayEvents();
+      populateChildren();
+    }
+
+    function close() {
+      $state.reload('events');
+      $uibModalInstance.close();
     }
 
     function storeEvent(appointment, doctor, location, dt) {
@@ -32,26 +38,15 @@
       eventObj.childName = vm.childName;
       events.addEvent(eventObj)
         .then(function() {
-          displayEvents();
+          populateChildren();
+          close();
         });
     }
 
-    function displayEvents() {
+    function populateChildren() {
       events.getEvents()
         .then(function(data) {
-          var events = data.data.events;
           vm.allChildren = data.data.children;
-          vm.comingEvents = [];
-          vm.pastEvents = [];
-          for(var i = 0; i < events.length; i++) {
-            var today = new Date();
-            var eventDates = new Date(events[i].dt);
-            if(today < eventDates) {
-              vm.comingEvents.push(events[i]);
-            } else {
-              vm.pastEvents.push(events[i]);
-            }
-          }
         });
     }
 
