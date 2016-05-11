@@ -1,14 +1,14 @@
 *,
 *:after,
 *::before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-  background: #40C7E9;
+  background: #1caff6;
   font-size: 14px;
   padding: 10px;
   font-family: 'Varela Round';
@@ -25,6 +25,7 @@ a {
   color: white;
   padding: 10px 20px;
   font-size: 14px;
+  text-align: center;
 }
 .etc-login-form p {
   margin-bottom: 5px;
@@ -58,7 +59,7 @@ a {
 }
 .login-form-1 .form-group {
   margin-bottom: 0;
-  border-bottom: solid #40C7E9;
+  border-bottom: solid #1caff6;
   padding-right: 20px;
   position: relative;
 }
@@ -83,7 +84,7 @@ a {
   width: 50px;
   height: 50px;
   margin-top: -25px;
-  border: 5px solid #40C7E9;
+  border: 5px solid #1caff6;
   border-radius: 50%;
   transition: all ease-in-out 500ms;
 }
@@ -244,15 +245,28 @@ nav a:focus {
 }
 
 .navbar.center .navbar-inner {
-    text-align: center;
+  text-align: center;
 }
 
 .navbar.center .navbar-inner .nav {
-    display:inline-block;
-    float: none;
-    vertical-align: top;
+  display:inline-block;
+  float: none;
+  vertical-align: top;
 }
 
 .back {
-  /*background-image: url(../../assets/background.png);*/
+  background-image: url(../../assets/background.png);
+}
+
+.page-main {
+  padding: 40px 80px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  padding: 35px 40px 40px 40px;
+  width: 100%;
+  word-break: break-word;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 0 25px rgba(0,0,0,0.04);
 }
