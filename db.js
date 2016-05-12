@@ -25,6 +25,7 @@ var usersSchema = new mongoose.Schema ({
   email: String,
   username: String,
   password: String,
+  imageUrl: String,
   children: [],
   city: String,
   state: String,

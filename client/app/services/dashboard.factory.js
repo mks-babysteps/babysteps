@@ -11,7 +11,8 @@
       addChild: addChild,
       removeThisChild: removeThisChild,
       goMilestone: goMilestone,
-      editChild: editChild
+      editChild: editChild,
+      imageUrl: imageUrl
     };
     return service;
 
@@ -37,6 +38,12 @@
 
     function editChild(childObj) {
       return $http.post('/edit', childObj);
+    }
+
+    function imageUrl(Blob) {
+      var imageUrlString = Blob;
+      var imageUrlObj = {url: imageUrlString.url};
+      return $http.post('/dashboard/image', imageUrlObj);
     }
 
   }

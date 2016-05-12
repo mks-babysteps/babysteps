@@ -1,6 +1,16 @@
 <div ui-view>
+
+  <div ng-init="dashboard.displayUsers()"  class="profile-image">
+    <img ng-src="{{dashboard.imageUrl}}" style="height:200px;width:200px;" />
+    <button ng-click="dashboard.pickFile()">Upload</button>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
   <div>
     <button class="btn btn-default" ng-click="dashboard.open()" style="">Add Child</button>
+
   </div>
   <br>
   <br>
