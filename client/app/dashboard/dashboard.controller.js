@@ -1,4 +1,4 @@
-(function(){
+(function() {
   'use strict';
 
   angular
@@ -97,12 +97,12 @@
 
     function pickFile() {
       filepickerService.pick({mimetype: 'image/*'}, function(Blob) {
-            dashboard.imageUrl(Blob)
-            .then(function(data) {
-              vm.imageUrl = data.data;
-              $state.reload();
-            });
-          });
+        dashboard.imageUrl(Blob)
+        .then(function(data) {
+          vm.imageUrl = data.data;
+            $state.reload();
+        });
+      });
     }
   }
 })();
