@@ -51,4 +51,33 @@
     }
 
     }
+
+    // disable weekend selection
+    function disabled(data) {
+      var date = data.date,
+      mode = data.mode;
+      return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+    }
+
+    function open1() {
+      vm.popup1.opened = true;
+    }
+
+    function getDayClass(data) {
+      var date = data.date,
+        mode = data.mode;
+      if (mode === 'day') {
+        var dayToCheck = new Date(date).setHours(0,0,0,0);
+
+        for (var i = 0; i < vm.events.length; i++) {
+          var currentDay = new Date(vm.events[i].date).setHours(0,0,0,0);
+
+          if (dayToCheck === currentDay) {
+            return vm.events[i].status;
+          }
+        }
+      }
+      return '';
+    }
+  }
 })();

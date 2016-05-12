@@ -13,7 +13,6 @@
       goMilestone: goMilestone,
       editChild: editChild,
       goVaccinations: goVaccinations,
-      goEvents: goEvents,
       imageUrl: imageUrl
     };
     return service;
@@ -49,15 +48,10 @@
       console.log('end of govax');
     }
 
-    function goEvents() {
-      $state.go('events');
-    }
-
     function imageUrl(Blob) {
       var imageUrlString = Blob;
       var imageUrlObj = {url: imageUrlString.url};
       return $http.post('/dashboard/image', imageUrlObj);
     }
-
   }
 })();
