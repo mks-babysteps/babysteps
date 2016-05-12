@@ -8,7 +8,7 @@
 <div ng-init="events.init()"class="text-center" style="padding:50px 0">
   <table class="table table-bordered">
 
-  <button ng-click="events.open()">add appointment</button>
+  <button ng-click="events.open(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">add appointment</button>
 
   <button ng-click="showme=false">
     Coming Up
@@ -25,6 +25,7 @@
         <th>Date</th>
         <th>Time</th>
         <th>Location</th>
+        <th>Notes</th>
         <th>Delete</th>
       </tr>
   </thead>
@@ -36,16 +37,22 @@
         <th>{{event.dt | date:'longDate'}}</th>
         <th>{{event.dt | date:'shortTime'}}</th>
         <th>{{event.location}}</th>
+        <th>{{event.notes}}</th>
         <th><button ng-click="events.removeEvent(event.dt)">DELETE</button>
+            <button ng-click="events.editEvent(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">EDIT</button>
+            </th>
       </tr>
       <tr ng-show="showme" ng-repeat="event in events.pastEvents">
         <th>{{event.childName}}</th>
         <th>{{event.appointment}}</th>
         <th>{{event.doctor}}</th>
         <th>{{event.dt | date:'longDate'}}</th>
-        <th>{{event.dt | date:'shortTime'}}
+        <th>{{event.dt | date:'shortTime'}}</th>
         <th>{{event.location}}</th>
-        <th><button ng-click="events.removeEvent(event.dt)">DELETE</button>
+        <th>{{event.notes}}</th>
+        <th>
+          <button ng-click="events.removeEvent(event.dt)">DELETE</button>
+          <button ng-click="events.editEvent(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">EDIT</button></th>
       </tr>
   </table>
 

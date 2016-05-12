@@ -15,7 +15,7 @@ router.post('/', function(req, res) {
       console.error(err);
     } else {
         users[0].events.addToSet(events);
-      users[0].save(function() {
+        users[0].save(function() {
         res.send(users);
       });
     }
@@ -35,11 +35,32 @@ router.get('/', function(req, res) {
 router.post('/remove', function(req, res) {
   db.users.update({username : req.headers.username},{
     $pull: { 'events' : { 'dt' :req.body.dt } } },
-    function(err, users) {
+    function(err) {
       if(err) {
         console.log(err);
       } else {
-        console.log(res.send(users));
+        console.log('success');
+        res.send();
+      }
+  });
+});
+
+router.post('/edit', function(req, res) {
+  db.users.update({username : req.headers.username, 'events.dt' : req.body.oldDt},{
+    $set: {
+          'events.$.appointment' : req.body.appointment,
+          'events.$.doctor' : req.body.doctor,
+          'events.$.location' : req.body.location,
+          'events.$.dt' : req.body.dt,
+          'events.$.childName' : req.body.childName,
+          'events.$.notes' : req.body.notes
+           } },
+    function(err) {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log('success');
+        res.send();
       }
   });
 });
