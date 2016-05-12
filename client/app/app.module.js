@@ -7,6 +7,7 @@
       'ui.router',
       'ngStorage',
       'ui.bootstrap',
+      'angular-filepicker',
       /* Feature areas */
       'baby.landing',
       'baby.signup',

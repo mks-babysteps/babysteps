@@ -5,11 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "jshint . --exclude node_modules,client/bower_components && jasmine-node test/routes/ && karma start --single-run --browsers PhantomJS",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "bower cache clean && bower install"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "bower": "^1.4.1",
     "angular": "^1.5.5",
     "angular-mocks": "^1.5.5",
     "angular-ui-bootstrap": "^1.3.2",
