@@ -17,8 +17,10 @@
     <!-- dependencies -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/ngstorage/ngStorage.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!-- charts for milestones -->
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
@@ -46,7 +48,7 @@
     <script src="app/signup/signup.module.js"></script>
     <script src="app/signup/signup.controller.js"></script>
     <script src="app/signup/signup.routes.js"></script>
-    <!-- dashboard & nav, sidebar -->
+    <!-- dashboard & navs -->
     <script src="app/dashboard/dashboard.module.js"></script>
     <script src="app/dashboard/dashboard.controller.js"></script>
     <script src="app/dashboard/dashboard.routes.js"></script>
@@ -58,8 +60,6 @@
     <script src="app/vaccinations/vaccinations.module.js"></script>
     <script src="app/vaccinations/vaccinations.controller.js"></script>
     <script src="app/vaccinations/vaccinations.routes.js"></script>
-    <!-- nav & sidebar -->
-    <!-- <script src="app/index/nav.controller.js"></script> -->
     <!-- events -->
     <script src="app/events/events.module.js"></script>
     <script src="app/events/events.controller.js"></script>
@@ -84,35 +84,54 @@
     <div class="container-fluid">
       <div class="navbar-inner">
         <div class="cl-effect-11">
-
-          <a href="#" id="st-trigger-effects" data-effect="st-effect-3">Push</a>
-          <a ui-sref="dashboard" data-hover="Home">home</a>
-          <a ui-sref="about" data-hover="About Us">about us</a>
-          <a ui-sref="faq" data-hover="FAQ">faq</a>
-          <!-- <li style="float:right"><button ng-if="nav.authed && !nav.inChat" ng-click="nav.chat()">
+              <!-- <a href="#menu-toggle" id="menu-toggle">sidebar</a> -->
+              <a ui-sref="dashboard" data-hover="Home">home</a>
+              <a ui-sref="about" data-hover="About Us">about us</a>
+              <a ui-sref="faq" data-hover="FAQ">faq</a>
+              <!-- <li style="float:right"><button ng-if="nav.authed && !nav.inChat" ng-click="nav.chat()">
             Global Chat</button>
-          </li>
-          <li style="float:right"><button ng-if="nav.inChat" ng-click="nav.leave()">
+              </li>
+              <li style="float:right"><button ng-if="nav.inChat" ng-click="nav.leave()">
             Leave Chat</button>
-          </li> -->
+              </li> -->
         </div>
       </div>
     </div>
   </nav> <!-- end of nav -->
 
+<!-- <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div> -->
+
 <!-- sidebar -->
-  <div id="st-container" class="st-container">
-    <div class="st-pusher">
-      <nav class="st-menu st-effect-3" id="menu-3">
-        <h2>Hi, {{dashboard.username}}</h2> 
-          <ul>
-            <li><a href="#" ng-click="dashboard.open()">add a child</a></li>
-            <li><a ui-sref="events">appointments</a></li>
-            <li><a ui-sref="login" ng-click="dashboard.logout()">logout</a></li>
-          </ul>
-      </nav>
-    </div>
-  </div><!-- end of sidebar -->
+<div class="sidebar-wrapper" ng-if="dashboard.authed">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">Hi, {{dashboard.username}} !</li>
+    <li class="barlist"><a href="" ng-click="dashboard.open()">add a child</a></li>
+    <li class="barlist"><a ui-sref="events">appointments</a></li>
+    <li class="barlist"><a ui-sref="login" ng-click="dashboard.logout()">logout</a></li>
+  </ul>
+</div> <!-- end of sidebar -->
+
+
+    <!-- jQuery -->
+    <script src="app/jquery.js"></script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 
 </div> <!-- end of controller -->
 
