@@ -1,55 +1,50 @@
 <div ui-view>
-    <div id="wrapper">
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
+  <div id="wrapper">
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div ng-init="dashboard.displayChildren()">
+          <div ng-repeat="child in dashboard.children">
+            <div class="login-group" style="color:black; width:550px; margin-bottom:20px">
+              <div class="container">
                 <div class="row">
-
- <div ng-init="dashboard.displayChildren()">
-
-    <div ng-repeat="child in dashboard.children">
-      <div class="login-group" style="color:black; width:550px; margin-bottom:20px">
-        <div class="container">
-          <div class="row">
             
-            <div class="col-sm-6 col-md-4" style="width:174px;padding-left:0px;">
+                  <div class="col-sm-6 col-md-4" style="width:174px;padding-left:0px;">
                     <img src="../../assets/baby.svg" style="padding-left:15px;padding-top:18px"class="img-rounded img-responsive"/>
-            </div>
+                  </div>
 
-            <div class="col-sm-6 col-md-8">
-              <p>
-                <br>
-                  <i class="glyphicon glyphicon-user"></i><strong>&nbsp{{child.firstName}}&nbsp{{child.lastName}}</strong>
-                    <br><br>
-                  <i class="glyphicon glyphicon-gift"></i>&nbsp{{child.birthday | date:'longDate'}}
-                    <br><br>
-                  <i class="glyphicon glyphicon-heart-empty"></i>&nbsp{{child.condition}}
-                    <br><br>
-              </p>
+                    <div class="col-sm-6 col-md-8">
+                    <p>
+                        <br>
+                      <i class="glyphicon glyphicon-user"></i><strong>&nbsp{{child.firstName}}&nbsp{{child.lastName}}</strong>
+                        <br><br>
+                      <i class="glyphicon glyphicon-gift"></i>&nbsp{{child.birthday | date:'longDate'}}
+                        <br><br>
+                      <i class="glyphicon glyphicon-heart-empty"></i>&nbsp{{child.condition}}
+                        <br><br>
+                    </p>
 
-      <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default" ng-click="dashboard.edit(child.firstName, child.lastName)"><i class="glyphicon glyphicon-edit"></i></button>
-        <button type="button" class="btn btn-default" ng-click="dashboard.removeChild(child.firstName)"><i class="glyphicon glyphicon-trash"></i></button>
-      </div>
-      <br>
-      <br>
-        <div class="btn-group" role="group" aria-label="...">
-          <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">Milestones</button>
-          <button type="button" class="btn btn-default" ng-click="dashboard.vaccinationsPage(child.condition)">Vaccinations</button>
-        </div>
-            <br><br>
-          </div>
+                      <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" ng-click="dashboard.edit(child.firstName, child.lastName)"><i class="glyphicon glyphicon-edit"></i></button>
+                        <button type="button" class="btn btn-default" ng-click="dashboard.removeChild(child.firstName)"><i class="glyphicon glyphicon-trash"></i></button>
+                      </div>
+                        <br>
+                        <br>
+                      <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">Milestones</button>
+                        <button type="button" class="btn btn-default" ng-click="dashboard.vaccinationsPage(child.condition)">Vaccinations</button>
+                      </div>
+                        <br><br>
+                    </div>
 
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-</div>
                 </div>
+              </div>
             </div>
+          </div>
+          </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
+      </div>
     </div>
-    <!-- /#wrapper -->
+  </div>
+</div>

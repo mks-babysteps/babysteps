@@ -88,30 +88,10 @@
               <a ui-sref="dashboard" data-hover="Home">home</a>
               <a ui-sref="about" data-hover="About Us">about us</a>
               <a ui-sref="faq" data-hover="FAQ">faq</a>
-              <!-- <li style="float:right"><button ng-if="nav.authed && !nav.inChat" ng-click="nav.chat()">
-            Global Chat</button>
-              </li>
-              <li style="float:right"><button ng-if="nav.inChat" ng-click="nav.leave()">
-            Leave Chat</button>
-              </li> -->
         </div>
       </div>
     </div>
   </nav> <!-- end of nav -->
-
-<!-- <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div> -->
 
 <!-- sidebar -->
 <div class="sidebar-wrapper" ng-if="dashboard.authed">
@@ -122,21 +102,15 @@
     <li class="barlist"><a ui-sref="login" ng-click="dashboard.logout()">logout</a></li>
   </ul>
 </div> <!-- end of sidebar -->
-
-
-    <!-- jQuery -->
     <script src="app/jquery.js"></script>
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+      });
     </script>
-
 </div> <!-- end of controller -->
 
-    <!-- template -->
     <div ui-view></div>
-
   </body>
 </html>

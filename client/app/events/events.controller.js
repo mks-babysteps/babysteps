@@ -105,13 +105,6 @@
       vm.dt = new Date();
     }
 
-    // Disable weekend selection
-    function disabled(data) {
-      var date = data.date,
-      mode = data.mode;
-      return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-    }
-
     function open1() {
       vm.popup1.opened = true;
     }
@@ -132,6 +125,6 @@
       }
       return '';
     }
-    }
-
+    
+  }
 })();
