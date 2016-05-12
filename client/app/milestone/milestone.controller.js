@@ -13,16 +13,22 @@
     vm.init = init;
     vm.condition = $stateParams.condition;
     vm.getConditionData = getConditionData;
+    vm.links;
+    vm.activity;
 
     init();
 
     // functions
     function init() {
+      console.log('Running init');
       vm.getConditionData(vm.condition);
     }
+
     function getConditionData() {
-      milestone.getCondition(vm.condition).then(function(data) {
-        console.log(data.data);
+      milestone.getCondition(vm.condition).then(function(response) {
+        console.log(response.data);
+        vm.links = response.data.condition.links;
+        vm.activity = response.data.condition.activity;
       });
     }
 
