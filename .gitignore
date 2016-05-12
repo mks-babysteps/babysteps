@@ -11,3 +11,4 @@ node_modules/
 bower_components/
 config.js
 build
+client/app/config/filepicker.config.js

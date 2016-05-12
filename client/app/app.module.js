@@ -16,7 +16,8 @@
       'baby.events',
       'baby.about',
       'baby.faq',
-      'baby.vaccinations'
+      'baby.vaccinations',
+      'angular-filepicker'
     ]);
 })();
 

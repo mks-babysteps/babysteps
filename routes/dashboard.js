@@ -34,19 +34,25 @@ router.post('/addChild', function(req,res) {
     } else {
       if (users[0].children.length === 0) {
         users[0].children.addToSet(childInfo);
-        } else {
-          for(var i = 0; i < users[0].children.length; i++) {
-            var childName = users[0].children[i].firstName;
-            if (childName !== req.body.firstName) {
-              users[0].children.addToSet(childInfo);
-            } else {
-              console.error('Child already exists!');
-            }
+      } else {
+        var flag = false;
+
+        for(var i = 0; i < users[0].children.length; i++) {
+          var childName = users[0].children[i].firstName;
+          if(childName === req.body.firstName){
+            var flag = true;
           }
         }
-        users[0].save(function() {
-          res.send(users);
-        });
+
+        if(flag){
+          res.json({success: false, message: "Child already exits"});
+        }else{
+          users[0].children.addToSet(childInfo);
+        }
+      }
+      users[0].save(function() {
+        //res.send(users);
+      });
     }
   });
 });
@@ -71,6 +77,22 @@ router.post('/', function(req,res) {
         }
       });
     }
+  });
+});
+
+router.post('/image', function(req, res) {
+  //console.log("inside image post", req.body);
+  //console.log("headers", req.headers);
+  db.users.find({username: req.headers.username}, function(err, users) {
+    if(err) {
+      console.error(err);
+    } else {
+      //console.log("body in image", req.body.url);
+      //imageUrl:req.body.url;
+      users[0].imageUrl = req.body.url;
+      res.send(req.body.url);
+    }
+  users[0].save();
   });
 });
 
