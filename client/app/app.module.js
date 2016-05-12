@@ -7,6 +7,7 @@
       'ui.router',
       'ngStorage',
       'ui.bootstrap',
+      'angular-filepicker',
       /* Feature areas */
       'baby.landing',
       'baby.signup',
@@ -16,8 +17,7 @@
       'baby.events',
       'baby.about',
       'baby.faq',
-      'baby.vaccinations',
-      'angular-filepicker'
+      'baby.vaccinations'
     ]);
 })();
 

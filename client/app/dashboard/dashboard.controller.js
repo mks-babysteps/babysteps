@@ -5,7 +5,7 @@
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
 
-    function DashboardCtrl($scope, $state, $uibModal, dashboard, auth, filepickerService, $window) {
+    function DashboardCtrl($state, $uibModal, dashboard, auth, filepickerService, $window) {
       // initialize
       var vm = this;
 
@@ -29,7 +29,6 @@
       function displayChildren() {
         dashboard.getUser()
           .then(function(data){
-            console.log('displaying children data: ', data)
             var userObj = data.data[0];
             vm.children = userObj.children;
           });
@@ -88,26 +87,16 @@
         dashboard.goEvents();
       }
 
-      function uploadFile() {
-        var file = vm.myFile;
-        // console.log('file is ');
-        // console.dir(file);
-        var uploadUrl = '/fileUpload';
-        fileUpload.uploadFileToUrl(file, uploadUrl);
-      }
-
       function pickFile() {
         filepickerService.pick(
-            {mimetype: 'image/*'},
-            function(Blob) {
-              console.log(Blob);
-              dashboard.imageUrl(Blob)
-              .then(function(data) {
-                vm.imageUrl = data.data
-                $state.reload();
-              })
-            }
-        )
-      };
+          {mimetype: 'image/*'},
+          function(Blob) {
+            dashboard.imageUrl(Blob)
+            .then(function(data) {
+              vm.imageUrl = data.data;
+              $state.reload();
+            });
+          });
+      }
     }
 })();

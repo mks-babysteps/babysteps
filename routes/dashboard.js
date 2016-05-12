@@ -40,12 +40,12 @@ router.post('/addChild', function(req,res) {
         for(var i = 0; i < users[0].children.length; i++) {
           var childName = users[0].children[i].firstName;
           if(childName === req.body.firstName){
-            var flag = true;
+            flag = true;
           }
         }
 
         if(flag){
-          res.json({success: false, message: "Child already exits"});
+          res.json({success: false, message: 'Child already exits'});
         }else{
           users[0].children.addToSet(childInfo);
         }
