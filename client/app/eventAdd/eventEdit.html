@@ -1,5 +1,5 @@
 <div ng-init="eventadd.init()" class="modal-header">
-  <h3 class="modal-title">Appointment Info</h3>
+  <h3 class="modal-title">Edit Appointment Info</h3>
 </div>
 
 <div class="modal-body">
@@ -22,7 +22,7 @@
           <div class="row">
             <div class="col-md-12">
               <p class="input-group">
-                <input type="text" class="form-control" uib-datepicker-popup="{{eventadd.format}}" ng-model="eventadd.dt" is-open="eventadd.popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                <input type="text" class="form-control" uib-datepicker-popup="{{eventadd.format}}" ng-model="eventadd.dt" is-open="eventadd.popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"  placeholder="{{eventadd.dt | date:'longDate'}}"/>
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="eventadd.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
@@ -54,9 +54,9 @@
           </div>
   </form>
   <div class="modal-footer">
-          <button ng-click="eventadd.storeEvent(eventadd.appointment,
-          eventadd.doctor, eventadd.location, eventadd.dt, eventadd.childName,eventadd.notes); eventadd.displayEvents()">
-            SEND EVENT
+          <button ng-click="eventadd.updateEvent(eventadd.appointment,
+          eventadd.doctor, eventadd.location, eventadd.dt, eventadd.childName, eventadd.notes);eventadd.close()">
+            UPDATE EVENT
           </button>
           <button class="btn btn-info" ng-click="eventadd.close()">Close</button>
   </div>

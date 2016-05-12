@@ -11,7 +11,8 @@
     var service = {
       addEvent: addEvent,
       getEvents: getEvents,
-      deleteEvent: deleteEvent
+      deleteEvent: deleteEvent,
+      editEvent: editEvent
     };
     return service;
 
@@ -25,6 +26,10 @@
 
     function deleteEvent(dt) {
       return $http.post('/events/remove', dt);
+    }
+
+    function editEvent(eventDetails) {
+      return $http.post('/events/edit', eventDetails);
     }
 
   }

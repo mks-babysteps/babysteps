@@ -5,7 +5,7 @@
     .module('baby.events')
     .controller('EventsAddCtrl', EventsAddCtrl);
 
-    function EventsAddCtrl($state, events, $uibModalInstance) {
+    function EventsAddCtrl($state, events, $uibModalInstance, event) {
     // initialize
     var vm = this;
 
@@ -19,9 +19,30 @@
     vm.inputName = inputName;
     vm.populateChildren = populateChildren;
     vm.close = close;
+    vm.updateEvent = updateEvent;
+
+    //event Edit variables
+    vm.childName = event[0];
+    vm.appointment = event[1];
+    vm.doctor = event[2];
+    vm.dt = event[3];
+    vm.location = event[4];
+    vm.notes = event[5];
 
     function init() {
       populateChildren();
+    }
+
+    function updateEvent(appointment, doctor, location, dt, childName, notes) {
+      var updateObj = {};
+      updateObj.appointment = appointment;
+      updateObj.doctor = doctor;
+      updateObj.location = location;
+      updateObj.dt = dt;
+      updateObj.childName = vm.childName;
+      updateObj.oldDt = event[3];
+      updateObj.notes = notes;
+      events.editEvent(updateObj);
     }
 
     function close() {
@@ -29,16 +50,16 @@
       $uibModalInstance.close();
     }
 
-    function storeEvent(appointment, doctor, location, dt) {
+    function storeEvent(appointment, doctor, location, dt, child, notes) {
       var eventObj = {};
       eventObj.appointment = appointment;
       eventObj.doctor = doctor;
       eventObj.location = location;
       eventObj.dt = dt;
       eventObj.childName = vm.childName;
+      eventObj.notes = notes;
       events.addEvent(eventObj)
         .then(function() {
-          populateChildren();
           close();
         });
     }

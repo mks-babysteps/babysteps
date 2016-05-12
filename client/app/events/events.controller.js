@@ -14,15 +14,21 @@
     vm.init = init;
     vm.open = open;
     vm.removeEvent = removeEvent;
+    vm.editEvent = editEvent;
 
     function init() {
       displayEvents();
     }
 
-    function open() {
+    function open(childName, appointment, doctor, dt, location, notes) {
       vm.modalInstance = $uibModal.open({
         templateUrl: 'app/eventAdd/eventAdd.html',
-        controller: 'EventsAddCtrl as eventadd'
+        controller: 'EventsAddCtrl as eventadd',
+        resolve: {
+            event: function() {
+              return [childName, appointment, doctor, dt, location, notes];
+            }
+          }
       });
     }
 
@@ -48,6 +54,18 @@
     function removeEvent(dt) {
       events.deleteEvent({dt:dt});
       $state.reload('events');
+    }
+
+    function editEvent(childName, appointment, doctor, dt, location, notes) {
+      vm.modalInstance = $uibModal.open({
+        templateUrl: 'app/eventAdd/eventEdit.html',
+        controller: 'EventsAddCtrl as eventadd',
+        resolve: {
+            event: function() {
+              return [childName, appointment, doctor, dt, location, notes];
+            }
+          }
+      });
     }
 
     }
