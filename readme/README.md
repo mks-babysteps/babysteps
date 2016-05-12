@@ -1,16 +1,13 @@
 # Baby Steps
 
-Track your baby's development!
-
-<!-- ![babysteps logo](./www/img/babysteps.png "babysteps") -->
+Track your baby's developmental progress!
 
 # About
-
 
 # Getting Started
 * Fork a copy of the repo. Clone it to your local machine. 
   
-* Next, you'll need to install the dependencies on your terminal (within client and server folder):
+* Next, install the dependencies on your terminal:
 
 ```
 $ npm install
@@ -30,7 +27,8 @@ $ node server/server.js
 * You should now be able to view the app. 
 
 # Backlog
-*
+* chat functionality
+* nutritional guidelines
 
 # Technology & Links
 * MondoDB <https://www.mongodb.org>
