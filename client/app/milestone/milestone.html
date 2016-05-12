@@ -1,7 +1,13 @@
 <h2 ng-init="milestone.init()">Milestones</h2>
 <h4>Condition: {{milestone.condition}}</h4>
 
-<h1>Timeline</h1>
-<div class="container">
-  <div time-line lanes="milestone.lanes" time-begin="milestone.timeBegin" time-end="milestone.timeEnd" lane-length="milestone.laneLength" timeline-items="milestone.timelineItems"></div>
+<h1>Diagram</h1>
+<div class="diagram">
+    Order:
+    <select id="order">
+      <option value="name">by Name</option>
+      <option value="count">by Frequency</option>
+      <option value="group">by Cluster</option>
+    </select>
+   <div matrix-diagram links="milestone.links" activity="milestone.activity"></div>
 </div>
