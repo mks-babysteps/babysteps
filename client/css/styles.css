@@ -276,3 +276,7 @@ text {
 text.active {
   fill: red;
 }
+
+.cell {
+  fill: #1f77b4;
+}
