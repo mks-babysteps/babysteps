@@ -5,7 +5,7 @@
     .module('baby.events')
     .controller('EventsAddCtrl', EventsAddCtrl);
 
-    function EventsAddCtrl($state, events, $uibModalInstance) {
+  function EventsAddCtrl($state, events, $uibModalInstance) {
     // initialize
     var vm = this;
 
@@ -91,7 +91,7 @@
       vm.dt = new Date();
     }
 
-    // Disable weekend selection
+    // disable weekend selection
     function disabled(data) {
       var date = data.date,
       mode = data.mode;
@@ -118,5 +118,5 @@
       }
       return '';
     }
-    }
+  }
 }());
