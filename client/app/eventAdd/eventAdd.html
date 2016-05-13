@@ -6,7 +6,7 @@
   <!-- form body -->
   <form>
     <div class="form-group">
-      <input ng-model="eventadd.appointment" type="text" class="form-control" placeholder="appointment">
+      <input ng-model="eventadd.appointment" type="text" class="form-control" placeholder="title">
     </div>
     <div class="form-group">
       <input ng-model="eventadd.doctor" type="text" class="form-control" placeholder="doctor">
@@ -18,14 +18,18 @@
       <input ng-model="eventadd.notes" type="text" class="form-control" placeholder="notes">
     </div>
 
-    <div class="form-group">
-      <pre>
-        <button type="button" class="btn btn-default" ng-focus="eventadd.open1()">
-          <i class="glyphicon glyphicon-calendar" uib-datepicker-popup="{{eventadd.format}}" ng-model="eventadd.dt" is-open="eventadd.popup1.opened" datepicker-options="eventadd.dateOptions" ng-required="true" close-text="Close"></i>
-        </button>&nbsp;date: <em>{{eventadd.dt | date:'longDate'}}</em>
-      </pre>
-    </div>
-    
+    <h5>date</h5>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="{{eventadd.format}}" ng-model="eventadd.dt" is-open="eventadd.popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" placeholder="{{eventadd.dt | date:'fullDate'}}"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="eventadd.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </p>
+        </div>
+      </div>
+
     <div style="padding-left:220px;">
       <uib-timepicker
         ng-model="eventadd.dt"
@@ -36,13 +40,17 @@
     </div>
 
     <!-- dropdown -->
-    <div class="form-group">
-      child:&nbsp;<select ng-model="children" ng-options="child in eventadd.allChildren"></select>
+    <div class="form-group btn-group" uib-dropdown is-open="eventadd.status.isopen">
+      <h3>&nbsp;child:&nbsp;{{eventadd.childName}}</h3>
+      <span><button id="single button" type="button" class="btn btn-default" uib-dropdown-toggle ng-disabled="vm.disabled">{{child.firstName}}<span class="caret"></span>
+      </button></span>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+          <li role="menuitem" ng-repeat="child in eventadd.allChildren"><span ng-click="eventadd.inputName(child.firstName)">{{child.firstName}}</span>
+          </li>
+        </ul>
     </div>
   </form>
-
-
-      <!-- eventadd.inputName(child.firstName)" -->
+</div>
 
   <div class="modal-footer">
     <button class="btn btn-info" ng-click="eventadd.storeEvent(  
