@@ -57,7 +57,7 @@ var mConditionsSchema = new mongoose.Schema ({
 dbmodels.users = mongoose.model('users', usersSchema);
 dbmodels.vaccinations = mongoose.model('vaccinations', vaccinationsSchema);
 dbmodels.dose = mongoose.model('dose', doseSchema);
-dbmodels.reference = mongoose.model('reference', referenceSchema);
+dbmodels.reference = mongoose.model('reference', referencesSchema);
 dbmodels.mConditions = mongoose.model('mconditions', mConditionsSchema);
 
 module.exports = dbmodels;
