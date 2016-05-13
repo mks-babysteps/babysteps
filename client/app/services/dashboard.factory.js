@@ -41,10 +41,10 @@
       return $http.post('/edit', childObj);
     }
 
-    function goVaccinations(condition) {
-      console.log('inside govax', condition);
-      var conditionObj = {condition : condition};
-      $state.go('vaccinations', conditionObj);
+    function goVaccinations(firstName) {
+      console.log('inside govax', firstName);
+      var firstNameObj = {firstName : firstName};
+      $state.go('vaccinations', firstNameObj);
       console.log('end of govax');
     }
 

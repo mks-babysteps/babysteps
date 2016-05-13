@@ -7,14 +7,24 @@
 
     function vaccinations($http) {
       var service = {
-          getVaccinations: getVaccinations
+          getVaccinations: getVaccinations,
+          updateDoseStatus: updateDoseStatus
       };
       return service;
 
-      function getVaccinations(condition) {
-        console.log('condition factory', condition);
-        return $http.post('/vaccinations', {condition: condition.condition});
+      function getVaccinations(firstName) {
+        // console.log('firstName in vac factory', firstName);
+        return $http.post('/vaccinations', {firstName: firstName});
       }
+
+      function updateDoseStatus(vaccinationName, doseNumber, doseStatus, firstName){
+        // console.log('the doseNumber is', doseNumber);
+        return $http.post('/vaccinations/updateDose', 
+          {vaccinationName: vaccinationName, doseNumber: doseNumber, 
+            doseStatus: doseStatus, firstName: firstName });
+      }
+
+
     }
 
 })();

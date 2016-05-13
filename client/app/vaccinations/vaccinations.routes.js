@@ -15,7 +15,7 @@
             controller: 'VaccinationsCtrl as vaccinations'
           }
         },
-        params: { condition: null },
+        params: { firstName: null },
         data: {
           requiredLogin: true
         }
