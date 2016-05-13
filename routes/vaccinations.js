@@ -28,49 +28,49 @@ router.post('/', function(req, res) {
   });
 });
 
-// router.post('/updateDose', function(req, res){
-//   // console.log('this is the req.body', req.body)
-//   // console.log('this is the req.headers.username', req.headers.username)
+router.post('/updateDose', function(req, res){
+  // console.log('this is the req.body', req.body)
+  // console.log('this is the req.headers.username', req.headers.username)
+ 
+  db.users.find({'username': req.headers.username}, function(err, users){
+    if(err){
+      console.log('error');
+    } else {
+      // console.log("I'm in update dose!")
+      for(var j=0; j<users[0].children.length;j++){
+        if(users[0].children[j].firstName === req.body.firstName.firstName){
+          for(var k=0; k< users[0].children[j].doses.length; k++ ){
+            if(users[0].children[j].doses[k].name === req.body.vaccinationName){
+              // console.log("its working", users[0].children[j].doses[k][req.body.doseNumber][1]) 
+              if(users[0].children[j].doses[k][req.body.doseNumber][1]==='Incomplete'){
+                users[0].children[j].doses[k][req.body.doseNumber][1] = 'Complete';
+    // console.log("was it changed?",users[0].children[j].doses[k][req.body.doseNumber][1] )
+            
 
-//   db.users.find({'username': req.headers.username}, function(err, users){
-//     if(err){
-//       console.log('error');
-//     } else {
-//       // console.log("I'm in update dose!")
-//       for(var j=0; j<users[0].children.length;j++){
-//         if(users[0].children[j].firstName === req.body.firstName.firstName){
-//           for(var k=0; k< users[0].children[j].doses.length; k++ ){
-//             if(users[0].children[j].doses[k].name === req.body.vaccinationName){
-//     // console.log("its working", users[0].children[j].doses[k][req.body.doseNumber][1])
-//               if(users[0].children[j].doses[k][req.body.doseNumber][1]==='Incomplete'){
-//                 users[0].children[j].doses[k][req.body.doseNumber][1] = 'Complete';
-//     // console.log("was it changed?",users[0].children[j].doses[k][req.body.doseNumber][1] )
+              } else {
+                users[0].children[j].doses[k][req.body.doseNumber][1] = 'Incomplete'; 
+            
+              }  
+            }
+          }
+        }
+        
+      }
+              users[0].markModified('children');
+              users[0].save(function(err){
+                if(err){
+                  console.log(err);
+                } else{
+                  // console.log('users', users)
+                  // console.log('users[0].children',users[0].children)
+                  res.send(users);
+                }
+              });
+      
+    }
+    });
 
-
-//               } else {
-//                 users[0].children[j].doses[k][req.body.doseNumber][1] = 'Incomplete';
-
-//               }
-//               users[0].markModified('children');
-//               users[0].save(function(err){
-//                 if(err){
-//                   console.log(err);
-//                 } else{
-//                   // console.log('users', users)
-//                   // console.log('users[0].children',users[0].children)
-//                   res.send(users);
-//                 }
-//               });
-//             }
-//           }
-//         }
-
-//       }
-
-//     }
-//     });
-
-// });
+});
 
 
 
