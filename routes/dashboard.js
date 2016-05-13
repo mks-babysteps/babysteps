@@ -31,9 +31,9 @@ router.post('/addChild', function(req,res) {
 
 
   db.dose.find( {condition: req.body.condition}, function(err , dose){
-    console.log("dose[0].doses", dose[0].doses);
+    // console.log("dose[0].doses", dose[0].doses);
     childInfo.doses = dose[0].doses;
-    console.log("childInfo", childInfo)
+    // console.log("childInfo", childInfo)
   });
 
 
@@ -73,7 +73,7 @@ router.post('/', function(req,res) {
     if (err) {
       console.error(err);
     } else {
-      console.log("this is the req.body", req.body)
+      // console.log("this is the req.body", req.body)
       var spliced = [];
       for(var i = 0; i < users[0].children.length; i++) {
         if (users[0].children[i].firstName !== req.body.firstName) {

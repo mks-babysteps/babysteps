@@ -22,32 +22,32 @@
       function displayVaccinations() {
         vaccinations.getVaccinations(vm.firstName)
           .then(function(data) {
-            console.log('data', data);
-            vm.vaccinationData = data.data
+            // console.log('data', data);
+            vm.vaccinationData = data.data;
           });
-      };
+      }
 
       function updateDoseStatus(vaccinationName, doseNumber, doseStatus){
-        console.log('Complete was clicked!', vaccinationName, doseNumber, doseStatus)
+        // console.log('Complete was clicked!', vaccinationName, doseNumber, doseStatus)
         vaccinations.updateDoseStatus(vaccinationName, doseNumber, doseStatus, vm.firstName)
           .then(function(){
-            $state.reload('vaccinations')
+            $state.reload('vaccinations');
           });
-      };
+      }
 
       function doseExists(dose){
         if(dose!==null){
-          return true
+          return true;
         } else{
-          return false
+          return false;
         }
-      };
+      }
 
       function isItComplete(doseStatus){
         if(doseStatus==='Complete'){
-          return true
+          return true;
         } else {
-          return false
+          return false;
         }
       }
     }
