@@ -77,9 +77,9 @@ var mConditionsSchema = new mongoose.Schema ({
 
 var mconditionsSchema = new mongoose.Schema ({
   name: String,
-  categories: [],
-  activity: [],
-  links: []
+  nodes: [],
+  cell: [],
+  months: []
 });
 var test = new mongoose.Schema ({
   name: String,
