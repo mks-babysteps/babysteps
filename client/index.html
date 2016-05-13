@@ -88,9 +88,10 @@
       <div class="navbar-inner">
         <div class="cl-effect-11">
               <!-- <a href="#menu-toggle" id="menu-toggle">sidebar</a> -->
-              <a ui-sref="dashboard" data-hover="Home">home</a>
-              <a ui-sref="about" data-hover="About Us">about us</a>
-              <a ui-sref="faq" data-hover="FAQ">faq</a>
+              <a ui-sref="dashboard" data-hover="home">home</a>
+              <a ui-sref="events" data-hover="appointments">appointments</a>
+              <a ui-sref="about" data-hover="about us">about us</a>
+              <a ui-sref="faq" data-hover="faq">faq</a>
         </div>
       </div>
     </div>
@@ -101,11 +102,12 @@
   <ul class="sidebar-nav">
     <li class="sidebar-brand">Hi, {{dashboard.username}} !</li>
     <li class="barlist"><a href="" ng-click="dashboard.open()">add a child</a></li>
-    <li class="barlist"><a ui-sref="events">appointments</a></li>
+    <li class="barlist" ng-controller="EventsCtrl as events"><a href="" ng-click="events.open(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">add an appointment</a></li>
+    <li class="barlist"><a href="" ng-click="">chat</a></li>
     <li class="barlist"><a ui-sref="login" ng-click="dashboard.logout()">logout</a></li>
   </ul>
 </div> <!-- end of sidebar -->
-    <script src="app/jquery.js"></script>
+    <!-- <script src="app/jquery.js"></script> -->
     <script>
       $("#menu-toggle").click(function(e) {
           e.preventDefault();

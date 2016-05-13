@@ -19,24 +19,20 @@
     <pre>
       <button type="button" class="btn btn-default" ng-focus="child.open1()">
         <i class="glyphicon glyphicon-calendar" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="child.popup1.opened" datepicker-options="child.dateOptions" close-text="Add"></i>
-      </button>&nbsp;Child's Birthday: <em>{{dt | date:'longDate'}}</em>
+      </button>&nbsp;child's birthday: <em>{{dt | date:'longDate'}}</em>
     </pre>
   </div>
 
   <div class="form-group">
-    <select ng-model="typesOfConditions" ng-options="types for types in child.conditions"></select>
+    condition:&nbsp;<select ng-model="typesOfConditions" ng-options="types for types in child.conditions"></select>
   </div>
 
 </form>
-
-<div id="inputValue">
-Condition: {{typesOfConditions}}
-</div>
 
 </div>
 
 <!-- modal footer -->
 <div class="modal-footer">
-  <button class="btn btn-info" ng-click="child.addChild(child.firstName, child.lastName, dt, typesOfConditions)">Add Child</button>
-  <button class="btn btn-info" ng-click="child.close()">Close</button>
+  <button class="btn btn-info" ng-click="child.addChild(child.firstName, child.lastName, dt, typesOfConditions)">add child</button>
+  <button class="btn btn-info" ng-click="child.close()">close</button>
 </div>
