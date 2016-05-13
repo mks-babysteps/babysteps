@@ -12,7 +12,7 @@
         views: {
           '': {
             templateUrl: 'app/milestone/milestone.html',
-            controller: 'MilestoneCtrl as milestone'
+            controller: 'MilestoneCtrl as mile'
           }
         },
         data: { requiredLogin: true }
