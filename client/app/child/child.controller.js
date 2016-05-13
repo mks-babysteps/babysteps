@@ -44,7 +44,8 @@
         'firstName': firstName,
         'lastName': lastName,
         'birthday': birthday,
-        'condition': condition
+        'condition': condition,
+        'image': '../../assets/baby.svg'
       };
 
       dashboard.addChild(childObj)

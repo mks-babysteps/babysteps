@@ -146,6 +146,10 @@ form {
   font-size: 20px;
 }
 
+.img-circle {
+  border-radius: 50%;
+}
+
 .children {
   margin: 20px;
   border-style: solid;

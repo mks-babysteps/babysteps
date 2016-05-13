@@ -25,6 +25,7 @@
     vm.vaccinationsPage = vaccinationsPage;
     vm.pickFile = pickFile;
     vm.sidebarNav = sidebarNav;
+    vm.pickChildImage = pickChildImage;
 
     $scope.$on('loggedOut', function() {
       vm.authed = false;
@@ -108,5 +109,18 @@
         });
       });
     }
+
+      function pickChildImage(firstName) {
+        filepickerService.pick(
+          {mimetype: 'image/*'},
+          function(Blob) {
+            dashboard.childImageUrl(Blob, firstName)
+            .then(function(data) {
+              // console.log("data", data.data)
+              // vm.childUrl = data.data;
+              $state.reload();
+            });
+          });
+      }
   }
 })();
