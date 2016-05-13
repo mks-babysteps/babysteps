@@ -12,6 +12,7 @@
     // variables
     vm.firstName = child[0];
     vm.lastName = child[1];
+    vm.birthday = child[2];
     vm.conditions = ['None', 'Cerebral Palsy', 'Down Syndrome'];
     vm.dateOptions = {
       formatYear: 'yy',
