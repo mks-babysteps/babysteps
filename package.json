@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jshint . --exclude node_modules,client/bower_components && jasmine-node test/routes/ && karma start --single-run --browsers PhantomJS",
+    "test": "jshint . --exclude node_modules,client/bower_components && jasmine-node test/routes/",
     "start": "node server.js",
     "postinstall": "bower cache clean && bower install"
   },
