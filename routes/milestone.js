@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db.js');
+var Q = require('q');
 var verify = require('../tokens.js').verifyToken;
-
+var Condition = require('../db.js').mConditions;
 
 // authentication
 router.use(function(req, res, next) {
@@ -10,14 +10,19 @@ router.use(function(req, res, next) {
 });
 
 // routes
-router.post('/', function(req, res) {
-  db.conditions.find({'name': req.body.conditionName}, function(err, condition) {
-    if (err) {
-      console.log('error');
-    } else {
-      res.send(condition);
-    }
-  });
+router.get('/', function(req, res) {
+  var condition = req.headers.condition;
+  findCondition(condition, res);
 });
+
+var findCondition = function(condition, res) {
+  return new Q(Condition.findOne({'name': condition}).exec())
+    .then(function(condition) {
+      res.json({
+        success: true,
+        condition: condition
+      });
+    });
+};
 
 module.exports = router;

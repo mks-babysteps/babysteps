@@ -33,27 +33,6 @@ var usersSchema = new mongoose.Schema ({
   events: []
 });
 
-
-var conditionsSchema = new mongoose.Schema ({
-  name: String,
-  grossMotor: {
-    sitsalone: [],
-    crawls: [],
-    stands: [],
-    walksalone: []
-  },
-  language: {
-    firstwords: [],
-    twowordphrases: []
-  },
-  personalSocial: {
-    responsivesmile: [],
-    fingerfeeds: [],
-    drinksunassisted: [],
-    usesspoon: []
-  }
-});
-
 var vaccinationsSchema = new mongoose.Schema ({
   condition: String,
   vaccinations: []
@@ -75,12 +54,17 @@ var mConditionsSchema = new mongoose.Schema ({
   links: Array
 });
 
+var mconditionsSchema = new mongoose.Schema ({
+  name: String,
+  nodes: [],
+  cell: [],
+  months: []
+});
+
 dbmodels.users = mongoose.model('users', usersSchema);
-dbmodels.conditions = mongoose.model('conditions',conditionsSchema);
 dbmodels.vaccinations = mongoose.model('vaccinations', vaccinationsSchema);
 dbmodels.references = mongoose.model('references', referencesSchema);
 dbmodels.dose = mongoose.model('dose', doseSchema);
 dbmodels.mConditions = mongoose.model('mConditions', mConditionsSchema);
 
 module.exports = dbmodels;
-
