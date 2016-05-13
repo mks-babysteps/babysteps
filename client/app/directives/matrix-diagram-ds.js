@@ -5,19 +5,20 @@
     function matrixDiagram($window) {
       function link(scope, elem, attrs, controller) {
         var d3 = $window.d3;
+        console.log('CONTROLLER: ', controller.activity);
       var condition = {
                         "nodes":
                           [
-                            { "name": "can use spoon", "group":  0 },
-                            { "name": "drinks unassisted", "group":  0 },
-                            { "name": "finger feeds", "group":  0 },
-                            { "name": "responsive smile", "group":  0 },
-                            { "name": "two word phrases", "group":  0 },
-                            { "name": "first words", "group":  0 },
-                            { "name": "walks alone", "group":  0 },
-                            { "name": "stands", "group":  0 },
-                            { "name": "crawls", "group":  0 },
-                            { "name": "able to sit up", "group":  0 }
+                            { "name": "can use spoon", 'begin': 13, 'end': 24},
+                            { "name": "drinks unassisted", 'begin': 12, 'end': 24},
+                            { "name": "finger feeds", 'begin': 10, 'end': 24},
+                            { "name": "responsive smile", 'begin': 2, 'end': 5},
+                            { "name": "two word phrases", 'begin': 23, 'end': 24},
+                            { "name": "first words", 'begin': 12, 'end': 24},
+                            { "name": "walks alone", 'begin': 12, 'end': 24},
+                            { "name": "stands", 'begin': 12, 'end': 24},
+                            { "name": "crawls", 'begin': 8, 'end': 22},
+                            { "name": "able to sit up", 'begin': 6, 'end': 24}
                           ],
                         "cell":
                           [
@@ -205,7 +206,10 @@
         // Precompute the orders.
         var orders = {
           name: d3.range(numRows).sort(function(a, b) { return d3.ascending(nodes[a].name, nodes[b].name); }),
-          count: d3.range(numRows).sort(function(a, b) { return nodes[b].count - nodes[a].count; })
+          count: d3.range(numRows).sort(function(a, b) { return nodes[b].count - nodes[a].count; }),
+          smallRange: d3.range(numRows).sort(function(a, b) { return nodes[a].count - nodes[b].count; }),
+          earliest: d3.range(numRows).sort(function(a, b) { return nodes[a].begin - nodes[b].begin; }),
+          latest: d3.range(numRows).sort(function(a, b) { return nodes[b].begin - nodes[a].begin; })
         };
 
         // The default sort order.
@@ -232,7 +236,7 @@
         row.append("text")
             .attr("x", -6)
             .attr("y", x.rangeBand() / 5)
-            .attr("dy", ".32em")
+            .attr("dy", "1.8em")
             .attr("text-anchor", "end")
             .text(function(d, i) { return nodes[i].name; });
 
@@ -242,7 +246,6 @@
           .enter().append("g")
             .attr("class", "column")
             .attr("transform", function(d, i) {
-              console.log('y d: ', d);
               return "translate(" + y(d) + ")rotate(-90)";
             });
 
@@ -264,13 +267,11 @@
         function row(row) {
           var cell = d3.select(this).selectAll(".cell")
               .data(row.filter(function(d) {
-                console.log('d.z: ', d.z);
                 return d.z;
               }))
             .enter().append("rect")
               .attr("class", "cell")
               .attr("x", function(d) {
-                console.log('d.x: ', d.x);
                 return y(d.x);
               })
               .attr("width", cw)
@@ -305,10 +306,10 @@
         }
 
         var timeout = setTimeout(function() {
-          order("count");
-          d3.select("#order").property("selectedIndex", 1).node();
-        }, 500);
-// });
+          order("earliest");
+          d3.select("#order").property("selectedIndex", 3).node();
+        }, 750);
+
       }
 
       return {
