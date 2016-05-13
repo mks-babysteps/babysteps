@@ -30,7 +30,7 @@ router.post('/addChild', function(req,res) {
   };
 
 
-  db.dose.find( {condition: req.body.condition}, function(err , dose){
+  db.dose.find( {condition: req.body.condition}, function(err , dose) {
     // console.log("dose[0].doses", dose[0].doses);
     childInfo.doses = dose[0].doses;
     // console.log("childInfo", childInfo)
@@ -96,7 +96,7 @@ router.post('/image', function(req, res) {
   //console.log("inside image post", req.body);
   //console.log("headers", req.headers);
   db.users.find({username: req.headers.username}, function(err, users) {
-    if(err) {
+    if (err) {
       console.error(err);
     } else {
       //console.log("body in image", req.body.url);
