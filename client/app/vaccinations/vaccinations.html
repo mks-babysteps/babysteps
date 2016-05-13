@@ -12,19 +12,19 @@
         <div ng-show="vaccinations.doseExists(vaccination.firstDose)">  
           <!-- <button ng-click="vaccinations.complete(vaccinations.firstDose)">Complete?</button> -->
 
-          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.firstDose[2], vaccination.firstDose[1])">&nbsp{{vaccination.firstDose[0]}}: {{vaccination.firstDose[1]}}
+          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.firstDose[2], vaccination.firstDose[1])" ng-checked="vaccinations.isItComplete(vaccination.firstDose[1])">&nbsp{{vaccination.firstDose[0]}}: {{vaccination.firstDose[1]}}
           <br>
         </div>
         <div ng-show="vaccinations.doseExists(vaccination.secondDose)">  
-          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.secondDose[2], vaccination.secondDose[1])">&nbsp{{vaccination.secondDose[0]}}: {{vaccination.secondDose[1]}} 
+          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.secondDose[2], vaccination.secondDose[1])" ng-checked="vaccinations.isItComplete(vaccination.secondDose[1])">&nbsp{{vaccination.secondDose[0]}}: {{vaccination.secondDose[1]}}   
           <br>
         </div>
         <div ng-show="vaccinations.doseExists(vaccination.thirdDose)">  
-          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.thirdDose[2], vaccination.thirdDose[1])">&nbsp{{vaccination.thirdDose[0]}}: {{vaccination.thirdDose[1]}}
+          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.thirdDose[2], vaccination.thirdDose[1])" ng-checked="vaccinations.isItComplete(vaccination.thirdDose[1])">&nbsp{{vaccination.thirdDose[0]}}: {{vaccination.thirdDose[1]}}
           <br>
         </div>
         <div ng-show="vaccinations.doseExists(vaccination.fourthDose)">
-          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.fourthDose[2], vaccination.fourthDose[1])">&nbsp{{vaccination.fourthDose[0]}}: {{vaccination.fourthDose[1]}}
+          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.fourthDose[2], vaccination.fourthDose[1])" ng-checked="vaccinations.isItComplete(vaccination.fourthDose[1])">&nbsp{{vaccination.fourthDose[0]}}: {{vaccination.fourthDose[1]}}
           <br>
         </div>
   </div>  
