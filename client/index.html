@@ -83,7 +83,8 @@
 
 <!-- nav view -->
 <div ng-controller="DashboardCtrl as dashboard">
-  <nav class="navbar center" role="navigation" ng-if="dashboard.authed">
+<div ng-if="dashboard.sidebarNav()">
+  <nav class="navbar center" role="navigation" >
     <div class="container-fluid">
       <div class="navbar-inner">
         <div class="cl-effect-11">
@@ -98,7 +99,7 @@
   </nav> <!-- end of nav -->
 
 <!-- sidebar -->
-<div class="sidebar-wrapper" ng-if="dashboard.authed">
+<div class="sidebar-wrapper" >
   <ul class="sidebar-nav">
     <li class="sidebar-brand">Hi, {{dashboard.username}} !</li>
     <li class="barlist"><a href="" ng-click="dashboard.open()">add a child</a></li>
@@ -106,14 +107,15 @@
     <li class="barlist"><a href="" ng-click="">chat</a></li>
     <li class="barlist"><a ui-sref="login" ng-click="dashboard.logout()">logout</a></li>
   </ul>
-</div> <!-- end of sidebar -->
+</div>
+</div><!-- end of sidebar -->
     <!-- <script src="app/jquery.js"></script> -->
-    <script>
+<!--     <script>
       $("#menu-toggle").click(function(e) {
           e.preventDefault();
           $("#wrapper").toggleClass("toggled");
       });
-    </script>
+    </script> -->
 </div> <!-- end of controller -->
 
     <div ui-view></div>

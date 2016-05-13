@@ -48,8 +48,9 @@
       };
       dashboard.addChild(childObj)
         .then(function() {
-          $state.reload('dashboard');
+
         });
+        $state.reload('dashboard');
         vm.close();
     }
 
