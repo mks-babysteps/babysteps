@@ -89,7 +89,7 @@
     };
 
     vm.formats = [
-      'dd-MMMM-yyyy',
+      'fullDate',
       'yyyy/MM/dd',
       'dd.MM.yyyy',
       'shortDate'
