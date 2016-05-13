@@ -75,12 +75,22 @@ var mConditionsSchema = new mongoose.Schema ({
   links: Array
 });
 
+var mconditionsSchema = new mongoose.Schema ({
+  name: String,
+  categories: [],
+  activity: [],
+  links: []
+});
+var test = new mongoose.Schema ({
+  name: String,
+  occupation: String
+});
+
 dbmodels.users = mongoose.model('users', usersSchema);
 dbmodels.conditions = mongoose.model('conditions',conditionsSchema);
 dbmodels.vaccinations = mongoose.model('vaccinations', vaccinationsSchema);
-dbmodels.references = mongoose.model('references', referencesSchema);
 dbmodels.dose = mongoose.model('dose', doseSchema);
-dbmodels.mConditions = mongoose.model('mConditions', mConditionsSchema);
+dbmodels.reference = mongoose.model('reference', referenceSchema);
+dbmodels.mConditions = mongoose.model('mConditions', mconditionsSchema);
 
 module.exports = dbmodels;
-

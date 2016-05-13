@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Q = require('q');
 var verify = require('../tokens.js').verifyToken;
-var Condition = require('../db.js').conditions;
+var Condition = require('../db.js').mConditions;
 var User = require('../db.js').users;
 
 // authentication
@@ -19,7 +19,6 @@ router.get('/', function(req, res) {
 var findCondition = function(condition, res) {
   return new Q(Condition.findOne({'name': condition}).exec())
     .then(function(condition) {
-      console.log('My condition: ', condition)
       res.json({
         success: true,
         condition: condition
