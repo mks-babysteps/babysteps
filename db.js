@@ -54,7 +54,7 @@ var mConditionsSchema = new mongoose.Schema ({
   links: Array
 });
 
-var mconditionsSchema = new mongoose.Schema ({
+var mConditionsSchema = new mongoose.Schema ({
   name: String,
   nodes: [],
   cell: [],
