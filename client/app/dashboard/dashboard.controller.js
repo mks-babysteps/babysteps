@@ -5,19 +5,18 @@
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
 
-  function DashboardCtrl($state, $scope, $uibModal, dashboard, auth, filepickerService, $window) {
+  function DashboardCtrl($state, $scope, $uibModal, dashboard, auth,
+    filepickerService, $window, $localStorage) {
     // initialize
     var vm = this;
 
     // variables
-    vm.username = auth.current().username;
     vm.files = JSON.parse($window.localStorage.getItem('files') || '[]');
     vm.pickFile = pickFile;
     //vm.onSuccess = onSuccess;
 
     // functions
     vm.logout = logout;
-    vm.displayChildren = displayChildren;
     vm.displayUsers = displayUsers;
     vm.removeChild = removeChild;
     vm.milestonePage = milestonePage;
@@ -25,7 +24,8 @@
     vm.edit = edit;
     vm.vaccinationsPage = vaccinationsPage;
     vm.pickFile = pickFile;
-      
+    vm.sidebarNav = sidebarNav;
+
     $scope.$on('loggedOut', function() {
       vm.authed = false;
     });
@@ -34,18 +34,20 @@
       vm.authed = true;
     });
 
+    function sidebarNav() {
+
+      if($localStorage.username && $localStorage.token) {
+        vm.username = auth.current().username;
+        return true;
+      } else {
+        return false;
+      }
+    }
+
     function logout() {
       auth.logout();
       $state.go('login');
       vm.authed = false;
-    }
-
-    function displayChildren() {
-      dashboard.getUser()
-        .then(function(data){
-          var userObj = data.data[0];
-          vm.children = userObj.children;
-        });
     }
 
     function edit(firstName, lastName) {
@@ -71,8 +73,10 @@
       dashboard.getUser()
         .then(function(data) {
           // console.log('displaying user data: ', data)
+          sidebarNav();
           var userObj = data.data;
           vm.users = userObj;
+          vm.children = userObj[0].children;
           //console.log('vm.users', vm.users[0].imageUrl);
           vm.imageUrl = vm.users[0].imageUrl;
         });

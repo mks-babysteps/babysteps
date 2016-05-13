@@ -46,9 +46,10 @@
         'birthday': birthday,
         'condition': condition
       };
-      $state.reload('dashboard');
-      dashboard.addChild(childObj);
-      vm.close();
+
+      dashboard.addChild(childObj)
+        $state.reload('dashboard');
+        vm.close();
     }
 
     // datepicker functions

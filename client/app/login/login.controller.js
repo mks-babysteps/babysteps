@@ -15,6 +15,7 @@
 
     // functions
     vm.login = login;
+    vm.loggedIn = loggedIn;
 
     function login(username, password) {
       auth.signin(username, password)
@@ -32,6 +33,12 @@
               console.log(vm.message);
           }
         });
+    }
+
+    function loggedIn() {
+      if($localStorage.username && $localStorage.token) {
+        $state.go('dashboard');
+      }
     }
   }
 })();
