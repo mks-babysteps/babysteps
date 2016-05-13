@@ -4,17 +4,19 @@
       <div class="container-fluid">
         <div class="row">
 
+
   <div ng-init="dashboard.displayUsers()"  class="profile-image">
     <img ng-src="{{dashboard.imageUrl}}" style="height:200px;width:200px;" />
     <button ng-click="dashboard.pickFile()">Upload</button>
   </div>
-  
-         <div ng-init="dashboard.displayChildren()">
+
+
+         <div>
           <div ng-repeat="child in dashboard.children">
             <div class="login-group" style="color:black; width:550px; margin-bottom:20px">
               <div class="container">
                 <div class="row">
-            
+
                   <div class="col-sm-6 col-md-4" style="width:174px;padding-left:0px;">
                     <img src="../../assets/baby.svg" style="padding-left:15px;padding-top:18px"class="img-rounded img-responsive"/>
                   </div>
