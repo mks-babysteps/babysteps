@@ -5,7 +5,7 @@
     .module('baby.milestone',[])
     .controller('MilestoneCtrl', MilestoneCtrl);
 
-  function MilestoneCtrl($state, milestone, $stateParams, $timeout, $scope) {
+  function MilestoneCtrl($state, milestone, $stateParams) {
     // initialize
     var vm = this;
 
