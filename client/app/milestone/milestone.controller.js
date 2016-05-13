@@ -13,8 +13,7 @@
     vm.init = init;
     vm.condition = $stateParams.condition;
     vm.getConditionData = getConditionData;
-    vm.links;
-    vm.activity;
+    vm.data;
 
     init();
 
@@ -26,9 +25,8 @@
 
     function getConditionData() {
       milestone.getCondition(vm.condition).then(function(response) {
-        console.log(response.data);
-        vm.links = response.data.condition.links;
-        vm.activity = response.data.condition.activity;
+        console.log('RESPONSE:', response.data);
+        vm.data = response.data.condition;
       });
     }
 
