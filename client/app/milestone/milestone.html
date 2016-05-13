@@ -1,5 +1,4 @@
-<h2 ng-init="milestone.init()">Milestones</h2>
-<h4>Condition: {{milestone.condition}}</h4>
+<h4>Condition: {{mile.condition}}</h4>
 
 <h1>Diagram</h1>
 <div class="diagram">
@@ -11,5 +10,5 @@
       <option value="earliest">by Earliest</option>
       <option value="latest">by Latter</option>
     </select>
-   <div matrix-diagram ></div>
+   <div matrix-diagram data="mile.data"></div>
 </div>
