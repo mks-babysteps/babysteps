@@ -280,3 +280,7 @@ text.active {
 .cell {
   fill: #1f77b4;
 }
+
+.axis-label {
+  font-size: 14px;
+}
