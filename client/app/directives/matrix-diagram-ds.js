@@ -160,7 +160,7 @@
 
               function order(value) {
                 x.domain(orders[value]);
-                var t = svg.transition().duration(2500);
+                var t = svg.transition().duration(1500);
                 t.selectAll(".row")
                     .delay(function(d, i) { return x(i) * 4; })
                     .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
