@@ -5,11 +5,6 @@ var db = require('../db.js');
 
 // authentication
 router.use(function(req, res, next) {
-  if(token1 === req.headers.token) {
-    console.log('Tokens are equal');
-  } else {
-    console.log('Tokens are not equal');
-  }
   verify(req.headers.token, res, next);
 });
 
