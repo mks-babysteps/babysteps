@@ -25,7 +25,7 @@ function updateChild(res, username, firstName, lastName, birthdate, newCondition
     .then(function(foundUser) {
       var childrenArray = foundUser.children;
       update(childrenArray, firstName, lastName, birthdate, newCondition);
-      foundUser.update({children: foundUser.children}, function(err, data) {
+      foundUser.update({children: foundUser.children}, function(err) {
         if(err) {
           console.error(err);
           res.json({success: false});
