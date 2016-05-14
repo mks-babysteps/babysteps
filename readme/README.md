@@ -1,6 +1,6 @@
 # Baby Steps
 
-Track your baby's developmental progress!
+Track your baby's developmental progress with Baby Steps!
 
 # About
 
@@ -35,6 +35,20 @@ $ node server/server.js
 * ExpressJS <https://expressjs.com>
 * AngularJS <https://angularjs.org>
 * NodeJS <https://nodejs.org>
+* Q
+* D3
+* Jasmine
+* Karma
+* Phantom
+* JWT
+* bcrypt
+
+### Front End
+Baby Steps utilizes AngularJS to render the front-end. We used ui-router for application routing and built-in Angular factories for state management. All API calls are made in the corresponding factory file associated for the type of data that it’s maintaining.
+
+### Back End
+
+Baby Steps has a custom RESTFul API built with Node.js and Express. And data management is handled by mongoose and MongoDB.
 
 ## Team Members ##
 

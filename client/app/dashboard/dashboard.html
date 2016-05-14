@@ -3,29 +3,24 @@
     <div id="page-content-wrapper">
       <div class="container-fluid">
         <div class="row">
-
-
-  <div ng-init="dashboard.displayUsers()"  class="profile-image">
-    <img ng-src="{{dashboard.imageUrl}}"  class="img-circle" style="height:200px;width:200px;" />
-    <button ng-click="dashboard.pickFile()">Upload</button>
-  </div>
-
-
-         <div>
-         <div ng-init="dashboard.displayChildren()">
+         <div ng-init="dashboard.displayChildren(); dashboard.displayUsers();">
+            <div>
+              <button type="button" class="btn btn-default" ng-click="dashboard.open()">add a child</button>
+            </div>
+              <br>
+              <br>
           <div ng-repeat="child in dashboard.children">
-            <div class="login-group" style="color:black; width:550px; margin-bottom:20px">
+            <div class="login-group" style="color:black; width:460px; height:270px; margin-bottom:20px">
               <div class="container">
                 <div class="row">
-
                   <div class="col-sm-6 col-md-4" style="width:174px;padding-left:0px;">
-                    <!--<img src="../../assets/baby.svg" style="padding-left:15px;padding-top:18px;height:150px;width:150px;"class="img-rounded img-responsive"/>-->
-                    <img ng-src="{{child.childImageUrl}}" style="padding-left:15px;padding-top:18px;height:150px;width:150px;"/>
-                    <!--<img ng-src="{{dashboard.imageUrl}}" style="height:150px;width:150px;" />-->
-                    <button ng-click="dashboard.pickChildImage(child.firstName)">Upload</button>
+                    <div class="prof-image">
+                      <img ng-src="{{child.childImageUrl}}" ng-click="dashboard.pickChildImage(child.firstName)" class="img-circle" style="height:170px; width:170px; margin-top:17px; margin-left:10px;"/>
+                      <a href="" ng-click="dashboard.pickFile()" class="img-desp" style="font-size:20px">upload</a>
+                    </div>
                   </div>
 
-                    <div class="col-sm-6 col-md-8">
+                    <div class="col-sm-6 col-md-8" style="padding-left:30px">
                     <p>
                         <br>
                       <i class="glyphicon glyphicon-user"></i><strong>&nbsp{{child.firstName}}&nbsp{{child.lastName}}</strong>
@@ -35,7 +30,6 @@
                       <i class="glyphicon glyphicon-heart-empty"></i>&nbsp{{child.condition}}
                         <br><br>
                     </p>
-
                       <div class="btn-group" role="group" aria-label="...">
                         <button type="button" class="btn btn-default" ng-click="dashboard.edit(child.firstName, child.lastName)"><i class="glyphicon glyphicon-edit"></i></button>
                         <button type="button" class="btn btn-default" ng-click="dashboard.removeChild(child.firstName)"><i class="glyphicon glyphicon-trash"></i></button>
@@ -43,16 +37,14 @@
                         <br>
                         <br>
                       <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">Milestones</button>
-                        <button type="button" class="btn btn-default" ng-click="dashboard.vaccinationsPage(child.firstName)">Vaccinations</button>
+                        <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">milestones</button>
+                        <button type="button" class="btn btn-default" ng-click="dashboard.vaccinationsPage(child.firstName)">vaccinations</button>
                       </div>
                         <br><br>
                     </div>
                 </div>
               </div>
             </div>
-            </div>
-
           </div>
           </div>
         </div>
