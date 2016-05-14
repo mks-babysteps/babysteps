@@ -5,7 +5,7 @@
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
 
-  function DashboardCtrl($state, $scope, $uibModal, dashboard, auth,
+  function DashboardCtrl($state, $scope, $rootScope, $uibModal, dashboard, auth,
     filepickerService, $window, $localStorage) {
     // initialize
     var vm = this;
@@ -41,6 +41,10 @@
 
     $scope.$on('edit_child', function(event, res) {
       vm.children = res.data.userData.children;
+    });
+
+    $scope.$on('add_image', function(event, data) {
+      vm.imageUrl = data.data;
     });
 
     function sidebarNav() {
@@ -109,8 +113,9 @@
       filepickerService.pick({mimetype: 'image/*'}, function(Blob) {
         dashboard.imageUrl(Blob)
         .then(function(data) {
-          vm.imageUrl = data.data;
-            $state.reload();
+          $rootScope.$broadcast('add_image', data);
+          //vm.imageUrl = data.data;
+            //$state.reload();
         });
       });
     }
@@ -121,8 +126,6 @@
           function(Blob) {
             dashboard.childImageUrl(Blob, firstName)
             .then(function() {
-              // console.log("data", data.data)
-              // vm.childUrl = data.data;
               $state.reload();
             });
           });
