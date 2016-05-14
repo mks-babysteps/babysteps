@@ -49,8 +49,8 @@
       };
 
       dashboard.addChild(childObj);
-        $state.reload('dashboard');
-        vm.close();
+      $state.reload('dashboard');
+      vm.close();
     }
 
     // datepicker functions
