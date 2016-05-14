@@ -39,6 +39,10 @@
       vm.children = data.data[0].children;
     });
 
+    $scope.$on('edit_child', function(event, res) {
+      vm.children = res.data.userData.children;
+    });
+
     function sidebarNav() {
 
       if($localStorage.username && $localStorage.token) {

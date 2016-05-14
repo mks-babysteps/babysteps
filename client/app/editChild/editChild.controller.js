@@ -5,7 +5,7 @@
     .module('baby.dashboard')
     .controller('EditChildCtrl', EditChildCtrl);
 
-  function EditChildCtrl($uibModalInstance, dashboard, $state, child) {
+  function EditChildCtrl($uibModalInstance, dashboard, $state, child, $rootScope) {
     // initialize
     var vm = this;
 
@@ -50,8 +50,8 @@
         'condition': condition
       };
       dashboard.editChild(childObj)
-        .then(function() {
-          $state.reload('dashboard');
+        .then(function(data) {
+          $rootScope.$broadcast('edit_child', data);
         });
       vm.close();
     }

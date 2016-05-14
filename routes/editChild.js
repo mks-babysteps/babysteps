@@ -30,7 +30,7 @@ function updateChild(res, username, firstName, lastName, birthdate, newCondition
           console.error(err);
           res.json({success: false});
         } else {
-          res.json({success: true});
+          res.json({success: true, userData: foundUser});
         }
       });
     });
