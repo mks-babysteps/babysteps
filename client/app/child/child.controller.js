@@ -5,7 +5,7 @@
     .module('baby.dashboard')
     .controller('ChildCtrl', ChildCtrl);
 
-  function ChildCtrl($uibModalInstance, dashboard, $state) {
+  function ChildCtrl($uibModalInstance, dashboard, $state, $scope, $rootScope) {
     // initialize
     var vm = this;
 
@@ -48,9 +48,12 @@
         'image': '../../assets/baby.svg'
       };
 
-      dashboard.addChild(childObj);
-        $state.reload('dashboard');
-        vm.close();
+      dashboard.addChild(childObj)
+        .then(function(data) {
+          console.log('This is our data',data);
+          $rootScope.$broadcast('add_child', data);
+        })
+      vm.close();
     }
 
     // datepicker functions
