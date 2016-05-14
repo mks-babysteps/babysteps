@@ -18,7 +18,6 @@
 
     // functions
     function init() {
-      console.log('Running init');
       vm.getConditionData(vm.condition);
     }
 
