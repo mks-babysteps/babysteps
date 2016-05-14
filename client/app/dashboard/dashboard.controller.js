@@ -90,7 +90,9 @@
     }
 
     function removeChild(childFirstName) {
-      dashboard.removeThisChild(childFirstName);
+      dashboard.removeThisChild(childFirstName).then(function(res) {
+        vm.children = res.data.userData.children;
+      });
     }
 
     function milestonePage(condition) {
