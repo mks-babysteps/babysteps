@@ -21,7 +21,6 @@ router.get('/', function(req, res) {
 
 router.post('/addChild', function(req,res) {
 
-
   var childInfo = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -62,7 +61,7 @@ router.post('/addChild', function(req,res) {
         }
       }
       users[0].save(function() {
-        //res.send(users);
+      res.send(users);
       });
     }
   }

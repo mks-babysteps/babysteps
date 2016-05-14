@@ -35,12 +35,12 @@ router.get('/', function(req, res) {
 router.post('/remove', function(req, res) {
   db.users.update({username : req.headers.username},{
     $pull: { 'events' : { 'dt' :req.body.dt } } },
-    function(err) {
+    function(err, data) {
       if(err) {
         console.log(err);
       } else {
         console.log('success');
-        res.send();
+        res.send(data);
       }
   });
 });

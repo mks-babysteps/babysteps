@@ -35,6 +35,10 @@
       vm.authed = true;
     });
 
+    $scope.$on('add_child', function(event, data) {
+      vm.children = data.data[0].children;
+    });
+
     function sidebarNav() {
 
       if($localStorage.username && $localStorage.token) {
@@ -73,21 +77,16 @@
     function displayUsers() {
       dashboard.getUser()
         .then(function(data) {
-          // console.log('displaying user data: ', data)
           sidebarNav();
           var userObj = data.data;
           vm.users = userObj;
           vm.children = userObj[0].children;
-          //console.log('vm.users', vm.users[0].imageUrl);
           vm.imageUrl = vm.users[0].imageUrl;
         });
     }
 
     function removeChild(childFirstName) {
-      dashboard.removeThisChild(childFirstName)
-        .then(function(){
-          $state.reload('dashboard');
-        });
+      dashboard.removeThisChild(childFirstName);
     }
 
     function milestonePage(condition) {
@@ -95,10 +94,10 @@
       $state.go('milestone', {condition: condition});
     }
 
-      function vaccinationsPage(firstName){
-        console.log('firstName', firstName);
-        dashboard.goVaccinations(firstName);
-      }
+    function vaccinationsPage(firstName){
+      console.log('firstName', firstName);
+      dashboard.goVaccinations(firstName);
+    }
 
     function pickFile() {
       filepickerService.pick({mimetype: 'image/*'}, function(Blob) {
