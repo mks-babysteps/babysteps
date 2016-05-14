@@ -5,8 +5,11 @@
         <div class="row">
          <div ng-init="dashboard.displayChildren(); dashboard.displayUsers();">
             <div>
-              <button type="button" style="margin-left:325px; width: 459px;" class="btn btn-default" ng-click="dashboard.open()">add a child</button>
+              <button ng-click="dashboard.open()" style="margin-left:430px;" class="butt button--itzel button--text-thick button--text-upper button--border-thick button--size-s"><i class="button__icon glyphicon glyphicon-plus"></i><span>add a child</span></button>
             </div>
+              <br>
+              <br>
+              <br>
               <br>
               <br>
           <div ng-repeat="child in dashboard.children">
