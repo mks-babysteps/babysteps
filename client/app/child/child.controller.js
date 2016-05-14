@@ -48,7 +48,7 @@
         'image': '../../assets/baby.svg'
       };
 
-      dashboard.addChild(childObj)
+      dashboard.addChild(childObj);
         $state.reload('dashboard');
         vm.close();
     }

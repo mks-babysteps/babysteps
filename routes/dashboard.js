@@ -117,15 +117,15 @@ router.post('/childImage', function(req, res) {
         if(child.firstName === req.body.firstName){
           child.childImageUrl = req.body.url;
           users[0].markModified('children');
-          users[0].save(function(err){
-            if(err){
-              console.log(err);
-            }else{
-              res.send(req.body.url);
-            }
-          });
         }
       }
+      users[0].save(function(err){
+        if(err){
+          console.log(err);
+        }else{
+          res.send(req.body.url);
+        }
+      });
     }
 
   });

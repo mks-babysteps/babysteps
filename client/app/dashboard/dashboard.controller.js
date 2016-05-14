@@ -115,7 +115,7 @@
           {mimetype: 'image/*'},
           function(Blob) {
             dashboard.childImageUrl(Blob, firstName)
-            .then(function(data) {
+            .then(function() {
               // console.log("data", data.data)
               // vm.childUrl = data.data;
               $state.reload();
