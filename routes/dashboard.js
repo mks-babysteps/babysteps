@@ -85,7 +85,7 @@ router.post('/', function(req,res) {
         if (err) {
           console.error(err);
         } else {
-          res.send(users);
+          res.send({success: true, userData: users});
         }
       });
     }
