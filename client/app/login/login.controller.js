@@ -26,6 +26,7 @@
             $localStorage.username = username;
             $localStorage.token = data.data.token;
             $http.defaults.headers.common.username = username;
+            $http.defaults.headers.common.token = $localStorage.token;
             $state.go('dashboard');
           } else {
               vm.error = true;
