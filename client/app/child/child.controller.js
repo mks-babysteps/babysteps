@@ -52,7 +52,7 @@
         .then(function(data) {
           console.log('This is our data',data);
           $rootScope.$broadcast('add_child', data);
-        })
+        });
       vm.close();
     }
 

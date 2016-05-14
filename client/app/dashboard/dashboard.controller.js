@@ -36,7 +36,6 @@
     });
 
     $scope.$on('add_child', function(event, data) {
-      console.log("Hello this is add_child", data.data[0].children);
       vm.children = data.data[0].children;
     });
 
@@ -78,8 +77,6 @@
     function displayUsers() {
       dashboard.getUser()
         .then(function(data) {
-          console.log('displaying user data: ', data)
-          //console.log('vm.users', vm.users[0].imageUrl);
           sidebarNav();
           var userObj = data.data;
           vm.users = userObj;
@@ -89,10 +86,7 @@
     }
 
     function removeChild(childFirstName) {
-      dashboard.removeThisChild(childFirstName)
-        .then(function(data){
-
-        });
+      dashboard.removeThisChild(childFirstName);
     }
 
     function milestonePage(condition) {
