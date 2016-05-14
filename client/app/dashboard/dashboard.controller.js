@@ -41,6 +41,7 @@
 
     $scope.$on('edit_child', function(event, res) {
       vm.children = res.data.userData.children;
+    });
 
     $scope.$on('add_image', function(event, data) {
       vm.imageUrl = data.data;
