@@ -82,10 +82,10 @@
   <nav class="navbar center" role="navigation" >
     <div class="container-fluid">
       <div class="navbar-inner">
-        <div class="cl-effect-11">
+        <div class="cl-effect-11" style="padding-left:220px;">
               <!-- <a href="#menu-toggle" id="menu-toggle">sidebar</a> -->
               <a ui-sref="about" data-hover="about us">about us</a>
-              <a href="" data-hover="contact us">contact</a>
+              <a href="" data-hover="contact us">contact us</a>
               <a ui-sref="faq" data-hover="faq">faq</a>
         </div>
       </div>
@@ -99,7 +99,7 @@
     
     <div ng-init="dashboard.displayUsers()" class="profile-image">
         <img ng-src="{{dashboard.imageUrl}}" ng-click="dashboard.pickFile()" class="img-circle" style="height:200px;width:200px;margin-left:22px"/>
-        <p class="img-desc">upload an image!</p>
+        <a href="" ng-click="dashboard.pickFile()" class="img-desc" style="font-size:20px">upload</a>
     </div>
     
     <li class="barlist" style="text-indent: 20px"><a ui-sref="dashboard">home</a><li>
