@@ -13,7 +13,8 @@
       goMilestone: goMilestone,
       editChild: editChild,
       goVaccinations: goVaccinations,
-      imageUrl: imageUrl
+      imageUrl: imageUrl,
+      childImageUrl: childImageUrl
     };
     return service;
 
@@ -42,16 +43,23 @@
     }
 
     function goVaccinations(firstName) {
-      console.log('inside govax', firstName);
+      //console.log('inside govax', firstName);
       var firstNameObj = {firstName : firstName};
       $state.go('vaccinations', firstNameObj);
-      console.log('end of govax');
+      //console.log('end of govax');
     }
 
     function imageUrl(Blob) {
       var imageUrlString = Blob;
       var imageUrlObj = {url: imageUrlString.url};
       return $http.post('/dashboard/image', imageUrlObj);
+    }
+
+    function childImageUrl(Blob, firstName) {
+      var imageUrlString = Blob;
+      var imageUrlObj = {url: imageUrlString.url, firstName: firstName};
+      //console.log("childImageUrl", imageUrlObj);
+      return $http.post('/dashboard/childImage', imageUrlObj);
     }
   }
 })();
