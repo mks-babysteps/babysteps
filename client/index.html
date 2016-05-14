@@ -85,7 +85,7 @@
         <div class="cl-effect-11">
               <!-- <a href="#menu-toggle" id="menu-toggle">sidebar</a> -->
               <a ui-sref="about" data-hover="about us">about us</a>
-              <a href="#" data-hover="contact us">contact us</a>
+              <a href="" data-hover="contact us">contact</a>
               <a ui-sref="faq" data-hover="faq">faq</a>
         </div>
       </div>
@@ -95,13 +95,17 @@
 <!-- sidebar -->
 <div class="sidebar-wrapper" >
   <ul class="sidebar-nav">
-    <li class="sidebar-brand">Hi, {{dashboard.username}} !</li>
-    <li class="barlist"><a ui-sref="dashboard">home</a><li>
-    <li class="barlist"><a ui-sref="events">appointments</a></li>
-<!--     <li class="barlist"><a href="" ng-click="dashboard.open()">add a child</a></li>
-    <li class="barlist" ng-controller="EventsCtrl as events"><a href="" ng-click="events.open(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">add an appointment</a></li> -->
-    <li class="barlist"><a href="" ng-click="">forum</a></li>
-    <li class="barlist"><a ui-sref="login" ng-click="dashboard.logout()">logout</a></li>
+    <li class="sidebar-brand" style="text-align:center">Hi, {{dashboard.username}} !</li>
+    
+    <div ng-init="dashboard.displayUsers()" class="profile-image">
+        <img ng-src="{{dashboard.imageUrl}}" ng-click="dashboard.pickFile()" class="img-circle" style="height:200px;width:200px;margin-left:22px"/>
+        <p class="img-desc">upload an image!</p>
+    </div>
+    
+    <li class="barlist" style="text-indent: 20px"><a ui-sref="dashboard">home</a><li>
+    <li class="barlist" style="text-indent: 20px"><a ui-sref="events">appointments</a></li>
+    <li class="barlist" style="text-indent: 20px"><a href="" ng-click="">forum</a></li>
+    <li class="barlist" style="text-indent: 20px"><a ui-sref="login" ng-click="dashboard.logout()">logout</a></li>
   </ul>
 </div>
 </div><!-- end of sidebar -->
