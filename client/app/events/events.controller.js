@@ -39,7 +39,7 @@
           vm.allChildren = data.data.children;
           vm.comingEvents = [];
           vm.pastEvents = [];
-          for(var i = 0; i < events.length; i++) {
+          for (var i = 0; i < events.length; i++) {
             var today = new Date();
             var eventDates = new Date(events[i].dt);
             if(today < eventDates) {
