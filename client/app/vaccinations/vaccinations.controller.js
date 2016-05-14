@@ -5,7 +5,7 @@
     .module('baby.vaccinations', [])
     .controller('VaccinationsCtrl', VaccinationsCtrl);
 
-    function VaccinationsCtrl($state, vaccinations) {
+    function VaccinationsCtrl($state, vaccinations, $scope) {
 
       var vm = this;
 
@@ -18,21 +18,30 @@
       vm.doseExists = doseExists;
       vm.updateDoseStatus = updateDoseStatus;
       vm.isItComplete = isItComplete;
+      vm.checkIt = checkIt;
+
+
 
       function displayVaccinations() {
         vaccinations.getVaccinations(vm.firstName)
           .then(function(data) {
             // console.log('data', data);
+          // JSON.stringify(data);
+          // JSON.parse(data)
             vm.vaccinationData = data.data;
-          });
+          })
+          
       }
+
 
       function updateDoseStatus(vaccinationName, doseNumber, doseStatus){
         // console.log('Complete was clicked!', vaccinationName, doseNumber, doseStatus)
         vaccinations.updateDoseStatus(vaccinationName, doseNumber, doseStatus, vm.firstName)
-          .then(function(){
-            $state.reload('vaccinations');
-          });
+          .then(vm.checkIt)
+      }
+
+      function checkIt(){
+        $scope.$watch('vm.vaccinationData', vm.displayVaccinations())
       }
 
       function doseExists(dose){
