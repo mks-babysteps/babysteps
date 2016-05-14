@@ -10,7 +10,7 @@ tokens.generateToken = function (username) {
 };
 
 tokens.verifyToken = function (token, res, next) {
-  console.log('Verifying token: ', token);
+  // console.log('Verifying token: ', token);
   return jwt.verify(token, my.secret, function (err) {
     if (err) {
       console.log('Token invalid');
