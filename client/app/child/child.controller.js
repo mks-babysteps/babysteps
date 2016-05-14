@@ -47,7 +47,7 @@
         'condition': condition,
         'image': '../../assets/baby.svg'
       };
-
+      
       dashboard.addChild(childObj)
         .then(function(data) {
           console.log('This is our data',data);
