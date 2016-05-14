@@ -39,8 +39,8 @@ function updateChild(res, username, firstName, lastName, birthdate, newCondition
 function update(children, firstName, lastName, birthdate, newCondition) {
   for(var i = 0; i < children.length; i++) {
     if(children[i].firstName === firstName && children[i].lastName === lastName) {
-      children[i].birthday = birthdate;
-      children[i].condition = newCondition;
+      children[i].birthday = birthdate || children[i].birthday;
+      children[i].condition = newCondition || children[i].condition;
     }
   }
 }
