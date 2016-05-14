@@ -40,7 +40,7 @@
     });
 
     $scope.$on('edit_child', function(event, res) {
-      vm.children = res.data.data.children;
+      vm.children = res.data.userData.children;
     });
 
     function sidebarNav() {
