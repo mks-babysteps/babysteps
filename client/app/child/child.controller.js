@@ -47,9 +47,9 @@
         'condition': condition
       };
 
-      dashboard.addChild(childObj)
-        $state.reload('dashboard');
-        vm.close();
+      dashboard.addChild(childObj);
+      $state.reload('dashboard');
+      vm.close();
     }
 
     // datepicker functions
