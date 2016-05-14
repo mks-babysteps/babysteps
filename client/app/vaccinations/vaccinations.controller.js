@@ -29,7 +29,7 @@
           // JSON.stringify(data);
           // JSON.parse(data)
             vm.vaccinationData = data.data;
-          })
+          });
           
       }
 
@@ -37,11 +37,11 @@
       function updateDoseStatus(vaccinationName, doseNumber, doseStatus){
         // console.log('Complete was clicked!', vaccinationName, doseNumber, doseStatus)
         vaccinations.updateDoseStatus(vaccinationName, doseNumber, doseStatus, vm.firstName)
-          .then(vm.checkIt)
+          .then(vm.checkIt);
       }
 
       function checkIt(){
-        $scope.$watch('vm.vaccinationData', vm.displayVaccinations())
+        $scope.$watch('vm.vaccinationData', vm.displayVaccinations());
       }
 
       function doseExists(dose){
