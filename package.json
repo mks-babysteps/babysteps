@@ -6,7 +6,6 @@
   "scripts": {
     "test": "jshint . --exclude node_modules,client/bower_components",
     "start": "node server.js",
-    "postinstall": "bower cache clean && bower install"
   },
   "author": "",
   "license": "ISC",
