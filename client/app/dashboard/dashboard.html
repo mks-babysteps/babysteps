@@ -1,18 +1,20 @@
-<div ui-view>
-  <div id="wrapper">
+<div id="wrapper">
     <div id="page-content-wrapper">
       <div class="container-fluid">
         <div class="row">
          <div ng-init="dashboard.displayChildren(); dashboard.displayUsers();">
             <div>
-              <button type="button" class="btn btn-default" ng-click="dashboard.open()">add a child</button>
+              <button ng-click="dashboard.open()" style="margin-left:420px;" class="butt button--itzel button--text-thick button--text-upper button--border-thick button--size-s"><i class="button__icon glyphicon glyphicon-plus"></i><span>add a child</span></button>
             </div>
               <br>
               <br>
+              <br>
+              <br>
+              <br>
           <div ng-repeat="child in dashboard.children">
-            <div class="login-group" style="color:black; width:460px; height:270px; margin-bottom:20px">
-              <div class="container">
-                <div class="row">
+            <div class="login-group" style="color:black; width:460px; height:270px; margin-bottom:20px; margin-left:315px;">
+              <div class="container" style="width:500px">
+                <div class="row" style="width:500px">
                   <div class="col-sm-6 col-md-4" style="width:174px;padding-left:0px;">
                     <div class="prof-image">
                       <img ng-src="{{child.childImageUrl}}" ng-click="dashboard.pickChildImage(child.firstName)" class="img-circle" style="height:170px; width:170px; margin-top:17px; margin-left:10px;"/>
@@ -20,7 +22,7 @@
                     </div>
                   </div>
 
-                    <div class="col-sm-6 col-md-8" style="padding-left:30px">
+                    <div class="col-sm-6 col-md-8" style="padding-left: 30px; width:280px; padding-right:0px">
                     <p>
                         <br>
                       <i class="glyphicon glyphicon-user"></i><strong>&nbsp{{child.firstName}}&nbsp{{child.lastName}}</strong>
@@ -50,5 +52,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
