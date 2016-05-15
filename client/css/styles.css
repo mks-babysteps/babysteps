@@ -568,14 +568,12 @@ nav a:focus {
 
 .background {
   fill: #eee;
+  background-color: white;
+  border-radius: 8px;
 }
 
 line {
   stroke: #fff;
-}
-
-text {
- font: 10px sans-serif;
 }
 
 text.active {
