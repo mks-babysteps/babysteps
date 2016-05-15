@@ -52,7 +52,7 @@
                     .attr('transform', function(d, i) { return 'translate(0,' + x(i) + ')'; });
               };
 
-              var margin = {top: 50, right: 120, bottom: 10, left: 120},
+              var margin = {top: 40, right: 120, bottom: 10, left: 123},
                   width = 780,
                   height = 500;
 
@@ -71,19 +71,19 @@
                   .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
               svg.append('text')
-                .text('Month')
+                .text('month')
                 .style('text-anchor', 'middle')
                 .attr('x', width / 2)
-                .attr('transform', 'translate(0,' + -22 + ')')
+                .attr('transform', 'translate(0,' + -30 + ')')
                 .attr('class','axis-label');
 
               svg.append('text')
-                .text('Milestones')
+                .text('')
                 .style('text-anchor', 'middle')
                 .attr('y', (height / 2))
                 // .attr('dx', ')
                 // .attr('transform', 'rotate(-90)')
-                .attr('transform', 'translate('+ -340 + ',' + 220 +') rotate(-90)')
+                .attr('transform', 'translate('+ -300 + ',' + 220 +') rotate(-90)')
                 .attr('class','axis-label');
 
 
