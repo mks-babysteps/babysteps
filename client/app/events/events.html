@@ -1,67 +1,75 @@
-    <div id="wrapper">
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
+<div id="wrapper">
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+          <div>
+            <button ng-click="events.open(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)" style="margin-left:440px;" class="butt button--itzel button--text-thick button--text-upper button--border-thick button--size-s"><i class="button__icon glyphicon glyphicon-plus"></i><span>add appointment</span>
+            </button>
+          </div>
+          <br>
+          <br>
+          <br>
+        <div ng-init="events.init()" class="text-center" style="padding:50px 0">
+          <table class="table table-bordered" style="background:white; border-radius:8px">
+            <thead>
+              <tr>
+                <th><h4>child</h4></th>
+                <th><h4>appointment</h4></th>
+                <th><h4>doctor</h4></th>
+                <th><h4>date</h4></th>
+                <th><h4>time</h4></th>
+                <th><h4>location</h4></th>
+                <th><h4>notes</h4></th>
+                <th><h4>edit/remove</h4></th>
+              </tr>
+            </thead>
+              <h3 style="color:white">coming up</h3>
+                <tr ng-repeat="event in events.comingEvents">
+                  <th>{{event.childName}}</th>
+                  <th>{{event.appointment}}</th>
+                  <th>{{event.doctor}}</th>
+                  <th>{{event.dt | date:'fullDate'}}</th>
+                  <th>{{event.dt | date:'shortTime'}}</th>
+                  <th>{{event.location}}</th>
+                  <th>{{event.notes}}</th>
+                  <th>
+                    <a href="" ng-click="events.editEvent(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">edit</a> /
+                    <a href="" ng-click="events.removeEvent(event.dt)">remove</a>
+                  </th>
+                </tr>
+            </table>
 
+            <table class="table table-bordered" style="background:white; border-radius:8px">
+              <thead>
+                <tr>
+                  <th><h4>child</h4></th>
+                  <th><h4>appointment</h4></th>
+                  <th><h4>doctor</h4></th>
+                  <th><h4>date</h4></th>
+                  <th><h4>time</h4></th>
+                  <th><h4>location</h4></th>
+                  <th><h4>notes</h4></th>
+                  <th><h4>edit/remove</h4></th>
+                </tr>
+              </thead>
+                <h3 style="color:white">past</h3>
+                  <tr ng-repeat="event in events.pastEvents">
+                    <th>{{event.childName}}</th>
+                    <th>{{event.appointment}}</th>
+                    <th>{{event.doctor}}</th>
+                    <th>{{event.dt | date:'fullDate'}}</th>
+                    <th>{{event.dt | date:'shortTime'}}</th>
+                    <th>{{event.location}}</th>
+                    <th>{{event.notes}}</th>
+                    <th>
+                      <a href="" ng-click="events.editEvent(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">edit</a> /
+                      <a href="" ng-click="events.removeEvent(event.dt)">remove</a>
+                    </th>
+                  </tr>
+            </table>
 
-<div ng-init="events.init()"class="text-center" style="padding:50px 0">
-  <table class="table table-bordered">
-    <button type="button" class="btn btn-default" ng-click="events.open(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">add an appointment</button>
-
-
-  <button ng-click="showme=false">
-    Coming Up
-  </button>
-  <button ng-click="showme=true">
-    Past Events
-  </button>
-
-  <thead>
-      <tr>
-        <th>Child</th>
-        <th>Appointment</th>
-        <th>Doctor</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Location</th>
-        <th>Notes</th>
-        <th>Delete</th>
-      </tr>
-  </thead>
-    <!-- <span>EVENTS COMING UP</span> -->
-      <tr ng-hide="showme" ng-repeat="event in events.comingEvents">
-        <th>{{event.childName}}</th>
-        <th>{{event.appointment}}</th>
-        <th>{{event.doctor}}</th>
-        <th>{{event.dt | date:'fullDate'}}</th>
-        <th>{{event.dt | date:'shortTime'}}</th>
-        <th>{{event.location}}</th>
-        <th>{{event.notes}}</th>
-        <th><button ng-click="events.removeEvent(event.dt)">DELETE</button>
-            <button ng-click="events.editEvent(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">EDIT</button>
-            </th>
-      </tr>
-      <tr ng-show="showme" ng-repeat="event in events.pastEvents">
-        <th>{{event.childName}}</th>
-        <th>{{event.appointment}}</th>
-        <th>{{event.doctor}}</th>
-        <th>{{event.dt | date:'fullDate'}}</th>
-        <th>{{event.dt | date:'shortTime'}}</th>
-        <th>{{event.location}}</th>
-        <th>{{event.notes}}</th>
-        <th>
-          <button ng-click="events.removeEvent(event.dt)">DELETE</button>
-          <button ng-click="events.editEvent(event.childName, event.appointment, event.doctor, event.dt, event.location, event.notes)">EDIT</button></th>
-      </tr>
-  </table>
-
-</div>
-
-                </div>
-            </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
+      </div>
     </div>
-    <!-- /#wrapper -->
+  </div>
+</div>
