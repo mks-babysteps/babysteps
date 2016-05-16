@@ -142,7 +142,7 @@
 
               row.append('line')
                   .attr('id', 'diagram')
-                  .attr('x2', width+20);
+                  .attr('x2', width);
 
               row.append('text')
                   .attr('x', -6)
@@ -162,7 +162,7 @@
 
               column.append('line')
                   .attr('id', 'diagram')
-                  .attr('x1', -width);
+                  .attr('x1', -500);
 
               column.append('text')
                   .attr('transform', 'rotate(90)')
