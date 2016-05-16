@@ -25,39 +25,39 @@
       vm.hoverOut = hoverOut;
 
       function hoverIn() {
-        vm.hoverStatus = true
+        vm.hoverStatus = true;
       }
 
       function hoverOut() {
-        vm.hoverStatus = false
+        vm.hoverStatus = false;
       }
 
       function allDoses(first, second, third, fourth) {
         if(fourth!==null){
-          if(fourth[1]==="Complete"){
-            return "panel panel-primary"
+          if(fourth[1]==='Complete'){
+            return 'panel panel-primary';
           } else {
-            return "panel panel-danger"
+            return 'panel panel-danger';
           }
         } else {
           if(third!==null){
-            if(third[1]==="Complete"){
-              return "panel panel-primary"
+            if(third[1]==='Complete'){
+              return 'panel panel-primary';
             } else {
-              return "panel panel-danger"
+              return 'panel panel-danger';
             }
           } else {
             if(second!==null){
-              if(second[1]==="Complete"){
-                return "panel panel-primary"
+              if(second[1]==='Complete'){
+                return 'panel panel-primary';
               } else {
-                return "panel panel-danger"
+                return 'panel panel-danger';
               }
             } else {
-              if(first[1]==="Complete"){
-                return "panel panel-primary"
+              if(first[1]==='Complete'){
+                return 'panel panel-primary';
               } else {
-                return "panel panel-danger"
+                return 'panel panel-danger';
               }
             }
           }
