@@ -607,10 +607,10 @@ text.active {
 }
 
 .panel {
-  width: 380px;
+  width: 475px;
   text-align: center;
 }
 
 .panel-body {
-  text-align: center;
+  text-align: left;
 }

@@ -6,26 +6,31 @@
 
 <div ng-init="vaccinations.displayVaccinations()">
   <h1>{{vaccinations.firstName.firstName}}&#39;s vaccinations</h1>
+  <br>
   <div ng-repeat="vaccination in vaccinations.vaccinationData">
-    <div class="panel panel-info">
+    <div ng-class="vaccinations.allDoses(vaccination.firstDose, vaccination.secondDose, vaccination.thirdDose, vaccination.fourthDose)">
       <div class="panel-heading"> 
-        <h2 class="panel-title">{{vaccination.name}}</h2>  
+        <h2 class="panel-title">{{vaccination.name}}&nbsp<span class="glyphicon glyphicon-info-sign" aria-hidden="true" ng-mouseover="vaccinations.hoverIn()" ng-mouseleave="vaccinations.hoverOut()"></span></h2>  
       </div>  
         <div ng-show="vaccinations.doseExists(vaccination.firstDose)" class="panel-body">  
        
-          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.firstDose[2], vaccination.firstDose[1])" ng-checked="vaccinations.isItComplete(vaccination.firstDose[1])">&nbsp{{vaccination.firstDose[0]}}: {{vaccination.firstDose[1]}}
+          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.firstDose[2], vaccination.firstDose[1])" ng-checked="vaccinations.isItComplete(vaccination.firstDose[1])">&nbsp{{vaccination.firstDose[0]}}: {{vaccination.firstDose[1]}} <span ng-show="vaccinations.hoverStatus">| Recommended at&nbsp{{vaccination.firstDose[3]}}
+        </span>
           <br>
         </div>
         <div ng-show="vaccinations.doseExists(vaccination.secondDose)" class="panel-body">  
-          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.secondDose[2], vaccination.secondDose[1])" ng-checked="vaccinations.isItComplete(vaccination.secondDose[1])">&nbsp{{vaccination.secondDose[0]}}: {{vaccination.secondDose[1]}}   
+          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.secondDose[2], vaccination.secondDose[1])" ng-checked="vaccinations.isItComplete(vaccination.secondDose[1])">&nbsp{{vaccination.secondDose[0]}}: {{vaccination.secondDose[1]}} <span ng-show="vaccinations.hoverStatus">| Recommended at&nbsp{{vaccination.secondDose[3]}} 
+        </span>   
           <br>
         </div>
         <div ng-show="vaccinations.doseExists(vaccination.thirdDose)" class="panel-body">  
-          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.thirdDose[2], vaccination.thirdDose[1])" ng-checked="vaccinations.isItComplete(vaccination.thirdDose[1])">&nbsp{{vaccination.thirdDose[0]}}: {{vaccination.thirdDose[1]}}
+          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.thirdDose[2], vaccination.thirdDose[1])" ng-checked="vaccinations.isItComplete(vaccination.thirdDose[1])">&nbsp{{vaccination.thirdDose[0]}}: {{vaccination.thirdDose[1]}} <span ng-show="vaccinations.hoverStatus">| Recommended at&nbsp{{vaccination.thirdDose[3]}} 
+        </span>
           <br>
         </div>
         <div ng-show="vaccinations.doseExists(vaccination.fourthDose)" class="panel-body">
-          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.fourthDose[2], vaccination.fourthDose[1])" ng-checked="vaccinations.isItComplete(vaccination.fourthDose[1])">&nbsp{{vaccination.fourthDose[0]}}: {{vaccination.fourthDose[1]}}
+          <input type="checkbox" ng-click="vaccinations.updateDoseStatus(vaccination.name, vaccination.fourthDose[2], vaccination.fourthDose[1])" ng-checked="vaccinations.isItComplete(vaccination.fourthDose[1])">&nbsp{{vaccination.fourthDose[0]}}: {{vaccination.fourthDose[1]}} <span ng-show="vaccinations.hoverStatus">| Recommended at&nbsp{{vaccination.fourthDose[3]}} 
+        </span>
           <br>
         </div>
       </div>
