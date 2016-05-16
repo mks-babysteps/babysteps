@@ -65,7 +65,7 @@
               var svg = d3.select('#diagram').append('svg')
                   .attr('width', width + margin.left + margin.right)
                   .attr('height', height + margin.top + margin.bottom)
-                  .style('margin-left', margin.left + 'px')
+                  .style('margin-left', -10 + 'px')
                 .style('margin-top', margin.top + 'px')
                 .append('g')
                   .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
