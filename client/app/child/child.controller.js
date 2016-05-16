@@ -50,7 +50,7 @@
       
       dashboard.addChild(childObj)
         .then(function(data) {
-          console.log('This is our data',data);
+          console.log('This is our add childdata',data);
           $rootScope.$broadcast('add_child', data);
         });
       vm.close();
