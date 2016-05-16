@@ -24,7 +24,7 @@
               </tr>
             </thead>
               <h3 style="color:white">coming up</h3>
-                <tr ng-repeat="event in events.comingEvents">
+                <tr ng-repeat="event in events.comingEvents | orderBy:'dt'">
                   <th>{{event.childName}}</th>
                   <th>{{event.appointment}}</th>
                   <th>{{event.doctor}}</th>
@@ -53,7 +53,7 @@
                 </tr>
               </thead>
                 <h3 style="color:white">past</h3>
-                  <tr ng-repeat="event in events.pastEvents">
+                  <tr ng-repeat="event in events.pastEvents | orderBy:'dt'">
                     <th>{{event.childName}}</th>
                     <th>{{event.appointment}}</th>
                     <th>{{event.doctor}}</th>
