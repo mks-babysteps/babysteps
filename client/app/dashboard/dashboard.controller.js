@@ -6,7 +6,7 @@
     .controller('DashboardCtrl', DashboardCtrl);
 
   function DashboardCtrl($state, $scope, $uibModal, dashboard, auth,
-    filepickerService, $window, $localStorage) {
+    filepickerService, $window, $localStorage, $timeout) {
     // initialize
     var vm = this;
 
@@ -36,7 +36,8 @@
     });
 
     $scope.$on('add_child', function(event, data) {
-      vm.children = data.data[0].children;
+      console.log("this is our data on broadcast", data)
+      vm.children = data.data.children;
     });
 
     function sidebarNav() {
@@ -86,16 +87,20 @@
     }
 
     function removeChild(childFirstName) {
-      dashboard.removeThisChild(childFirstName);
+      dashboard.removeThisChild(childFirstName)
+        .then(function(data) {
+          var userObj = data.data;
+          vm.users = userObj;
+          vm.children = userObj.children;
+          vm.imageUrl = vm.users.imageUrl;
+        });
     }
 
     function milestonePage(condition) {
-      // dashboard.goMilestone(condition);
       $state.go('milestone', {condition: condition});
     }
 
     function vaccinationsPage(firstName){
-      console.log('firstName', firstName);
       dashboard.goVaccinations(firstName);
     }
 
@@ -103,21 +108,19 @@
       filepickerService.pick({mimetype: 'image/*'}, function(Blob) {
         dashboard.imageUrl(Blob)
         .then(function(data) {
-          vm.imageUrl = data.data;
-            $state.reload();
+          console.log("This is our data from pick file image",data)
+          vm.imageUrl = data.data.imageUrl;
         });
       });
     }
 
-      function pickChildImage(firstName) {
+    function pickChildImage(firstName) {
         filepickerService.pick(
           {mimetype: 'image/*'},
           function(Blob) {
             dashboard.childImageUrl(Blob, firstName)
-            .then(function() {
-              // console.log("data", data.data)
-              // vm.childUrl = data.data;
-              $state.reload();
+            .then(function(data) {
+                vm.children = data.data.children;
             });
           });
       }

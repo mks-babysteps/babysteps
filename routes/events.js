@@ -39,7 +39,7 @@ router.post('/remove', function(req, res) {
       if(err) {
         console.log(err);
       } else {
-        console.log('success');
+        console.log('success',data);
         res.send(data);
       }
   });
@@ -55,14 +55,36 @@ router.post('/edit', function(req, res) {
           'events.$.childName' : req.body.childName,
           'events.$.notes' : req.body.notes
            } },
-    function(err) {
+    function(err, data) {
       if(err) {
         console.log(err);
       } else {
-        console.log('success');
-        res.send();
+        console.log('success',data);
+        res.send(data);
       }
   });
 });
+
+function updateUser(req, res, action) {
+  return new Q(db.users.update({username: req.headers.username}, action,
+    function(err, user) {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log("data in update users", user);
+      }
+  }))
+}
+
+function findUser(req, res) {
+  return new Q(db.users.find({username: req.headers.username}, function(err, user) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.send(user);
+        console.log("data in find users", user);
+      }
+  }))
+}
 
 module.exports = router;
