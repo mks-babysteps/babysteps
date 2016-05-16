@@ -62,7 +62,7 @@
                   z = d3.scale.linear().domain([0, 4]).clamp(true),
                   cw = y(1) - y(0);
 
-              var svg = d3.select('.diagram').append('svg')
+              var svg = d3.select('#diagram').append('svg')
                   .attr('width', width + margin.left + margin.right)
                   .attr('height', height + margin.top + margin.bottom)
                   .style('margin-left', margin.left + 'px')
@@ -141,7 +141,7 @@
                   .each(row1);
 
               row.append('line')
-                  .attr('class', 'diagram')
+                  .attr('id', 'diagram')
                   .attr('x2', width+20);
 
               row.append('text')
@@ -161,7 +161,7 @@
                   });
 
               column.append('line')
-                  .attr('class', 'diagram')
+                  .attr('id', 'diagram')
                   .attr('x1', -width);
 
               column.append('text')
