@@ -13,7 +13,7 @@
               var numRows = nodes.length;
               var n = condition.months.length + 1;
 
-              // fill opacity determines actual coloring
+              // creating cells
               var row1 = function(row) {
                 d3.select(this).selectAll('.cell')
                     .data(row.filter(function(d) {
@@ -52,18 +52,26 @@
                     .attr('transform', function(d, i) { return 'translate(0,' + x(i) + ')'; });
               };
 
-              var margin = {top: 40, right: 120, bottom: 10, left: 123},
-                  width = 780,
+              var update = function() {
+                console.log('updating!');
+              }
+
+              var margin = {top: 40, right: 0, bottom: 10, left: 100},
+                  // width = 780,
+                  ww = document.getElementById("diagram").clientWidth,
+                  width = ww - margin.right - margin.left,
                   height = 500;
+              console.log('width of diagram container: ', ww);
+              console.log('width of diagram: ', width);
 
               var x = d3.scale.ordinal().rangeBands([0, height]),
-                  y = d3.scale.linear().domain([1, 24]).range([0, width-31.7]),
+                  y = d3.scale.linear().domain([1, 25]).range([0, width]),
                   // y = d3.scale.ordinal().rangeBands([0, height]),
                   z = d3.scale.linear().domain([0, 4]).clamp(true),
                   cw = y(1) - y(0);
 
               var svg = d3.select('#diagram').append('svg')
-                  .attr('width', width + margin.left + margin.right)
+                  .attr('width', width+150)
                   .attr('height', height + margin.top + margin.bottom)
                   .style('margin-left', -10 + 'px')
                 .style('margin-top', margin.top + 'px')
@@ -148,6 +156,7 @@
                   .attr('x', -6)
                   .attr('y', x.rangeBand() / 5)
                   .attr('dy', '1.8em')
+                  .attr('font-size', 10 + 'px')
                   .attr('text-anchor', 'end')
                   .text(function(d, i) { return nodes[i].name; });
 
@@ -157,6 +166,7 @@
                 .enter().append('g')
                   .attr('class', 'column')
                   .attr('transform', function(d) {
+                    // console.log('y(d) - ', y(d))
                     return 'translate(' + y(d) + ')rotate(-90)';
                   });
 
@@ -177,6 +187,8 @@
                 order(this.value);
               });
 
+              // listener to resize diagram
+              window.addEventListener('resize', update);
 
               var timeout = setTimeout(function() {
                 order('earliest');
