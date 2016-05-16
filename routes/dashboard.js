@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Q = require('q');
 var verify = require('../tokens.js').verifyToken;
 var db = require('../db.js');
 
@@ -10,124 +11,86 @@ router.use(function(req, res, next) {
 
 // routes
 router.get('/', function(req, res) {
-  db.users.find({username : req.headers.username}, function(err, users) {
-    if (err) {
-      console.error(err);
-    } else {
-      res.send(users);
-    }
-  });
+  findUser(req, res);
 });
 
 router.post('/addChild', function(req,res) {
-
   var childInfo = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     birthday: req.body.birthday,
     condition: req.body.condition,
-    childImageUrl: req.body.image
+    childImageUrl: req.body.image,
   };
-
-
-  db.dose.find( {condition: req.body.condition}, function(err , dose) {
-    // console.log("dose[0].doses", dose[0].doses);
-    childInfo.doses = dose[0].doses;
-    // console.log("childInfo", childInfo)
-  });
-
-
-  db.users.find({username: req.headers.username}, function(err, users) {
-    if (err) {
-      console.error(err);
-    } else {
-
-      if (users[0].children.length === 0) {
-        users[0].children.addToSet(childInfo);
-      } else {
-        var flag = false;
-
-        for(var i = 0; i < users[0].children.length; i++) {
-          var childName = users[0].children[i].firstName;
-          if(childName === req.body.firstName){
-            flag = true;
-          }
-        }
-
-        if(flag){
-          res.json({success: false, message: 'Child already exits'});
-        }else{
-          users[0].children.addToSet(childInfo);
-        }
-      }
-      users[0].save(function() {
-      res.send(users);
-      });
-    }
-  }
-  );
+  createChild(req, res, childInfo);
 });
 
-router.post('/', function(req,res) {
-  db.users.find({username : req.headers.username}, function(err, users) {
-    if (err) {
-      console.error(err);
-    } else {
-      // console.log("this is the req.body", req.body)
-      var spliced = [];
-      for(var i = 0; i < users[0].children.length; i++) {
-        if (users[0].children[i].firstName !== req.body.firstName) {
-          spliced.push(users[0].children[i]);
-        }
-      }
-      users[0].children = spliced;
-      users[0].save(function(err) {
-        if (err) {
-          console.error(err);
-        } else {
-          res.send({success: true, userData: users});
-        }
-      });
-    }
-  });
+router.post('/removeChild', function(req, res) {
+  var action = {$pull: { 'children' : { 'firstName' :req.body.firstName } } };
+  updateUser(req, res, action);
 });
 
 router.post('/image', function(req, res) {
-  //console.log("inside image post", req.body);
-  //console.log("headers", req.headers);
-  db.users.find({username: req.headers.username}, function(err, users) {
-    if (err) {
-      console.error(err);
-    } else {
-      users[0].imageUrl = req.body.url;
-      res.send(req.body.url);
-    }
-  users[0].save();
-  });
+  var action = { $set: { 'imageUrl' : req.body.url } };
+  updateUser(req, res, action);
 });
 
 router.post('/childImage', function(req, res) {
-  db.users.find({username: req.headers.username}, function(err, users) {
-    if(err) {
-      console.error(err);
-    }else{
-      for(var i = 0; i < users[0].children.length; i++){
-        var child = users[0].children[i];
-        if(child.firstName === req.body.firstName){
-          child.childImageUrl = req.body.url;
-          users[0].markModified('children');
-        }
+  var action = { $set: { 'children.$.childImageUrl' : req.body.url} };
+  updateBabyPic(req, res, action);
+});
+
+//helper Functions
+function updateBabyPic(req, res, action) {
+  return new Q(db.users.findOneAndUpdate({username: req.headers.username,
+    'children.firstName' : req.body.firstName}, action, {  new: true },
+    function(err, user) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.send(user);
       }
-      users[0].save(function(err){
-        if(err){
+  }));
+}
+
+function updateUser(req, res, action) {
+  return new Q(db.users.findOneAndUpdate({username: req.headers.username}, action, { new: true },
+    function(err, user) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.send(user);
+      }
+  }));
+}
+
+function findUser(req, res) {
+  return new Q(db.users.find({username: req.headers.username}, function(err, user) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.send(user);
+      }
+  })
+  );
+}
+
+function createChild(req, res, childInfo) {
+  return new Q(
+    db.dose.find( {condition: req.body.condition}, function(err , dose) {
+      childInfo.doses = dose[0].doses;
+    }).exec())
+    .then(function() {
+      db.users.findOneAndUpdate(
+      {username: req.headers.username, 'children.firstName' : { $ne: childInfo.firstName }},
+      {$addToSet: { 'children': childInfo } }, { new: true }, function(err,user) {
+        if(err) {
           console.log(err);
-        }else{
-          res.send(req.body.url);
+        } else {
+          res.send(user);
         }
       });
-    }
-
-  });
-});
+    });
+}
 
 module.exports = router;

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+// var Q = require('q');
 var db = require('../db.js');
 var verify = require('../tokens.js').verifyToken;
 
@@ -39,7 +40,7 @@ router.post('/remove', function(req, res) {
       if(err) {
         console.log(err);
       } else {
-        console.log('success');
+        console.log('success',data);
         res.send(data);
       }
   });
@@ -55,14 +56,35 @@ router.post('/edit', function(req, res) {
           'events.$.childName' : req.body.childName,
           'events.$.notes' : req.body.notes
            } },
-    function(err) {
+    function(err, data) {
       if(err) {
         console.log(err);
       } else {
-        console.log('success');
-        res.send();
+        console.log('success',data);
+        res.send(data);
       }
   });
 });
+
+// function updateUser(req, res, action) {
+//   return new Q(db.users.update({username: req.headers.username}, action,
+//     function(err, user) {
+//       if(err) {
+//         console.log(err);
+//       } else {
+//         res.send(user);
+//       }
+//   }));
+// }
+
+// function findUser(req, res) {
+//   return new Q(db.users.find({username: req.headers.username}, function(err, user) {
+//       if(err) {
+//         console.log(err);
+//       } else {
+//         res.send(user);
+//       }
+//   }));
+// }
 
 module.exports = router;

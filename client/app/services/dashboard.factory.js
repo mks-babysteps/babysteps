@@ -23,7 +23,7 @@
     }
 
     function removeThisChild(childName) {
-      return $http.post('/dashboard', {firstName: childName});
+      return $http.post('/dashboard/removeChild', {firstName: childName});
     }
 
     function addChild(params) {

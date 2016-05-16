@@ -5,8 +5,10 @@
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
 
-  function DashboardCtrl($state, $scope, $rootScope, $uibModal, dashboard, auth,
+
+  function DashboardCtrl($state, $scope, $uibModal, dashboard, auth,
     filepickerService, $window, $localStorage) {
+
     // initialize
     var vm = this;
 
@@ -36,15 +38,11 @@
     });
 
     $scope.$on('add_child', function(event, data) {
-      vm.children = data.data[0].children;
+      vm.children = data.data.children;
     });
 
     $scope.$on('edit_child', function(event, res) {
       vm.children = res.data.userData.children;
-    });
-
-    $scope.$on('add_image', function(event, data) {
-      vm.imageUrl = data.data;
     });
 
     function sidebarNav() {
@@ -94,18 +92,23 @@
     }
 
     function removeChild(childFirstName) {
-      dashboard.removeThisChild(childFirstName).then(function(res) {
-        vm.children = res.data.userData.children;
-      });
+      // dashboard.removeThisChild(childFirstName).then(function(res) {
+      //   vm.children = res.data.userData.children;
+      // });
+      dashboard.removeThisChild(childFirstName)
+        .then(function(data) {
+          var userObj = data.data;
+          vm.users = userObj;
+          vm.children = userObj.children;
+          vm.imageUrl = vm.users.imageUrl;
+        });
     }
 
     function milestonePage(condition) {
-      // dashboard.goMilestone(condition);
       $state.go('milestone', {condition: condition});
     }
 
     function vaccinationsPage(firstName){
-      console.log('firstName', firstName);
       dashboard.goVaccinations(firstName);
     }
 
@@ -113,20 +116,18 @@
       filepickerService.pick({mimetype: 'image/*'}, function(Blob) {
         dashboard.imageUrl(Blob)
         .then(function(data) {
-          $rootScope.$broadcast('add_image', data);
-          //vm.imageUrl = data.data;
-            //$state.reload();
+          vm.imageUrl = data.data.imageUrl;
         });
       });
     }
 
-      function pickChildImage(firstName) {
+    function pickChildImage(firstName) {
         filepickerService.pick(
           {mimetype: 'image/*'},
           function(Blob) {
             dashboard.childImageUrl(Blob, firstName)
-            .then(function() {
-              $state.reload();
+            .then(function(data) {
+                vm.children = data.data.children;
             });
           });
       }
