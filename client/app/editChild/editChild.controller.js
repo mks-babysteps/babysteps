@@ -42,12 +42,14 @@
     vm.today = today;
     vm.toggleMin = toggleMin;
 
-    function editChild(firstName, lastName, birthday, condition) {
+    function editChild(firstName, lastName, newFirstName, newLastName, birthday, condition) {
       var childObj = {
         'firstName': firstName,
         'lastName': lastName,
         'birthday': birthday,
-        'condition': condition
+        'condition': condition,
+        'newFirstName': newFirstName,
+        'newLastName': newLastName
       };
       dashboard.editChild(childObj)
         .then(function(data) {

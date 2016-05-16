@@ -16,15 +16,38 @@ router.post('/', function(req, res) {
   var lastName = req.body.lastName;
   var birthdate = req.body.birthday;
   var newCondition = req.body.condition;
-  updateChild(res, username, firstName, lastName, birthdate, newCondition);
+  var newFirstName = req.body.newFirstName;
+  var newLastName = req.body.newLastName;
+  updateChild(
+    res,
+    username,
+    firstName,
+    lastName,
+    birthdate,
+    newCondition,
+    newFirstName,
+    newLastName);
 });
 
 // helper functions
-function updateChild(res, username, firstName, lastName, birthdate, newCondition) {
-  return new Q(User.findOne({username: username}).exec())
+function updateChild(res,
+  username,
+  firstName,
+  lastName,
+  birthdate,
+  newCondition,
+  newFirstName,
+  newLastName) {
+  return new Q(User.findOneAndUpdate({username: username}, {new: true}).exec())
     .then(function(foundUser) {
       var childrenArray = foundUser.children;
-      update(childrenArray, firstName, lastName, birthdate, newCondition);
+      update(childrenArray,
+        firstName,
+        lastName,
+        birthdate,
+        newCondition,
+        newFirstName,
+        newLastName);
       foundUser.update({children: foundUser.children}, function(err) {
         if(err) {
           console.error(err);
@@ -36,9 +59,11 @@ function updateChild(res, username, firstName, lastName, birthdate, newCondition
     });
 }
 
-function update(children, firstName, lastName, birthdate, newCondition) {
+function update(children, firstName, lastName, birthdate, newCondition, newFirstName, newLastName) {
   for(var i = 0; i < children.length; i++) {
     if(children[i].firstName === firstName && children[i].lastName === lastName) {
+      children[i].firstName = newFirstName || children[i].firstName;
+      children[i].lastName = newLastName || children[i].lastName;
       children[i].birthday = birthdate || children[i].birthday;
       children[i].condition = newCondition || children[i].condition;
     }
