@@ -5,7 +5,7 @@
     .module('baby.events')
     .controller('EventsAddCtrl', EventsAddCtrl);
 
-    function EventsAddCtrl($state, events, $uibModalInstance, event) {
+    function EventsAddCtrl($state, events, $uibModalInstance, event,  $rootScope) {
 
     // initialize
     var vm = this;
@@ -42,11 +42,13 @@
       updateObj.childName = vm.childName;
       updateObj.oldDt = event[3];
       updateObj.notes = notes;
-      events.editEvent(updateObj);
+      events.editEvent(updateObj)
+        .then(function(data) {
+          $rootScope.$broadcast('add_event', data);
+        });
     }
 
     function close() {
-      $state.reload('events');
       $uibModalInstance.close();
     }
 
@@ -59,7 +61,8 @@
       eventObj.childName = vm.childName;
       eventObj.notes = notes;
       events.addEvent(eventObj)
-        .then(function() {
+        .then(function(data) {
+          $rootScope.$broadcast('add_event', data);
           close();
         });
     }
@@ -67,7 +70,7 @@
     function populateChildren() {
       events.getEvents()
         .then(function(data) {
-          vm.allChildren = data.data.children;
+          vm.allChildren = data.data[0].children;
         });
     }
 
