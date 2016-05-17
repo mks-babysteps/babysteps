@@ -8,14 +8,13 @@
   function config($stateProvider) {
     $stateProvider
       .state('vaccinations', {
-        url: '/vaccinations',
+        url: '/vaccinations/:child',
         views: {
           '': {
             templateUrl: 'app/vaccinations/vaccinations.html',
             controller: 'VaccinationsCtrl as vaccinations'
           }
         },
-        params: { firstName: null },
         data: {
           requiredLogin: true
         }

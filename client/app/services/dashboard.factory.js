@@ -5,14 +5,12 @@
     .module('baby')
     .factory('dashboard', dashboard);
 
-  function dashboard($http, $state) {
+  function dashboard($http) {
     var service = {
       getUser: getUser,
       addChild: addChild,
       removeThisChild: removeThisChild,
-      goMilestone: goMilestone,
       editChild: editChild,
-      goVaccinations: goVaccinations,
       imageUrl: imageUrl,
       childImageUrl: childImageUrl
     };
@@ -33,20 +31,8 @@
         });
     }
 
-    function goMilestone(condition) {
-      var conditionObj = {condition: condition};
-      $state.go('milestone', conditionObj);
-    }
-
     function editChild(childObj) {
       return $http.post('/edit', childObj);
-    }
-
-    function goVaccinations(firstName) {
-      //console.log('inside govax', firstName);
-      var firstNameObj = {firstName : firstName};
-      $state.go('vaccinations', firstNameObj);
-      //console.log('end of govax');
     }
 
     function imageUrl(Blob) {
@@ -58,7 +44,6 @@
     function childImageUrl(Blob, firstName) {
       var imageUrlString = Blob;
       var imageUrlObj = {url: imageUrlString.url, firstName: firstName};
-      //console.log("childImageUrl", imageUrlObj);
       return $http.post('/dashboard/childImage', imageUrlObj);
     }
   }
