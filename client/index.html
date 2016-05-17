@@ -20,6 +20,11 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="bower_components/firechat/dist/firechat.min.js"></script>
+    <link rel="stylesheet" href="bower_components/firechat/dist/firechat.min.css">
     <script src="bower_components/filepicker-js/filepicker.js"></script>
     <script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
     <script src="bower_components/d3/d3.js"></script>
@@ -34,6 +39,7 @@
     <script src="app/services/auth.factory.js"></script>
     <script src="app/services/vaccinations.factory.js"></script>
     <script src="app/services/events.factory.js"></script>
+    <script src="app/services/chat.factory.js"></script>
     <!-- landing -->
     <script src="app/landing/landing.module.js"></script>
     <script src="app/landing/landing.routes.js"></script>
@@ -71,6 +77,10 @@
     <script src="app/editChild/editChild.controller.js"></script>
     <script src="app/child/child.controller.js"></script>
     <script src="app/eventAdd/eventAdd.controller.js"></script>
+    <!-- chat -->
+    <script src="app/chat/chat.module.js"></script>
+    <script src="app/chat/chat.controller.js"></script>
+    <script src="app/chat/chat.routes.js"></script>
 
   </head>
 
@@ -104,18 +114,11 @@
     
     <li class="barlist" style="text-indent: 20px"><a ui-sref="dashboard">home</a><li>
     <li class="barlist" style="text-indent: 20px"><a ui-sref="events">appointments</a></li>
-    <li class="barlist" style="text-indent: 20px"><a href="" ng-click="">forum</a></li>
+    <li class="barlist" style="text-indent: 20px"><a ui-sref="chat">forum</a></li>
     <li class="barlist" style="text-indent: 20px"><a ui-sref="login" ng-click="dashboard.logout()">logout</a></li>
   </ul>
 </div>
 </div><!-- end of sidebar -->
-    <!-- <script src="app/jquery.js"></script> -->
-<!--     <script>
-      $("#menu-toggle").click(function(e) {
-          e.preventDefault();
-          $("#wrapper").toggleClass("toggled");
-      });
-    </script> -->
 </div> <!-- end of controller -->
 
     <div ui-view></div>

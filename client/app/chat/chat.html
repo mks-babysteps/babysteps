@@ -1,0 +1,19 @@
+<div id="wrapper">
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <h1>forum</h1>
+            <div>
+              <ul>
+                <li ng-repeat="message in chat.messages">
+                  <strong>{{message.username}}:</strong> {{message.message}}
+                </li>
+              </ul>
+              <input ng-model="chat.string">
+              <button type="button" class="btn btn-default" ng-click="chat.addMessage(chat.string)">submit</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
