@@ -12,6 +12,7 @@
       //variables
       var vaccinationData = vaccinationData;
       var hoverStatus = hoverStatus;
+      var hoverStorage = hoverStorage
       // functions
       vm.displayVaccinations = displayVaccinations;
       vm.firstName = $state.params;
@@ -22,14 +23,26 @@
       vm.checkIt = checkIt;
       vm.allDoses = allDoses;
       vm.hoverIn = hoverIn;
-      vm.hoverOut = hoverOut;
+      vm.hoverChecker = hoverChecker;
+      vm.hoverOut = hoverOut
 
-      function hoverIn() {
-        vm.hoverStatus = true;
+      function hoverIn(vaccinationName) {
+        console.log("i am being set!", vaccinationName)
+        vm.hoverStorage = vaccinationName;
       }
 
-      function hoverOut() {
-        vm.hoverStatus = false;
+      function hoverOut(){
+        vm.hoverStorage = null
+        console.log('this has been reset!', vm.hoverStorage)
+      }
+
+      function hoverChecker(vacsName) {
+        console.log('i am being compared', vacsName, vm.hoverStorage)
+        if(vm.hoverStorage == vacsName) {
+          return true
+        } else {
+          return false
+        }
       }
 
       function allDoses(first, second, third, fourth) {
