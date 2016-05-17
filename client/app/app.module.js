@@ -3,12 +3,13 @@
 
   angular
     .module('baby', [
-      /* Shared Modules */
+      /* shared modules */
       'ui.router',
       'ngStorage',
       'ui.bootstrap',
       'angular-filepicker',
-      /* Feature areas */
+      'firebase',
+      /* feature areas */
       'baby.landing',
       'baby.signup',
       'baby.login',
@@ -17,7 +18,8 @@
       'baby.events',
       'baby.about',
       'baby.faq',
-      'baby.vaccinations'
+      'baby.vaccinations', 
+      'baby.chat'
     ]);
 })();
 

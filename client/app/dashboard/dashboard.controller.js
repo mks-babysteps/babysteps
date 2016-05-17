@@ -48,8 +48,7 @@
     });
 
     function sidebarNav() {
-
-      if($localStorage.username && $localStorage.token) {
+      if ($localStorage.username && $localStorage.token) {
         vm.username = auth.current().username;
         return true;
       } else {
@@ -120,15 +119,14 @@
       });
     }
 
-      function pickChildImage(firstName) {
-        filepickerService.pick(
-          {mimetype: 'image/*'},
-          function(Blob) {
-            dashboard.childImageUrl(Blob, firstName)
-            .then(function() {
-              $state.reload();
-            });
+    function pickChildImage(firstName) {
+      filepickerService.pick(
+        {mimetype: 'image/*'}, function(Blob) {
+          dashboard.childImageUrl(Blob, firstName)
+          .then(function() {
+            $state.reload();
           });
-      }
+        });
+    }
   }
 })();
