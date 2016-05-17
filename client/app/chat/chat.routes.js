@@ -2,17 +2,17 @@
   'use strict';
 
   angular
-    .module('baby.dashboard')
+    .module('baby.chat')
     .config(config);
 
   function config($stateProvider) {
     $stateProvider
-      .state('dashboard', {
-        url: '/dashboard',
+      .state('chat', {
+        url: '/chat',
         views: {
           '': {
-            templateUrl: 'app/dashboard/dashboard.html',
-            controller: 'DashboardCtrl as dashboard'
+            templateUrl: 'app/chat/chat.html',
+            controller: 'ChatCtrl as chat'
           }
         },
         data: {

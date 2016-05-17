@@ -11,6 +11,7 @@ var dashboard = require('./routes/dashboard.js');
 var edit = require('./routes/editChild.js');
 var vaccinations = require('./routes/vaccinations.js');
 var events = require('./routes/events.js');
+var chat = require('./routes/chat.js');
 
 app.use(express.static(__dirname + '/client/'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -24,6 +25,7 @@ app.use('/milestone', milestone);
 app.use('/dashboard', dashboard);
 app.use('/vaccinations', vaccinations);
 app.use('/events', events);
+app.use('/chat', chat);
 
 app.listen(8080, function() {
   console.log('Listening to localhost:8080');
