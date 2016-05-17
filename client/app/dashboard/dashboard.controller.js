@@ -44,7 +44,9 @@
     });
 
     function sidebarNav() {
-      if ($localStorage.username && $localStorage.token) {
+      if($state.includes('landing')) {
+        return false;
+      } else if ($localStorage.username && $localStorage.token) {
         vm.username = auth.current().username;
         return true;
       } else {
