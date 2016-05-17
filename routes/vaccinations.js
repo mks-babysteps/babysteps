@@ -19,7 +19,7 @@ router.post('/', function(req, res) {
       for(var i=0 ; i<user[0].children.length; i++){
         if(user[0].children[i].firstName === req.body.firstName.firstName){
          // console.log("the good shit", user[0].children[i].doses)
-         res.send(user[0].children[i].doses);
+         res.json({success: true, vaccination: user[0].children[i].doses, count: user[0].children[i].count});
         }else{
           console.log('no child like that found');
         }
