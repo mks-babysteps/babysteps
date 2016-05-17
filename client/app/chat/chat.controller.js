@@ -13,7 +13,7 @@
     // vm.messages = messages;
     vm.username = auth.current().username;
     vm.chat = {string: ''};
-    vm.text;
+    vm.text = '';
     vm.messages = messages;
     vm.addMessage = addMessage;
 
@@ -22,8 +22,8 @@
       vm.text = text;
       vm.chat.string = '';
       vm.messages.$add({
-        "message": vm.text,
-        "username": vm.username
+        'message': vm.text,
+        'username': vm.username
       });
       console.log(vm.messages);
       }
