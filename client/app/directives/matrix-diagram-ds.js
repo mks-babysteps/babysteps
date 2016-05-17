@@ -86,10 +86,10 @@
           var mouseover = function(p) {
             div.transition()
               .duration(200)
-              .style("opacity", .9);
+              .style('opacity', 0.9);
             div.html(nodes[p.y].tool)
-              .style("left", (d3.event.pageX) + "px")
-              .style("top", (d3.event.pageY - 28) + "px");
+              .style('left', (d3.event.pageX) + 'px')
+              .style('top', (d3.event.pageY - 28) + 'px');
             d3.selectAll('.row text').classed('active', function(d, i) {
               return i === p.y;
             });
@@ -102,7 +102,7 @@
             d3.selectAll('text').classed('active', false);
             div.transition()
               .duration(500)
-              .style("opacity", 0);
+              .style('opacity', 0);
           };
 
           // list of different ways we can sort our data
@@ -133,9 +133,9 @@
                 .attr('transform', function(d, i) { return 'translate(0,' + x(i) + ')'; });
           };
 
-          var div = d3.select("body").append("div")
-              .attr("class", "tooltip")
-              .style("opacity", 0);
+          var div = d3.select('body').append('div')
+              .attr('class', 'tooltip')
+              .style('opacity', 0);
 
           // set dimentions of the diagram
           var svg = d3.select('#diagram').append('svg')
@@ -191,7 +191,6 @@
               .attr('font-size', 10 + 'px')
               .attr('text-anchor', 'end')
               .text(function(d, i) {
-                console.log('d: ', d); // matrix
                 return nodes[i].name;
               });
 
