@@ -81,6 +81,9 @@ function findUser(req, res) {
 function createChild(req, res, childInfo) {
   return new Q(db.dose.find( {condition: req.body.condition}, function(err , dose) {
       childInfo.doses = dose[0].doses;
+      childInfo.count = 0;
+    }).exec())
+    .then(function() {
       db.users.findOneAndUpdate(
       {username: req.headers.username, 'children.firstName' : { $ne: childInfo.firstName }},
       {$addToSet: { 'children': childInfo } }, { new: true }, function(err,user) {
