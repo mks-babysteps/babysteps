@@ -14,7 +14,6 @@
     // variables
     vm.files = JSON.parse($window.localStorage.getItem('files') || '[]');
     vm.pickFile = pickFile;
-    //vm.onSuccess = onSuccess;
 
     // functions
     vm.logout = logout;
@@ -90,9 +89,6 @@
     }
 
     function removeChild(childFirstName) {
-      // dashboard.removeThisChild(childFirstName).then(function(res) {
-      //   vm.children = res.data.userData.children;
-      // });
       dashboard.removeThisChild(childFirstName)
         .then(function(data) {
           var userObj = data.data;
@@ -107,7 +103,7 @@
     }
 
     function vaccinationsPage(firstName){
-      dashboard.goVaccinations(firstName);
+      $state.go('vaccinations', {child: firstName});
     }
 
     function pickFile() {

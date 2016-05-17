@@ -5,7 +5,7 @@
     .module('baby.vaccinations', [])
     .controller('VaccinationsCtrl', VaccinationsCtrl);
 
-    function VaccinationsCtrl($state, vaccinations, $scope) {
+    function VaccinationsCtrl($state, vaccinations, $scope, $stateParams) {
 
       var vm = this;
 
@@ -14,8 +14,7 @@
       var hoverStorage = hoverStorage;
       // functions
       vm.displayVaccinations = displayVaccinations;
-      vm.firstName = $state.params;
-      console.log(vm.firstName);
+      vm.firstName = $stateParams.child;
       vm.doseExists = doseExists;
       vm.updateDoseStatus = updateDoseStatus;
       vm.isItComplete = isItComplete;
@@ -78,11 +77,11 @@
 
 
       function displayVaccinations() {
+        console.log('display vacs func', vm.firstName);
         vaccinations.getVaccinations(vm.firstName)
           .then(function(data) {
             vm.vaccinationData = data.data.vaccination;
             vm.dosesCount = data.data.count;
-            console.log('my count: ', vm.dosesCount);
           });
 
       }
