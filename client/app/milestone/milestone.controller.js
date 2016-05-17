@@ -5,7 +5,7 @@
     .module('baby.milestone',[])
     .controller('MilestoneCtrl', MilestoneCtrl);
 
-  function MilestoneCtrl($state, milestone, $stateParams) {
+  function MilestoneCtrl($state, milestone, $stateParams, $window, $scope) {
     // initialize
     var vm = this;
 
@@ -13,6 +13,10 @@
     vm.init = init;
     vm.condition = $stateParams.condition;
     vm.getConditionData = getConditionData;
+
+    angular.element($window).on('resize', function(){
+      $scope.$apply();
+    })
 
     init();
 
