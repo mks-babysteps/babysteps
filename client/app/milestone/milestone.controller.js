@@ -14,10 +14,6 @@
     vm.condition = $stateParams.condition;
     vm.getConditionData = getConditionData;
 
-    angular.element($window).on('resize', function(){
-      $scope.$apply();
-    })
-
     init();
 
     // functions
