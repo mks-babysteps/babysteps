@@ -40,7 +40,7 @@
     }
 
     function clearInput() {
-      
+      $('#clearInput').val('');
     }
   }
 })();
