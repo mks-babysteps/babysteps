@@ -68,7 +68,7 @@
               }
             } else {
               if(first[1]==='Complete'){
-                return 'panel panel-sucecss';
+                return 'panel panel-success';
               } else {
                 return 'panel panel-danger';
               }
