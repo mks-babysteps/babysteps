@@ -15,6 +15,11 @@ router.get('/', function(req, res) {
   findUser(req, res);
 });
 
+router.post('/', function(req, res) {
+  //console.log("req", req.body)
+  findUserName(req, res);
+});
+
 router.post('/addChild', function(req,res) {
   var childInfo = {
     firstName: req.body.firstName,
@@ -77,6 +82,18 @@ function findUser(req, res) {
   })
   );
 }
+
+function findUserName(req, res) {
+  return new Q(db.users.find({username: req.body.username}, function(err, user) {
+      if(err) {
+        console.log(err);
+      } else {
+        res.send(user);
+      }
+  })
+  );
+}
+
 
 function createChild(req, res, childInfo) {
   return new Q(db.dose.find( {condition: req.body.condition}, function(err , dose) {

@@ -12,12 +12,17 @@
       removeThisChild: removeThisChild,
       editChild: editChild,
       imageUrl: imageUrl,
-      childImageUrl: childImageUrl
+      childImageUrl: childImageUrl,
+      getUserByUN: getUserByUN
     };
     return service;
 
     function getUser() {
       return $http.get('/dashboard');
+    }
+
+    function getUserByUN(username) {
+      return $http.post('/dashboard', {username: username});
     }
 
     function removeThisChild(childName) {

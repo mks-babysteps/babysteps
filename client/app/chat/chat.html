@@ -10,7 +10,7 @@
               </div>
               <div class="clearfix"></div>
             </div>
-                
+
                 <div id="chat" class="panel-collapse collapse in">
                   <div>
                     <div class="portlet-body chat-widget" style="overflow-y:auto; width:auto; height:440px;">
@@ -21,13 +21,13 @@
                       </div>
                         <div class="row" ng-repeat="message in chat.messages">
                           <div class="col-lg-12">
-                            <div class="media" ng-init="chat.displayUsers()">
+                            <div class="media" ng-init="chat.displayUsers(message.username)">
                               <a class="pull-left">
-                                <img ng-src="{{chat.imageUrl}}" class="media-object img-circle" style="height:35px;width:35px;" alt="">
+                                <img ng-src="{{message.image}}" ng-model="chat.imageUrl" class="media-object img-circle" style="height:35px;width:35px;" alt="">
                               </a>
                                 <div class="media-body">
                                   <h4 class="media-heading">{{message.username}}
-                                    <span class="small pull-right">{{chat.dt | date:'shortTime'}}</span>
+                                    <span class="small pull-right" ng-model="chat.dt">{{message.time | date:'shortTime'}}</span>
                                   </h4>
                                     <p>{{message.message}}</p>
                                    <hr>
