@@ -18,11 +18,12 @@
             }
         });
 
-        scope.$watch(function() {
-          w = el.clientWidth;
-          console.log('w: ', w);
-          return w;
-        }, resize);
+        // scope.$watch(function() {
+        //   w = el.clientWidth;
+        //   return w;
+        // }, resize(), true);
+
+        d3.select(window).on('resize', resize);
 
         function resize(){
           console.log('resizing!');
@@ -48,7 +49,16 @@
 
           // creating cells
           var row1 = function(row) {
-            d3.select(this).selectAll('.cell')
+            // d3.select(this).selectAll('.cell')
+            //     .data(row.filter(function(d) {
+            //       return d.z;
+            //     }))
+            //     .exit().remove();
+            var cells = d3.select(this).selectAll('.cell')
+                            .data(row.filter(function(d) {
+                              return d.z;
+                            }))
+            cells
                 .data(row.filter(function(d) {
                   return d.z;
                 }))
@@ -62,6 +72,12 @@
                 .style('fill-opacity', function(d) { return z(d.z); })
                 .on('mouseover', mouseover)
                 .on('mouseout', mouseout);
+
+            // d3.select(this).selectAll('.cell')
+            //     .data(row.filter(function(d) {
+            //       return d.z;
+            //     }))
+            //     .exit().remove();
           };
 
           var mouseover = function(p) {
@@ -90,8 +106,8 @@
               ww = document.getElementById("diagram").clientWidth,
               width = ww - margin.right - margin.left,
               height = 500;
-          // console.log('width of diagram container: ', ww);
-          // console.log('width of diagram: ', width);
+          console.log('width of diagram container: ', ww);
+          console.log('width of diagram: ', width);
 
           var x = d3.scale.ordinal().rangeBands([0, height]),
               y = d3.scale.linear().domain([1, 25]).range([0, width]),
