@@ -62,23 +62,21 @@
             }
           }
         }
-      }  
+      }
 
 
       function displayVaccinations() {
         vaccinations.getVaccinations(vm.firstName)
           .then(function(data) {
-            // console.log('data', data);
-          // JSON.stringify(data);
-          // JSON.parse(data)
-            vm.vaccinationData = data.data;
+            vm.vaccinationData = data.data.vaccination;
+            vm.dosesCount = data.data.count;
+            console.log('my count: ', vm.dosesCount);
           });
-          
+
       }
 
 
       function updateDoseStatus(vaccinationName, doseNumber, doseStatus){
-        // console.log('Complete was clicked!', vaccinationName, doseNumber, doseStatus)
         vaccinations.updateDoseStatus(vaccinationName, doseNumber, doseStatus, vm.firstName)
           .then(vm.checkIt);
       }
