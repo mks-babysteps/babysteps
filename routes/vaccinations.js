@@ -31,7 +31,7 @@ router.post('/', function(req, res) {
 router.post('/updateDose', function(req, res){
   // console.log('this is the req.body', req.body)
   // console.log('this is the req.headers.username', req.headers.username)
- 
+
   db.users.find({'username': req.headers.username}, function(err, users){
     if(err){
       console.log('error');
@@ -41,20 +41,21 @@ router.post('/updateDose', function(req, res){
         if(users[0].children[j].firstName === req.body.firstName.firstName){
           for(var k=0; k< users[0].children[j].doses.length; k++ ){
             if(users[0].children[j].doses[k].name === req.body.vaccinationName){
-              // console.log("its working", users[0].children[j].doses[k][req.body.doseNumber][1]) 
+              // console.log("its working", users[0].children[j].doses[k][req.body.doseNumber][1])
               if(users[0].children[j].doses[k][req.body.doseNumber][1]==='Incomplete'){
                 users[0].children[j].doses[k][req.body.doseNumber][1] = 'Complete';
+                users[0].children[j].count++;
     // console.log("was it changed?",users[0].children[j].doses[k][req.body.doseNumber][1] )
-            
+
 
               } else {
-                users[0].children[j].doses[k][req.body.doseNumber][1] = 'Incomplete'; 
-            
-              }  
+                users[0].children[j].doses[k][req.body.doseNumber][1] = 'Incomplete';
+                users[0].children[j].count--;
+              }
             }
           }
         }
-        
+
       }
               users[0].markModified('children');
               users[0].save(function(err){
@@ -66,7 +67,7 @@ router.post('/updateDose', function(req, res){
                   res.send(users);
                 }
               });
-      
+
     }
     });
 
