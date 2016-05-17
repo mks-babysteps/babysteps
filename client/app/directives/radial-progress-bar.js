@@ -10,7 +10,7 @@
         var data;
         var hasProgress = false;
         var start = 0;
-        var pastPercentage = start/23;
+        var pastPercentage = start/24;
 
         scope.$watch('data', function(newVal, oldVal) {
             console.log('newVal: ', newVal);
@@ -19,18 +19,17 @@
               d3.select('svg').remove();
               render(newVal, hasProgress, start);
               start = newVal;
-              pastPercentage = start/23;
+              pastPercentage = start/24;
               hasProgress = true;
             }
         });
-        // render();
-        // setTimeout(render, 5000);
+
         function render(count, hasProgress, start) {
           console.log('i am rendering!');
           console.log('this scope data: ', scope.data);
           console.log('pastPercentage: ', pastPercentage);
           // var $container = $('.chart-container'),
-          var fraction = count/23;
+          var fraction = count/24;
           var diagramWidth = document.getElementById('progress').clientWidth;
           var diagramHeight = document.getElementById('progress').clientHeight;
           var τ = 2 * Math.PI,
@@ -38,14 +37,8 @@
             height = 25,
             outerRadius = Math.min(width,height)/2,
             innerRadius = (outerRadius/5)*4,
-            // fontSize = (Math.min(width,height)/4);
             fontSize = (Math.min(width,height)/4);
-            // console.log('height: ', height);
-            // console.log('width: ', width);
 
-
-          // console.log('my font size: ', fontSize);
-          // if(hasProgress === false) {
             var arc = d3.svg.arc()
                 .innerRadius(innerRadius)
                 .outerRadius(outerRadius)
@@ -78,24 +71,10 @@
                 .attr("d", arc);
 
             setInterval(function() {
-              // if(hasProgress) {
-              //   console.log(fraction)
-              //   foreground.datum({endAngle: fraction * τ})
-              // }
               foreground.transition()
                   .duration(700)
                   .call(arcTween, fraction * τ);
             }, 701)
-
-
-          // if(hasProgress === true) {
-          //     console.log('has progress is true!');
-          //     console.log('foreground: ', d3.select('.foreground'));
-          //     d3.select('.foreground')
-          //         .transition()
-          //         .duration(500)
-          //         .call(arcTween, fraction * τ);
-          // }
 
           function arcTween(transition, newAngle) {
             transition.attrTween("d", function(d) {
@@ -109,9 +88,6 @@
           }
 
         }
-
-
-
 
       } // end of linker
 
