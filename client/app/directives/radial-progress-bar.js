@@ -9,21 +9,26 @@
         el = el[0];
         var data;
         var hasProgress = false;
+        var start = 0;
+        var pastPercentage = start/23;
 
         scope.$watch('data', function(newVal, oldVal) {
             console.log('newVal: ', newVal);
             if(newVal !== oldVal) {
               data = newVal;
               d3.select('svg').remove();
-              render(newVal, hasProgress);
+              render(newVal, hasProgress, start);
+              start = newVal;
+              pastPercentage = start/23;
               hasProgress = true;
             }
         });
         // render();
         // setTimeout(render, 5000);
-        function render(count, hasProgress) {
+        function render(count, hasProgress, start) {
           console.log('i am rendering!');
           console.log('this scope data: ', scope.data);
+          console.log('pastPercentage: ', pastPercentage);
           // var $container = $('.chart-container'),
           var fraction = count/23;
           var diagramWidth = document.getElementById('progress').clientWidth;
@@ -40,7 +45,7 @@
 
 
           // console.log('my font size: ', fontSize);
-          if(hasProgress === false) {
+          // if(hasProgress === false) {
             var arc = d3.svg.arc()
                 .innerRadius(innerRadius)
                 .outerRadius(outerRadius)
@@ -53,8 +58,9 @@
                 .append("g")
                 .attr("transform", "translate(" + Math.min(width,height) / 2 + "," + Math.min(width,height) / 2 + ")");
 
+            console.log('past%: ', pastPercentage);
             var text = svg.append("text")
-                .text('0%')
+                .text(Math.round(pastPercentage * 100) + '%')
                 .attr("text-anchor", "middle")
                 .style("font-size",fontSize+'px')
                 .attr("dy",fontSize/3)
@@ -66,22 +72,30 @@
                 .attr("d", arc);
 
             var foreground = svg.append("path")
-                .datum({endAngle: 0 * τ})
+                .attr("class", "foreground")
+                .datum({endAngle: pastPercentage *  τ})
                 .style("fill", "#57893e")
                 .attr("d", arc);
 
-            (function() {
+            setInterval(function() {
+              // if(hasProgress) {
+              //   console.log(fraction)
+              //   foreground.datum({endAngle: fraction * τ})
+              // }
               foreground.transition()
-                  .duration(3000)
+                  .duration(700)
                   .call(arcTween, fraction * τ);
-            })()
-          }
+            }, 701)
 
-          if(hasProgress === true) {
-              foreground.transition()
-                  .duration(500)
-                  .call(arcTween, fraction * τ);
-          }
+
+          // if(hasProgress === true) {
+          //     console.log('has progress is true!');
+          //     console.log('foreground: ', d3.select('.foreground'));
+          //     d3.select('.foreground')
+          //         .transition()
+          //         .duration(500)
+          //         .call(arcTween, fraction * τ);
+          // }
 
           function arcTween(transition, newAngle) {
             transition.attrTween("d", function(d) {
@@ -93,8 +107,6 @@
               };
             });
           }
-
-
 
         }
 
