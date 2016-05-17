@@ -5,7 +5,6 @@
     .module('baby.dashboard')
     .controller('DashboardCtrl', DashboardCtrl);
 
-
   function DashboardCtrl($state, $scope, $uibModal, dashboard, auth,
     filepickerService, $window, $localStorage) {
 
