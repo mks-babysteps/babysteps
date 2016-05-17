@@ -35,27 +35,27 @@
       function allDoses(first, second, third, fourth) {
         if(fourth!==null){
           if(fourth[1]==='Complete'){
-            return 'panel panel-primary';
+            return 'panel panel-success';
           } else {
             return 'panel panel-danger';
           }
         } else {
           if(third!==null){
             if(third[1]==='Complete'){
-              return 'panel panel-primary';
+              return 'panel panel-success';
             } else {
               return 'panel panel-danger';
             }
           } else {
             if(second!==null){
               if(second[1]==='Complete'){
-                return 'panel panel-primary';
+                return 'panel panel-success';
               } else {
                 return 'panel panel-danger';
               }
             } else {
               if(first[1]==='Complete'){
-                return 'panel panel-primary';
+                return 'panel panel-sucecss';
               } else {
                 return 'panel panel-danger';
               }
