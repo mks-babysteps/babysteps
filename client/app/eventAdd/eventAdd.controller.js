@@ -42,11 +42,13 @@
       updateObj.childName = vm.childName;
       updateObj.oldDt = event[3];
       updateObj.notes = notes;
-      events.editEvent(updateObj);
+      events.editEvent(updateObj)
+        .then(function(data) {
+          $rootScope.$broadcast('add_event', data);
+        });
     }
 
     function close() {
-      $state.reload('events');
       $uibModalInstance.close();
     }
 
@@ -61,7 +63,6 @@
       events.addEvent(eventObj)
         .then(function(data) {
           $rootScope.$broadcast('add_event', data);
-          console.log("This is data returned after store",data.data.events)
           close();
         });
     }
@@ -69,7 +70,7 @@
     function populateChildren() {
       events.getEvents()
         .then(function(data) {
-          vm.allChildren = data.data.children;
+          vm.allChildren = data.data[0].children;
         });
     }
 
