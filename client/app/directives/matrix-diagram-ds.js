@@ -34,7 +34,7 @@
           var n = condition.months.length + 1;
 
           var margin = {top: 40, right: 0, bottom: 10, left: 100},
-              diagramWidth = document.getElementById("diagram").clientWidth,
+              diagramWidth = document.getElementById('diagram').clientWidth,
               width = diagramWidth - margin.right - margin.left,
               height = 500;
 
@@ -65,7 +65,7 @@
             var cells = d3.select(this).selectAll('.cell')
                           .data(row.filter(function(d) {
                             return d.z;
-                          }))
+                          }));
 
            cells.data(row.filter(function(d) {
                   return d.z;
@@ -201,7 +201,7 @@
               .text(function(d) { return d; });
 
           d3.select('#order').on('change', function() {
-            clearTimeout(timeout);
+            // clearTimeout(timeout);
             order(this.value);
           });
         }
