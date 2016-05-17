@@ -17,6 +17,7 @@
     vm.addMessage = addMessage;
     vm.displayUsers = displayUsers;
     vm.clearInput = clearInput;
+    vm.dt = Date.now();
 
     // functions
     function addMessage(text) {
@@ -42,5 +43,11 @@
     function clearInput() {
       $('#clearInput').val('');
     }
+
+    // function getDate() {
+    //   vm.dt = Date.now() / 1000 | 0;
+    //   console.log(vm.dt);
+    //   return vm.dt;
+    // }
   }
 })();
