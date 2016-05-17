@@ -37,8 +37,8 @@
               .outerRadius(outerRadius)
               .startAngle(0);
           var svg = d3.select('#progress').append('svg')
-              .attr('width', '30%')
-              .attr('height', '30%')
+              .attr('width', '45%')
+              .attr('height', '45%')
               .attr('viewBox','0 0 '+min +' '+min )
               .attr('preserveAspectRatio','xMinYMin')
               .append('g')

@@ -2,18 +2,15 @@
   <div id="page-content-wrapper">
     <div class="container-fluid col-md-8">
       <div class="row">
-              <!-- <div class="col-md-4"> -->
-                <div id="progress">
-                  <div radial-bar data="vaccinations.dosesCount"></div>
-                </div>
-              <!-- </div> -->
+        <div class style="background:white; border-radius:8px; margin-bottom:20px; padding-bottom:40px; width:475px; text-align:center; float:right">
         <div ng-init="vaccinations.displayVaccinations()">
-          <h1>{{vaccinations.firstName.firstName}}&#39;s vaccinations</h1>
-            <br>
-              <br>
-              <br>
-              <br>
-            <div ng-repeat="vaccination in vaccinations.vaccinationData">
+          <h1>{{vaccinations.firstName.firstName}}&#39;s vaccinations</h1> <br>
+            <div id="progress">
+              <div radial-bar data="vaccinations.dosesCount"></div>
+            </div>
+        </div>
+        </div>
+            <div style="float:right" ng-repeat="vaccination in vaccinations.vaccinationData">
               <div ng-class="vaccinations.allDoses(vaccination.firstDose, vaccination.secondDose, vaccination.thirdDose, vaccination.fourthDose)">
                 
                 <div class="panel-heading"> 
