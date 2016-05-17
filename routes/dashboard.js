@@ -22,7 +22,7 @@ router.post('/addChild', function(req,res) {
     condition: req.body.condition,
     childImageUrl: req.body.image,
   };
-  
+
   createChild(req, res, childInfo);
 
 });
@@ -81,6 +81,7 @@ function createChild(req, res, childInfo) {
   return new Q(
     db.dose.find( {condition: req.body.condition}, function(err , dose) {
       childInfo.doses = dose[0].doses;
+      childInfo.count = 0;
     }).exec())
     .then(function() {
       db.users.findOneAndUpdate(
