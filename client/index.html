@@ -64,6 +64,7 @@
     <script src="app/vaccinations/vaccinations.module.js"></script>
     <script src="app/vaccinations/vaccinations.controller.js"></script>
     <script src="app/vaccinations/vaccinations.routes.js"></script>
+    <script src="app/directives/radial-progress-bar.js"></script>
     <!-- events -->
     <script src="app/events/events.module.js"></script>
     <script src="app/events/events.controller.js"></script>
@@ -106,12 +107,12 @@
 <div class="sidebar-wrapper" >
   <ul class="sidebar-nav">
     <li class="sidebar-brand" style="text-align:center">Hi, {{dashboard.username}} !</li>
-    
+
     <div ng-init="dashboard.displayUsers()" class="profile-image">
         <img ng-src="{{dashboard.imageUrl}}" ng-click="dashboard.pickFile()" class="img-circle" style="margin-bottom:15px;height:200px;width:200px;margin-left:22px"/>
         <a href="" ng-click="dashboard.pickFile()" class="img-desc" style="font-size:20px">upload</a>
     </div>
-    
+
     <li class="barlist" style="text-indent: 20px"><a ui-sref="dashboard">home</a><li>
     <li class="barlist" style="text-indent: 20px"><a ui-sref="events">appointments</a></li>
     <li class="barlist" style="text-indent: 20px"><a ui-sref="chat">forum</a></li>
