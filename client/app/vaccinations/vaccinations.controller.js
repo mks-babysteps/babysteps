@@ -11,6 +11,7 @@
 
       //variables
       var vaccinationData = vaccinationData;
+      var hoverStatus = hoverStatus;
       // functions
       vm.displayVaccinations = displayVaccinations;
       vm.firstName = $state.params;
@@ -19,7 +20,49 @@
       vm.updateDoseStatus = updateDoseStatus;
       vm.isItComplete = isItComplete;
       vm.checkIt = checkIt;
+      vm.allDoses = allDoses;
+      vm.hoverIn = hoverIn;
+      vm.hoverOut = hoverOut;
 
+      function hoverIn() {
+        vm.hoverStatus = true;
+      }
+
+      function hoverOut() {
+        vm.hoverStatus = false;
+      }
+
+      function allDoses(first, second, third, fourth) {
+        if(fourth!==null){
+          if(fourth[1]==='Complete'){
+            return 'panel panel-primary';
+          } else {
+            return 'panel panel-danger';
+          }
+        } else {
+          if(third!==null){
+            if(third[1]==='Complete'){
+              return 'panel panel-primary';
+            } else {
+              return 'panel panel-danger';
+            }
+          } else {
+            if(second!==null){
+              if(second[1]==='Complete'){
+                return 'panel panel-primary';
+              } else {
+                return 'panel panel-danger';
+              }
+            } else {
+              if(first[1]==='Complete'){
+                return 'panel panel-primary';
+              } else {
+                return 'panel panel-danger';
+              }
+            }
+          }
+        }
+      }  
 
 
       function displayVaccinations() {

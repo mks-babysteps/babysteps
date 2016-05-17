@@ -22,7 +22,9 @@ router.post('/addChild', function(req,res) {
     condition: req.body.condition,
     childImageUrl: req.body.image,
   };
+  
   createChild(req, res, childInfo);
+
 });
 
 router.post('/removeChild', function(req, res) {

@@ -605,3 +605,12 @@ text.active {
 .axis-label {
   font-size: 14px;
 }
+
+.panel {
+  width: 475px;
+  text-align: center;
+}
+
+.panel-body {
+  text-align: left;
+}
