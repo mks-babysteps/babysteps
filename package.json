@@ -61,7 +61,8 @@
       "angular": true,
       "supertest": true,
       "request": true,
-      "AmCharts": true
+      "AmCharts": true,
+      "Firebase": true
     }
   }
 }

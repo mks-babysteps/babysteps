@@ -602,7 +602,11 @@ text.active {
   fill: #1f77b4;
 }
 
-.axis-label {
+.y-axis-label {
+  font-size: 14px;
+}
+
+.x-axis-label {
   font-size: 14px;
 }
 
@@ -614,3 +618,4 @@ text.active {
 .panel-body {
   text-align: left;
 }
+
