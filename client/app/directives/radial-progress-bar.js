@@ -1,8 +1,8 @@
 (function() {
   angular.module('baby')
-    .directive('matrixDiagram', matrixDiagram);
+    .directive('radialBar', radialBar);
 
-    function matrixDiagram($window) {
+    function radialBar($window) {
       function linker(scope, el) {
         var d3 = $window.d3;
         el = el[0];
