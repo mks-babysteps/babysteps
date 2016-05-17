@@ -25,18 +25,19 @@
       vm.chat.string = '';
       vm.messages.$add({
         'message': vm.text,
-        'username': vm.username
+        'username': vm.username,
+        'image': vm.imageUrl,
+        'time': vm.dt
       });
       console.log(vm.messages);
-      }
+    }
 
-    function displayUsers() {
-      dashboard.getUser()
+    function displayUsers(username) {
+      //console.log("username: ", username)
+      dashboard.getUserByUN(username)
         .then(function(data) {
           var userObj = data.data;
-          vm.users = userObj;
-          vm.children = userObj[0].children;
-          vm.imageUrl = vm.users[0].imageUrl;
+          vm.imageUrl = userObj[0].imageUrl;
         });
     }
 
