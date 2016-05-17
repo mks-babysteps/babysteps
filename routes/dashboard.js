@@ -93,7 +93,7 @@ function createChild(req, res, childInfo) {
           res.send(user);
         }
       });
-    })
+    });
 }
 
 module.exports = router;
