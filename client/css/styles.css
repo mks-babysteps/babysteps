@@ -804,3 +804,9 @@ div.tooltip {
   text-align: left;
 }
 
+#order {
+  display: block;
+  margin: auto 0;
+  text-align: center;
+  width: 200px;
+}
