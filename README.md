@@ -1,10 +1,11 @@
 # Baby Steps
 
 Track your baby's developmental progress with Baby Steps!
+Go to: [babysteps.tech](babysteps.tech)!
 
 # About
 
-Baby Steps is a web application that allows users to track your child's development with customized milestones, vaccination updates, and appointment reminders.
+Baby Steps is a web application that allows users to track your child's development with interactive, customized milestones, vaccination updates, chat functionality, and appointment reminders.
 
 # Getting Started
 * Fork a copy of the repo. Clone it to your local machine. 
@@ -23,14 +24,15 @@ $ bower install
 * To start the server and view the app on localhost:8080:
 
 ```
-$ node server/server.js 
+$ nodemon server/server.js 
 ```
 
-* You should now be able to view the app. 
+* You should now be able to view the app.
 
 # Backlog
-* chat functionality
-* nutritional guidelines
+* Notifications 
+* Nutritional guidelines
+* More interactive features...
 
 # Technology & Links
 * MongoDB <https://www.mongodb.org>
@@ -52,6 +54,6 @@ Baby Steps utilizes AngularJS to render the front-end. We used ui-router for app
 Baby Steps has a custom RESTFul API built with Node.js and Express. And data management is handled by mongoose and MongoDB.
 
 ## Team Members ##
-- Product Owner, Full Stack: Daniel Chen
-- Scrum Master, Full Stack: Tiffany Wu
-- Dev Team: Danny Thai, Eric Shin, Preksa Mam
+- Product Owner, Full Stack: [Daniel Chen](https://github.com/chend2) 
+- Scrum Master, Full Stack: [Tiffany Wu](https://github.com/tiffanymwu)
+- Dev Team: [Danny Thai](https://github.com/dthai92), [Eric Shin](https://github.com/eshinx1), [Preksa Mam](https://github.com/prexsa)
