@@ -21,7 +21,7 @@
                       </div>
                         <div class="row" ng-repeat="message in chat.messages">
                           <div class="col-lg-12">
-                            <div class="media" ng-init="chat.displayUsers(message.username)">
+                            <div class="media" ng-init="chat.displayUsers()">
                               <a class="pull-left">
                                 <img ng-src="{{message.image}}" ng-model="chat.imageUrl" class="media-object img-circle" style="height:35px;width:35px;" alt="">
                               </a>
