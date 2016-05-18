@@ -24,6 +24,7 @@ router.post('/', function(req, res) {
           newUser.email = user.email;
           newUser.username = user.username;
           newUser.password = hash;
+          newUser.imageUrl = '../../assets/baby.svg';
           getUserBy(newUser, res);
         });
     }
