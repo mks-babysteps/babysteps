@@ -3,8 +3,8 @@
       <div class="container-fluid">
         <div class="row">
          <div ng-init="dashboard.displayChildren(); dashboard.displayUsers();">
-            <div>
-              <button ng-click="dashboard.open()" style="margin-left:325px;" class="butt button--itzel button--text-thick button--text-upper button--border-thick button--size-s"><i class="button__icon glyphicon glyphicon-plus"></i><span>add child</span></button>
+            <div style="width:270px; margin:auto;">
+              <button ng-click="dashboard.open()" class="butt button--itzel button--text-thick button--text-upper button--border-thick button--size-s"><i class="button__icon glyphicon glyphicon-plus"></i><span>add child</span></button>
             </div>
               <br>
               <br>
@@ -12,7 +12,7 @@
               <br>
               <br>
           <div ng-repeat="child in dashboard.children">
-            <div class="login-group" style="color:black; width:460px; height:270px; margin-bottom:20px; margin-left:225px;">
+            <div class="login-group" style="color:black; width:470px; height:270px; margin-bottom:20px; margin:auto;">
               <div class="container" style="width:500px">
                 <div class="row" style="width:500px">
                   <div class="col-sm-6 col-md-4" style="width:174px;padding-left:0px;">
@@ -47,6 +47,7 @@
                 </div>
               </div>
             </div>
+            <br>
           </div>
           </div>
         </div>
