@@ -32,9 +32,9 @@
       console.log(vm.messages);
     }
 
-    function displayUsers(username) {
+    function displayUsers() {
       //console.log("username: ", username)
-      dashboard.getUserByUN(username)
+      dashboard.getUser()
         .then(function(data) {
           var userObj = data.data;
           vm.imageUrl = userObj[0].imageUrl;
