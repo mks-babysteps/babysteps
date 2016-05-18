@@ -18,6 +18,11 @@
     vm.displayUsers = displayUsers;
     vm.clearInput = clearInput;
     vm.dt = Date.now();
+    vm.currentTime = currentTime;
+
+    function currentTime() {
+      return Date.now();
+    }
 
     // functions
     function addMessage(text) {
@@ -27,13 +32,12 @@
         'message': vm.text,
         'username': vm.username,
         'image': vm.imageUrl,
-        'time': vm.dt
+        'time': currentTime()
       });
       console.log(vm.messages);
     }
 
     function displayUsers() {
-      //console.log("username: ", username)
       dashboard.getUser()
         .then(function(data) {
           var userObj = data.data;
@@ -45,10 +49,5 @@
       $('#clearInput').val('');
     }
 
-    // function getDate() {
-    //   vm.dt = Date.now() / 1000 | 0;
-    //   console.log(vm.dt);
-    //   return vm.dt;
-    // }
   }
 })();
