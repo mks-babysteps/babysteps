@@ -5,7 +5,7 @@
     .module('baby.signup')
     .controller('SignupCtrl', SignupCtrl);
 
-  function SignupCtrl($state, auth) {
+  function SignupCtrl($state, auth, $localStorage) {
     // initialize
     var vm = this;
 
@@ -15,6 +15,7 @@
 
     // functions
     vm.signup = signup;
+    vm.loggedIn = loggedIn;
 
     function signup(firstname, lastname, email, username, password) {
       var userObj = {
@@ -34,6 +35,12 @@
           }
         });
     }
-    
+
+    function loggedIn() {
+      if($localStorage.username && $localStorage.token) {
+        $state.go('dashboard');
+      }
+    }
+
   }
 })();
