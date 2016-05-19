@@ -19,6 +19,7 @@
       'baby.events',
       'baby.about',
       'baby.faq',
+      'baby.contact',
       'baby.vaccinations',
       'baby.chat'
     ]);
