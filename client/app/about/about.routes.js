@@ -11,7 +11,8 @@
         url: '/about',
         views: {
           '': {
-            templateUrl: 'app/about/about.html'
+            templateUrl: 'app/about/about.html',
+            controller: 'DashboardCtrl as dashboard'
           }
         },
         data: {

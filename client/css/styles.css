@@ -810,3 +810,7 @@ div.tooltip {
   text-align: center;
   width: 250px;
 }
+
+.profile-image {
+  margin: 15px 0;
+}
