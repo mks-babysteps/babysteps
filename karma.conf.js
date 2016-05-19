@@ -30,6 +30,7 @@ module.exports = function(config) {
       'client/app/events/events.module.js',
       'client/app/about/about.module.js',
       'client/app/faq/faq.module.js',
+      'client/app/contact/contact.module.js',
       'client/app/vaccinations/vaccinations.module.js',
       'client/app/app.module.js',
       'client/app/services/auth.factory.js',
