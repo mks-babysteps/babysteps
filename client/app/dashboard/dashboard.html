@@ -1,0 +1,56 @@
+<div id="wrapper">
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+         <div ng-init="dashboard.displayChildren(); dashboard.displayUsers();">
+            <div style="width:270px; margin:auto;">
+              <button ng-click="dashboard.open()" class="butt button--itzel button--text-thick button--text-upper button--border-thick button--size-s"><i class="button__icon glyphicon glyphicon-plus"></i><span>add child</span></button>
+            </div>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+          <div ng-repeat="child in dashboard.children">
+            <div class="login-group" style="color:black; width:470px; height:270px; margin-bottom:20px; margin:auto;">
+              <div class="container" style="width:500px">
+                <div class="row" style="width:500px">
+                  <div class="col-sm-6 col-md-4" style="width:174px;padding-left:0px;">
+                    <div class="prof-image">
+                      <img ng-src="{{child.childImageUrl}}" ng-click="dashboard.pickChildImage(child.firstName)" class="img-circle" style="height:170px; width:170px; margin-top:17px; margin-left:10px;"/>
+                      <a href="" ng-click="dashboard.pickChildImage(child.firstName)" class="img-desp" style="font-size:20px">upload</a>
+                    </div>
+                  </div>
+
+                    <div class="col-sm-6 col-md-8" style="padding-left: 30px; width:280px; padding-right:0px">
+                    <p>
+                        <br>
+                      <i class="glyphicon glyphicon-user"></i><strong>&nbsp{{child.firstName}}&nbsp{{child.lastName}}</strong>
+                        <br><br>
+                      <i class="glyphicon glyphicon-gift"></i>&nbsp{{child.birthday | date:'longDate'}}
+                        <br><br>
+                      <i class="glyphicon glyphicon-heart-empty"></i>&nbsp{{child.condition}}
+                        <br><br>
+                    </p>
+                      <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" ng-click="dashboard.edit(child.firstName, child.lastName)"><i class="glyphicon glyphicon-edit"></i></button>
+                        <button type="button" class="btn btn-default" ng-click="dashboard.removeChild(child.firstName)"><i class="glyphicon glyphicon-trash"></i></button>
+                      </div>
+                        <br>
+                        <br>
+                      <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" ng-click="dashboard.milestonePage(child.condition)">milestones</button>
+                        <button type="button" class="btn btn-default" ng-click="dashboard.vaccinationsPage(child.firstName)">vaccinations</button>
+                      </div>
+                        <br><br>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

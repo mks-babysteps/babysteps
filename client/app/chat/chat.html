@@ -1,0 +1,57 @@
+<div id="wrapper">
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row" style="margin:auto;">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="portlet portlet-default" style="width:425px; height:600px;">
+            <div class="portlet-heading">
+              <div class="portlet-title">
+                <h4><i class="fa fa-circle text-green"></i>&nbsp;&nbsp;{{chat.username}}</h4>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+                <div id="chat" class="panel-collapse collapse in">
+                  <div>
+                    <div scroll-glue class="portlet-body chat-widget" style="overflow-y:auto; width:auto; height:440px;">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <p class="text-center text-muted small">{{chat.dt | date:'MMM d, y h:mm a'}}</p>
+                        </div>
+                      </div>
+                        <div class="row" ng-repeat="message in chat.messages">
+                          <div class="col-lg-12">
+                            <div class="media" ng-init="chat.displayUsers()">
+                              <a class="pull-left">
+                                <img ng-src="{{message.image}}" ng-model="chat.imageUrl" class="media-object img-circle" style="height:35px;width:35px;" alt="">
+                              </a>
+                                <div class="media-body">
+                                  <h4 class="media-heading">{{message.username}}
+                                    <span class="small pull-right" ng-model="chat.dt">{{message.time | date:'shortTime'}}</span>
+                                  </h4>
+                                    <p>{{message.message}}</p>
+                                   <hr>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="portlet-footer">
+                    <form role="form">
+                      <div class="form-group">
+                       <input id="clearInput" type="text" ng-model="chat.string" class="form-control" placeholder="enter message...">
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" ng-click="chat.addMessage(chat.string); chat.clearInput();" class="btn btn-default pull-right">send</button>
+                        <div class="clearfix"></div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

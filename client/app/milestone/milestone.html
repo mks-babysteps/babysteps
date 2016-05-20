@@ -1,0 +1,17 @@
+<div id="wrapper">
+  <div id="page-content-wrapper" style="background:white;border-radius:8px; width:98%;">
+    <div class="container-fluid">
+      <h4>condition: {{mile.condition}}</h4>
+      <div id="diagram">
+    order milestones by: <select class="form-control" id="order">
+        <option value="name">by alphabetical order</option>
+        <option value="count">by largest to smallest range</option>
+        <option value="smallRange">by smallest to largest range</option>
+        <option value="earliest">by chronological order</option>
+        <option value="latest">by reverse chronological order</option>
+        </select>
+      </div>
+        <div matrix-diagram data="mile.data"></div>
+    </div>
+  </div>
+</div>

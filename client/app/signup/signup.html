@@ -1,0 +1,58 @@
+<div ng-init="signup.loggedIn()"  class="text-center" style="padding:50px 0">
+  <div class="logo">register</div>
+    <!-- main form -->
+    <div class="login-form-1">
+      <form id="register-form" class="text-left">
+        <div class="login-form-main-message"></div>
+          <div class="main-login-form">
+            <div class="login-group">
+
+              <div class="form-group">
+                <label class="sr-only">First Name</label>
+                <input ng-model="signup.firstname" type="text" class="form-control" placeholder="first name">
+              </div>
+
+              <div class="form-group">
+                <label class="sr-only">Last Name</label>
+                <input ng-model="signup.lastname" type="text" class="form-control" placeholder="last name">
+              </div>
+
+              <div class="form-group">
+                <label class="sr-only">Email</label>
+                <input ng-model="signup.email" type="email" class="form-control" placeholder="email">
+              </div>
+
+              <div class="form-group">
+                <label class="sr-only">Username</label>
+                <input ng-model="signup.username" type="text" class="form-control" placeholder="username">
+              </div>
+
+              <div class="form-group">
+                <label class="sr-only">Password</label>
+                <input ng-model="signup.password" type="password" class="form-control" placeholder="password">
+              </div>
+
+            </div>
+
+              <button type="submit" class="login-button" ng-click="signup.signup(
+              signup.firstname,
+              signup.lastname,
+              signup.email,
+              signup.username,
+              signup.password
+              )"><i class="fa fa-chevron-right"></i></button>
+          </div>
+
+              <div class="etc-login-form">
+                <p>already have an account? <a ui-sref="login">login here</a></p>
+              </div>
+
+              <div ng-if="signup.error" class="error">
+                <p>{{signup.message}}</p>
+              </div>
+
+              <img style="padding-left:100px; padding-right:100px"src="../../assets/baby.svg">
+      </form>
+    </div>
+  </div>
+</div>
