@@ -48,7 +48,7 @@ $ nodemon server/server.js
 * bcrypt <https://github.com/ncb000gt/node.bcrypt.js/>
 
 ### Front End
-Baby Steps utilizes AngularJS to render the front-end. We used ui-router for application routing and built-in Angular factories for state management. All API calls are made in the corresponding factory file associated for the type of data that it’s maintaining.
+Baby Steps utilizes AngularJS to render the front end. We used ui-router for application routing and built-in Angular factories for state management. All API calls are made in the corresponding factory file associated for the type of data that it’s maintaining.
 
 ### Back End
 Baby Steps has a custom RESTFul API built with Node.js and Express. And data management is handled by mongoose and MongoDB.
