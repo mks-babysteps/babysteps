@@ -18,5 +18,18 @@
           requiredLogin: false
         }
       });
+    $stateProvider
+      .state('contactus', {
+        url: '/contactus',
+        views: {
+          '': {
+            templateUrl: 'app/contact/contactus.html',
+            // controller: 'DashboardCtrl as dashboard'
+          }
+        },
+        data: {
+          requiredLogin: false
+        }
+      });
     }
 })();
