@@ -18,5 +18,17 @@
           requiredLogin: false
         }
       });
+    $stateProvider
+      .state('faqs', {
+        url: '/faqs',
+        views: {
+          '': {
+            templateUrl: 'app/faq/faqs.html',
+          }
+        },
+        data: {
+          requiredLogin: false
+        }
+      });
     }
 })();
