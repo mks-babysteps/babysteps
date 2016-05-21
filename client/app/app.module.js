@@ -18,7 +18,6 @@
       'baby.milestone',
       'baby.events',
       'baby.about',
-      'baby.aboutus',
       'baby.faq',
       'baby.contact',
       'baby.vaccinations',
