@@ -10,10 +10,10 @@
   Taking care of a baby can be a daunting task for new parents. There are appointments you need to remember. There are very specific limits to what babies should eat. And a lot of other things to be cautious about. 
 
 ## Solution ##
-  BabySteps helps take care of your child: offering development milestones, giving you vaccination guidelines, and notifying you of your baby's next doctor's appointment.
+  Baby Steps helps take care of your child: offering development milestones, giving you vaccination guidelines, and notifying you of your baby's next doctor's appointment.
 
 ## Quote from Us ##
-  "Raising a child can be challenging. Let BabySteps keep track of your baby's health for you." 
+  "Raising a child can be challenging. Let Baby Steps keep track of your baby's health for you." 
   	- Daniel Chen, Product Owner
 
 ## How to Get Started ##
