@@ -20,11 +20,37 @@
         }
       });
     $stateProvider
+      .state('faqs', {
+        url: '/faqs',
+        views: {
+          '': {
+            templateUrl: 'app/about/faqs.html',
+            controller: 'DashboardCtrl as dashboard'
+          }
+        },
+        data: {
+          requiredLogin: false
+        }
+      });
+    $stateProvider
       .state('aboutus', {
         url: '/aboutus',
         views: {
           '': {
             templateUrl: 'app/about/aboutus.html'
+          }
+        },
+        data: {
+          requiredLogin: false
+        }
+    });
+    $stateProvider
+      .state('contactus', {
+        url: '/contactus',
+        views: {
+          '': {
+            templateUrl: 'app/about/contactus.html',
+            controller: 'DashboardCtrl as dashboard'
           }
         },
         data: {
