@@ -1,11 +1,11 @@
 # Baby Steps
 
 Track your baby's developmental progress with Baby Steps!
-Go to: [babysteps.tech](babysteps.tech)!
+Go to: babysteps.tech!
 
 # About
 
-Baby Steps is a web application that allows users to track your child's development with interactive, customized milestones, vaccination updates, chat functionality, and appointment reminders.
+Baby Steps is a healthcare support web application that allows users to track your child's development with interactive, customized milestones, vaccination updates, chat functionality, and appointment reminders.
 
 # Getting Started
 * Fork a copy of the repo. Clone it to your local machine. 
