@@ -18,7 +18,6 @@ function getUserBy(username, password, res) {
   .then(function(foundUser) {
     bcrypt.compare(password, foundUser.password ,function(err, result) {
       if (err) {
-        console.log('error: ', err);
         res.json({success: false, message: 'username or password invalid!'});
       } else {
           if (foundUser && result) {
@@ -28,6 +27,9 @@ function getUserBy(username, password, res) {
           }
       }
     });
+  })
+  .catch(function(err) {
+    success(res, false, 'username or password invalid!');
   });
 }
 
